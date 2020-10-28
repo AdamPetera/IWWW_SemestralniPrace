@@ -20,19 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c2ad563-02c3-4ff8-a6e3-502d766f109e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/IWWW_SemestralniPrace_Petera.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/IWWW_SemestralniPrace_Petera.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/form.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/picture.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/picture.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/ice_lake.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/img_palat.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/img_pastrnak.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/puck_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +56,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -83,6 +74,7 @@
       <option name="presentableId" value="Default" />
       <updated>1603899639775</updated>
       <workItem from="1603899640877" duration="8993000" />
+      <workItem from="1603911318263" duration="863000" />
     </task>
     <servers />
   </component>
@@ -99,6 +91,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="548" y="202" key="#CLI_Interpreters" timestamp="1603904893092">
@@ -109,11 +102,12 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="652" y="190" key="#PHP/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1603904898805" />
-    <state x="-853" y="392" key="NewPhpFileDialog" timestamp="1603909366172">
-      <screen x="-1440" y="0" width="1440" height="900" />
+    <state x="783" y="483" key="NewPhpFileDialog" timestamp="1603911423648">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="-853" y="392" key="NewPhpFileDialog/-1440.0.1440.900/0.0.1920.1080@-1440.0.1440.900" timestamp="1603909366172" />
     <state x="783" y="470" key="NewPhpFileDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1603904772861" />
+    <state x="783" y="483" key="NewPhpFileDialog/-1440.23.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1603911423648" />
     <state width="600" height="428" key="javadoc.popup" timestamp="1603903009237">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
