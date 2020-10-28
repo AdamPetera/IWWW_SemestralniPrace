@@ -1,0 +1,124 @@
+.wrapper {
+    display: flex;
+    position: relative;
+}
+
+.wrapper .sidebar {
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    background-color: #1b1b1b;
+    padding: 30px 0;
+}
+
+.wrapper .sidebar h2 {
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.wrapper .sidebar ul li {
+    padding: 15px;
+    border-bottom: 1px solid cyan;
+    border-top: 1px solid cyan;
+}
+
+.wrapper .sidebar ul li a {
+    color: white;
+    display: block;
+}
+
+.wrapper .sidebar ul li a .fas, .far {
+    width: 25px;
+}
+.wrapper .sidebar ul li a:hover {
+    color: cyan;
+}
+
+.wrapper .main_content{
+    width: 100%;
+    margin-left: 200px;
+    padding: 20px;
+}
+
+header nav {
+    background: #1b1b1b;
+}
+
+header nav .logo {
+    float: left;
+    color: white;
+    font-size: 27px;
+    font-weight: 600;
+    line-height: 70px;
+    padding-left: 60px;
+}
+
+header nav:after {
+    content: '';
+    clear: both;
+    display: table;
+}
+
+header nav ul {
+    float: right;
+    list-style: none;
+    margin-right: 40px;
+    position: relative;
+}
+
+header nav ul li {
+    float: left;
+    display: inline-block;
+    background: #1b1b1b;
+    margin: 0 5px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    line-height: 70px;
+    font-size: 18px;
+    padding: 8px 15px;
+}
+
+header nav ul li a:hover {
+    color: cyan;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #33ffff,
+    0 0 5px #66ffff;
+}
+
+header nav ul ul li a:hover {
+    color: cyan;
+    box-shadow: none;
+}
+
+header nav ul ul {
+    position: absolute;
+    top: 90px;
+    border-top: 3px solid cyan;
+    opacity: 0;
+    visibility: hidden;
+    transition: top .3s;
+}
+
+header nav ul li:hover > ul {
+    top: 70px;
+    opacity: 1;
+    visibility: visible;
+}
+header nav ul ul li a {
+    line-height: 50px;
+}
+
+
+header nav ul ul li {
+    position: relative;
+    margin: 0;
+    width: 150px;
+    float: none;
+    display: list-item;
+    border-bottom: 1px solid rgba(0,0,0,0.8);
+}
