@@ -1,8 +1,8 @@
 <header>
     <nav>
-        <div class="logo">SALIBANDYSTORE.CZ</div>
+        <div class="logo"><a href="index.php">SALIBANDYSTORE.CZ</a></div>
         <ul class="nav_links">
-            <li><a href="#">Domů</a></li>
+            <li><a href="index.php">Domů</a></li>
             <li>
                 <a href="#">Kontakt</a>
                 <ul>
@@ -13,8 +13,8 @@
             <li>
                 <a href="#">Účet</a>
                 <ul>
-                    <li><a href="./page/login_form.php">Přihlášení</a></li>
-                    <li><a href="#">Registrace</a></li>
+                    <li><a href="page/login_form.php">Přihlášení</a></li>
+                    <li><a href="page/register_form.php">Registrace</a></li>
                 </ul>
             </li>
             <li><a href="#">Košík</a></li>

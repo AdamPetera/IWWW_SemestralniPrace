@@ -10,17 +10,37 @@
     <script src="https://kit.fontawesome.com/cb337acf51.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<?php
-    include "../header.php"
-?>
+<header>
+    <nav>
+        <div class="logo"><a href="../index.php">SALIBANDYSTORE.CZ</a></div>
+        <ul class="nav_links">
+            <li><a href="../index.php">Domů</a></li>
+            <li>
+                <a href="#">Kontakt</a>
+                <ul>
+                    <li><a href="#">Formulář</a></li>
+                    <li><a href="#">Obecné info</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Účet</a>
+                <ul>
+                    <li><a href="login_form.php">Přihlášení</a></li>
+                    <li><a href="register_form.php">Registrace</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Košík</a></li>
+        </ul>
+    </nav>
+</header>
 <div class="container">
     <?php
-    include "../sidemenu.php"
+        include "../sidemenu.php"
     ?>
     <div class="main">
         <div class="content">
             <?php
-            include "../sidemenu_transform.php";
+                include "../sidemenu_transform.php";
             ?>
             <div class="login_form_wrap">
                 <div class="login_form">
