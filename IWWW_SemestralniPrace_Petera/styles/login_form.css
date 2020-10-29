@@ -93,7 +93,7 @@ body {
     position: absolute;
     top: 100%;
     left: 0;
-    width: 0%;
+    width: 0;
     height: 2px;
     background: cyan;
     transition: .5s;

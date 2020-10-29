@@ -20,14 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c2ad563-02c3-4ff8-a6e3-502d766f109e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/login_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/login_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/register_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/register_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sidemenu_transform.php" beforeDir="false" afterPath="$PROJECT_DIR$/sidemenu_transform.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/login_form.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/login_form.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/register_form.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/register_form.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +82,7 @@
       <workItem from="1603911318263" duration="986000" />
       <workItem from="1603912459469" duration="245000" />
       <workItem from="1603959655312" duration="10902000" />
-      <workItem from="1603979153409" duration="7117000" />
+      <workItem from="1603979153409" duration="7397000" />
     </task>
     <servers />
   </component>
