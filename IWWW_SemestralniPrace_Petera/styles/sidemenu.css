@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
-
-/*Byly .wrapper u sidebaru*/
 
 * {
     margin: 0;
@@ -11,39 +8,46 @@
     text-decoration: none;
 }
 
-body {
-    background: #f2f2f2;
-}
-
-.sidebar {
-    position: fixed;
-    width: 200px;
+.sidemenu {
+    float: left;
+    width: 15%;
     height: 100%;
     background-color: #1b1b1b;
-    padding: 30px 0;
 }
 
-.sidebar h2 {
+@media (max-width: 760px) {
+    .sidemenu {
+        display: none;
+    }
+}
+
+.prodcut_name {
     color: #fff;
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 30px;
+    margin-top: 30px;
 }
 
-.sidebar ul li {
-    padding: 15px;
+.sidemenu ul {
+    width: 100%;
+}
+
+.sidemenu ul li a {
+    color: white;
+    display: block;
+    line-height: 60px;
+}
+.sidemenu ul li {
+    text-align: center;
+    line-height: 60px;
     border-bottom: 1px solid cyan;
+}
+
+.sidemenu ul li:first-child {
     border-top: 1px solid cyan;
 }
 
-.sidebar ul li a {
-    color: white;
-    display: block;
-}
-
-.sidebar ul li a .fas, .far {
-    width: 25px;
-}
-.sidebar ul li a:hover {
+.sidemenu ul li a:hover {
     color: cyan;
 }

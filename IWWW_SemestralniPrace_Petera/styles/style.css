@@ -9,21 +9,47 @@
     text-decoration: none;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     background: #f2f2f2;
-}
-
-.wrapper {
-    display: flex;
-    position: relative;
-}
-
-.wrapper .main_content{
-    width: 100%;
     height: 100%;
-    margin-left: 200px;
-    padding: 20px;
 }
+
+.container {
+    height: 100%;
+}
+
+@media (max-width: 760px) {
+    .container .main {
+        float: left;
+        width: 100%;
+    }
+}
+
+.main {
+    float: right;
+    width: 85%;
+    height: 100%;
+}
+
+.content {
+    padding: 50px;
+}
+
+.slider_show_wrap {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    border: 3px solid #1b1b1b;
+}
+
+
+
+
+
 
 
 

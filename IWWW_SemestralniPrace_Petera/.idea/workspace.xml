@@ -22,6 +22,8 @@
     <list default="true" id="6c2ad563-02c3-4ff8-a6e3-502d766f109e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sidemenu.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/sidemenu.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +38,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="TypeScript File" />
         <option value="CSS File" />
       </list>
     </option>
@@ -58,10 +61,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/styles" />
     </key>
   </component>
@@ -74,7 +80,9 @@
       <option name="presentableId" value="Default" />
       <updated>1603899639775</updated>
       <workItem from="1603899640877" duration="8993000" />
-      <workItem from="1603911318263" duration="863000" />
+      <workItem from="1603911318263" duration="986000" />
+      <workItem from="1603912459469" duration="245000" />
+      <workItem from="1603959655312" duration="10830000" />
     </task>
     <servers />
   </component>
@@ -102,19 +110,27 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="652" y="190" key="#PHP/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1603904898805" />
-    <state x="783" y="483" key="NewPhpFileDialog" timestamp="1603911423648">
+    <state x="713" y="360" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603912261500">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
+    <state x="713" y="360" key="#com.intellij.fileTypes.FileTypeChooser/-1440.23.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1603912261500" />
+    <state x="783" y="470" key="NewPhpFileDialog" timestamp="1603969611049">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
     <state x="-853" y="392" key="NewPhpFileDialog/-1440.0.1440.900/0.0.1920.1080@-1440.0.1440.900" timestamp="1603909366172" />
-    <state x="783" y="470" key="NewPhpFileDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1603904772861" />
+    <state x="783" y="470" key="NewPhpFileDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1603969611049" />
     <state x="783" y="483" key="NewPhpFileDialog/-1440.23.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1603911423648" />
+    <state x="773" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603970064780">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="773" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1603970064780" />
     <state width="600" height="428" key="javadoc.popup" timestamp="1603903009237">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="600" height="428" key="javadoc.popup/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1603903009237" />
-    <state x="625" y="255" key="run.anything.popup" timestamp="1603903267103">
+    <state x="625" y="219" key="run.anything.popup" timestamp="1603971270414">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state x="625" y="255" key="run.anything.popup/-1440.23.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1603903267103" />
+    <state x="625" y="219" key="run.anything.popup/-1440.23.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1603971270414" />
   </component>
 </project>
