@@ -9,7 +9,6 @@
 
 <?php
 include "./database/db.php";
-var_dump($_POST);
 if ($_POST) {
     $validation = array();
 
@@ -19,8 +18,6 @@ if ($_POST) {
     if (empty($_POST["password"])) {
         $validation["password"] = "Heslo musí být vyplněné";
     }
-
-    echo count($validation);
 
     if (count($validation) == 0) {
         $email = $_POST["email"];
@@ -33,8 +30,6 @@ if ($_POST) {
 
         $stmt->execute();
 
-        echo $stmt->rowCount();
-
         if ($stmt->rowCount() == 0) {
             $error_message = "Omlouváme se, ale zadané údaje nesouhlasí";
         } else {
@@ -42,7 +37,7 @@ if ($_POST) {
             $_SESSION["logedIn"] = true;
             $_SESSION["email"] = $email;
 
-            header("Location: ../index.php");
+            echo "<script> window.location.assign('index.php'); </script>";
         }
     } else {
         $error_message = "Musíte zadat všechny údaje";

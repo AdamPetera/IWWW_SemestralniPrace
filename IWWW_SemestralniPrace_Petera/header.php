@@ -13,7 +13,7 @@
             <li>
                 <a href="index.php?page=user_details">Účet</a>
                 <?php
-                    if ($_SESSION["logedIn"] == false) {
+                    if (!$_SESSION["logedIn"]) {
                 ?>
                     <ul>
                         <li><a href="index.php?page=login_form">Přihlášení</a></li>

@@ -1,6 +1,10 @@
 <?php
     session_start();
-    $_SESSION["logedIn"] = false;
+    if (isset($_POST["email"])) {
+        if ($_POST["email"] == 'ad.petera@gmail.com') {
+            $_SESSION["logedIn"] = true;
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +33,7 @@ include "header.php"
     <div class="main">
         <div class="content">
             <?php
+
                 include "sidemenu_transform.php";
                 if (isset($_GET["page"])) {
                     $pathToFile = "./page/" . $_GET["page"] . ".php";
