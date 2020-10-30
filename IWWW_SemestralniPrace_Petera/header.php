@@ -13,6 +13,7 @@
             <li>
                 <a href="index.php?page=user_details">Účet</a>
                 <?php
+                if(isset($_SESSION["logedIn"])) {
                     if (!$_SESSION["logedIn"]) {
                 ?>
                     <ul>
@@ -21,9 +22,10 @@
                     </ul>
                 <?php
                     }
+                }
                 ?>
             </li>
-            <li><a href="#">Košík</a></li>
+            <li><a href="index.php?page=basket">Košík</a></li>
         </ul>
     </nav>
 </header>
