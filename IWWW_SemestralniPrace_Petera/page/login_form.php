@@ -9,8 +9,8 @@
 
 <?php
 include "./database/db.php";
+var_dump($_POST);
 if ($_POST) {
-    echo "TEXT";
     $validation = array();
 
     if (empty($_POST["email"])) {
@@ -47,8 +47,6 @@ if ($_POST) {
     } else {
         $error_message = "Musíte zadat všechny údaje";
     }
-} else {
-    echo "NOT POST";
 }
 ?>
 <div class="login_form_wrap">
@@ -56,12 +54,12 @@ if ($_POST) {
         <h1>Přihlášení</h1>
         <form method="post">
             <div class="txt_field">
-                <input type="email" required>
+                <input type="email" name="email" required>
                 <span></span>
                 <label>Email</label>
             </div>
             <div class="txt_field">
-                <input type="password" required>
+                <input type="password" name="password" required>
                 <span></span>
                 <label>Heslo</label>
             </div>
