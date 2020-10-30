@@ -11,11 +11,17 @@
                 </ul>
             </li>
             <li>
-                <a href="#">Účet</a>
-                <ul>
-                    <li><a href="index.php?page=login_form">Přihlášení</a></li>
-                    <li><a href="index.php?page=register_form">Registrace</a></li>
-                </ul>
+                <a href="index.php?page=user_details">Účet</a>
+                <?php
+                    if ($_SESSION["logedIn"] == false) {
+                ?>
+                    <ul>
+                        <li><a href="index.php?page=login_form">Přihlášení</a></li>
+                        <li><a href="index.php?page=register_form">Registrace</a></li>
+                    </ul>
+                <?php
+                    }
+                ?>
             </li>
             <li><a href="#">Košík</a></li>
         </ul>

@@ -8,11 +8,6 @@
 </head>
 
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db = "web";
-
 if ($_POST) {
 
     $validation = array();
@@ -33,46 +28,40 @@ if ($_POST) {
     }
 
     if (count($validation) == 0) {
+        include "./database/db.php";
+
         try {
-            $conn = new PDO("mysql:host=$servername;dbname=$db", $username, $password);
-            // set the PDO error mode to exception
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            // echo "Connected successfully";
+            $firstname = $_POST["firstname"];
+            $lastname = $_POST["lastname"];
+            $email = $_POST["email"];
+            $phone = $_POST["phone"];
+            $password = $_POST["password"];
 
-            try {
-                $firstname = $_POST["firstname"];
-                $lastname = $_POST["lastname"];
-                $email = $_POST["email"];
-                $phone = $_POST["phone"];
-                $password = $_POST["password"];
-
-                $stmt = $conn->prepare("INSERT INTO user (firstname, lastname, email, phone, password)
+            $stmt = $conn->prepare("INSERT INTO user (firstname, lastname, email, phone, password)
                                                         VALUES (:firstname, :lastname, :email, :phone, :password)");
 
-                $stmt->bindParam(':firstname', $firstname);
-                $stmt->bindParam(':lastname', $lastname);
-                $stmt->bindParam(':email', $email);
-                $stmt->bindParam(':phone', $phone);
-                $stmt->bindParam(':password', $password);
+            $stmt->bindParam(':firstname', $firstname);
+            $stmt->bindParam(':lastname', $lastname);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':phone', $phone);
+            $stmt->bindParam(':password', $password);
 
-                $chk = $conn->prepare("SELECT email FROM user WHERE email = :email");
-                $chk->bindParam(':email', $email);
+            $chk = $conn->prepare("SELECT email FROM user WHERE email = :email");
+            $chk->bindParam(':email', $email);
 
-                $chk->execute();
+            $chk->execute();
 
-                if ($chk->rowCount() > 0) {
-                    $email_error = "Omlouváme se, ale zadaný email již někdo používá";
-                } else {
-                    $stmt->execute();
-                    $register_confirmed = "Registrace proběhla úspěšně";
-                }
-
-            } catch (PDOException $e) {
-                echo "<br>" . $e->getMessage();
+            if ($chk->rowCount() > 0) {
+                $email_error = "Omlouváme se, ale zadaný email již někdo používá";
+            } else {
+                $stmt->execute();
+                $register_confirmed = "Registrace proběhla úspěšně";
             }
+
         } catch (PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
+            echo "<br>" . $e->getMessage();
         }
+
     }
 
 }
@@ -107,7 +96,7 @@ if ($_POST) {
                 <label>Heslo</label>
             </div>
             <input type="submit" value="Registrovat se">
-            <div class="login_link">Již máte účet? <a href="login_form.php">Přejít na přihlášení</a></div>
+            <div class="login_link">Již máte účet? <a href="index.php?page=login_form">Přejít na přihlášení</a></div>
         </form>
     </div>
     <?php if (isset($email_error)): ?>

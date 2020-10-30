@@ -122,3 +122,22 @@
 .signup_link a:hover {
     text-decoration: underline;
 }
+
+.form_error, .successful {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.form_error .error {
+    width: 100%;
+    height: 35px;
+    font-size: 16px;
+    color: red;
+}
+
+.successful .message {
+    width: 100%;
+    height: 35px;
+    font-size: 16px;
+    color: green;
+}

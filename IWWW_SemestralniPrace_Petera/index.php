@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    $_SESSION["logedIn"] = false;
+?>
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -25,18 +30,14 @@ include "header.php"
         <div class="content">
             <?php
                 include "sidemenu_transform.php";
-
-            ?>
-            <?php
-            if (isset($_GET["page"])) {
-                if ($_GET["page"] == "login_form") {
-                    include "./page/login_form.php";
-                } else if ($_GET["page"] == "register_form"){
-                    include "./page/register_form.php";
+                if (isset($_GET["page"])) {
+                    $pathToFile = "./page/" . $_GET["page"] . ".php";
+                } else {
+                    $pathToFile = "./page/main.php";
                 }
-            } else {
-                include "./page/main.php";
-            }
+                if (file_exists($pathToFile)) {
+                    include $pathToFile;
+                }
             ?>
             <h1>Welcome</h1>
             <p>Dont hesitate to get in touch!</p>
