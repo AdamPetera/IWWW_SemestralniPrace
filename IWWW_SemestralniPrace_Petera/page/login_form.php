@@ -40,6 +40,21 @@
     <div class="main">
         <div class="content">
             <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $db = "web";
+
+            try {
+                $conn = new PDO("mysql:host=$servername;dbname=$db", $username, $password);
+                // set the PDO error mode to exception
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                echo "Connected successfully";
+            } catch(PDOException $e) {
+                echo "Connection failed: " . $e->getMessage();
+            }
+            ?>
+            <?php
                 include "../sidemenu_transform.php";
             ?>
             <div class="login_form_wrap">
