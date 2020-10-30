@@ -9,38 +9,6 @@
     text-decoration: none;
 }
 
-body {
-    background: linear-gradient(120deg, grey, white);
-    height: 100vh;
-}
-
-.container {
-    height: 100%;
-}
-
-@media (max-width: 760px) {
-    .container .main {
-        float: left;
-        width: 100%;
-    }
-}
-
-.main {
-    float: right;
-    width: 85%;
-    height: 100%;
-}
-
-.content {
-    padding: 50px;
-}
-
-.register_form_wrap {
-    margin-left: auto;
-    margin-right: auto;
-    display: table;
-}
-
 .register_form {
     position: relative;
     color: white;

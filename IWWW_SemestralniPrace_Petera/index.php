@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="styles/sidemenu.css">
     <link rel="stylesheet" href="styles/sidemenu_transfrom.css">
     <link rel="stylesheet" href="styles/slider_show.css">
+    <link rel="stylesheet" href="styles/login_form.css">
+    <link rel="stylesheet" href="styles/register_form.css">
     <link rel="stylesheet" href="styles/style.css">
     <script src="https://kit.fontawesome.com/cb337acf51.js" crossorigin="anonymous"></script>
 </head>
@@ -23,12 +25,19 @@ include "header.php"
         <div class="content">
             <?php
                 include "sidemenu_transform.php";
+
             ?>
-            <div class="slider_show_wrap">
-                <?php
-                    include "slider_show.php";
-                ?>
-            </div>
+            <?php
+            if (isset($_GET["page"])) {
+                if ($_GET["page"] == "login_form") {
+                    include "./page/login_form.php";
+                } else if ($_GET["page"] == "register_form"){
+                    include "./page/register_form.php";
+                }
+            } else {
+                include "./page/main.php";
+            }
+            ?>
             <h1>Welcome</h1>
             <p>Dont hesitate to get in touch!</p>
         </div>

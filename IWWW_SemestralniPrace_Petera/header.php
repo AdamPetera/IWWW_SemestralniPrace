@@ -13,8 +13,8 @@
             <li>
                 <a href="#">Účet</a>
                 <ul>
-                    <li><a href="page/login_form.php">Přihlášení</a></li>
-                    <li><a href="page/register_form.php">Registrace</a></li>
+                    <li><a href="index.php?page=login_form">Přihlášení</a></li>
+                    <li><a href="index.php?page=register_form">Registrace</a></li>
                 </ul>
             </li>
             <li><a href="#">Košík</a></li>

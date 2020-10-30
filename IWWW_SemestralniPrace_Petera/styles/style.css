@@ -42,6 +42,19 @@ body {
     border: 3px solid #1b1b1b;
 }
 
+
+.login_form_wrap {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+}
+
+.register_form_wrap {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+}
+
 @media (max-width: 1040px) {
     .slider_show_wrap {
         display: none;
