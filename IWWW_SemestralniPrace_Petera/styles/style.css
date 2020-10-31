@@ -10,7 +10,8 @@
 }
 
 body {
-    background: linear-gradient(120deg, grey, white);
+    /*background: linear-gradient(120deg, grey, white);*/
+    background-color: #adadad;
     height: 100vh;
 }
 
@@ -32,7 +33,7 @@ body {
 }
 
 .content {
-    padding: 50px;
+    padding: 20px 50px 50px 50px;
 }
 
 .slider_show_wrap {
@@ -59,6 +60,18 @@ body {
     .slider_show_wrap {
         display: none;
     }
+}
+
+.most_wanted_items_wrap {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sticks_wrapper {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 

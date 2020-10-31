@@ -28,7 +28,8 @@ if ($_POST) {
     }
 
     if (count($validation) == 0) {
-        include "./database/db.php";
+
+        $conn = Connection::getPdoInstance();
 
         try {
             $firstname = $_POST["firstname"];

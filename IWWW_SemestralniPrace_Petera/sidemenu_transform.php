@@ -1,6 +1,6 @@
 <div class="sidemenu_transform">
     <div class="icon_box">
-        <a href="#" title="Florbalky"><i class="fas fa-check"></i></a>
+        <a href="index.php?page=shopitems_sticks" title="Florbalky"><i class="fas fa-check"></i></a>
     </div>
     <div class="icon_box">
         <a href="#" title="Čepele"><i class="fas fa-fan"></i></a>

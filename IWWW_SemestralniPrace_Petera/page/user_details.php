@@ -1,5 +1,5 @@
 <?php
-    if (!isset($_SESSION["logedIn"])) {
+    if (!isset($_SESSION["login"])) {
         include "login_form.php";
         exit();
     }

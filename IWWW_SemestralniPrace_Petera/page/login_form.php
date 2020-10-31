@@ -8,7 +8,6 @@
 </head>
 
 <?php
-include "./database/db.php";
 if ($_POST) {
     $validation = array();
 
@@ -20,6 +19,8 @@ if ($_POST) {
     }
 
     if (count($validation) == 0) {
+        $conn = Connection::getPdoInstance();
+
         $email = $_POST["email"];
         $password = $_POST["password"];
 
@@ -32,12 +33,11 @@ if ($_POST) {
 
         if ($stmt->rowCount() == 0) {
             $error_message = "Omlouváme se, ale zadané údaje nesouhlasí";
+            $_SESSION["login"] = false;
         } else {
             $succ_message = "Přihlášení proběhlo úspěšně";
-            $_SESSION["logedIn"] = true;
+            $_SESSION["login"] = true;
             $_SESSION["email"] = $email;
-
-            echo "<script> window.location.assign('index.php'); </script>";
         }
     } else {
         $error_message = "Musíte zadat všechny údaje";
@@ -59,7 +59,7 @@ if ($_POST) {
                 <label>Heslo</label>
             </div>
             <div class="forget_password">Zapomněli jste heslo?</div>
-            <input type="submit" value="Přihlásit se">
+            <input type="submit" name="login" value="Přihlásit se">
             <div class="signup_link">Nejste registrovaní? <a href="index.php?page=register_form">Registrovat se</a></div>
         </form>
     </div>

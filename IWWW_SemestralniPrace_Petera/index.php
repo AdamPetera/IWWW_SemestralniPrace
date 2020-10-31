@@ -1,8 +1,11 @@
 <?php
+    function __autoload($class) {
+        require_once './classes/' . $class . '.php';
+    }
     session_start();
     if (isset($_POST["email"])) {
         if ($_POST["email"] == 'ad.petera@gmail.com') {
-            $_SESSION["logedIn"] = true;
+            $_SESSION["login"] = true;
         }
     }
 ?>
@@ -18,6 +21,8 @@
     <link rel="stylesheet" href="styles/slider_show.css">
     <link rel="stylesheet" href="styles/login_form.css">
     <link rel="stylesheet" href="styles/register_form.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/shopitems_sticks.css">
     <link rel="stylesheet" href="styles/style.css">
     <script src="https://kit.fontawesome.com/cb337acf51.js" crossorigin="anonymous"></script>
 </head>
@@ -33,7 +38,6 @@ include "header.php"
     <div class="main">
         <div class="content">
             <?php
-
                 include "sidemenu_transform.php";
                 if (isset($_GET["page"])) {
                     $pathToFile = "./page/" . $_GET["page"] . ".php";
@@ -44,8 +48,6 @@ include "header.php"
                     include $pathToFile;
                 }
             ?>
-            <h1>Welcome</h1>
-            <p>Dont hesitate to get in touch!</p>
         </div>
     </div>
 </div>
