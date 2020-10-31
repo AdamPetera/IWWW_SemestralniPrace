@@ -1,0 +1,7 @@
+.item_preview {
+    width: 200px;
+}
+
+.item_preview > img {
+    width: 200px;
+}

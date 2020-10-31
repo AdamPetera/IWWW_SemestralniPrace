@@ -21,8 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6c2ad563-02c3-4ff8-a6e3-502d766f109e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/user_details.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/user_details.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/main.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +84,10 @@
       <workItem from="1603959655312" duration="10902000" />
       <workItem from="1603979153409" duration="7462000" />
       <workItem from="1604053943945" duration="18046000" />
-      <workItem from="1604081536412" duration="1773000" />
+      <workItem from="1604081536412" duration="1893000" />
+      <workItem from="1604142751752" duration="746000" />
+      <workItem from="1604143600438" duration="475000" />
+      <workItem from="1604144123702" duration="1147000" />
     </task>
     <servers />
   </component>
@@ -121,6 +123,10 @@
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="713" y="360" key="#com.intellij.fileTypes.FileTypeChooser/-1440.23.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1603912261500" />
+    <state x="-982" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604143992130">
+      <screen x="-1440" y="0" width="1440" height="900" />
+    </state>
+    <state x="-982" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.900/0.0.1920.1080@-1440.0.1440.900" timestamp="1604143992130" />
     <state width="1294" height="305" key="GridCell.Tab.0.bottom" timestamp="1604066463132">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
