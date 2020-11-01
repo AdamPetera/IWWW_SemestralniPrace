@@ -2,12 +2,12 @@
     <h2 class="stick_title"><i class="fas fa-check"></i>&nbsp;Florbalky</h2>
     <div class="sticks_preview">
         <?php
-        foreach (Stick::getAllSticks() as $stick) {
+        foreach (ProductController::getAllSticks() as $stick) {
             echo '
                   <a href="#">
                        <div class="stick_card">
                             <div class="stick_card_image_wrap">
-                                <img src="' . $stick["image"] . '" alt="Florbalky">
+                                <img src="' . $stick["image"] . '" alt="Florbalka ' . $stick["name"] . '">
                             </div>
                             <div class="stick_card_name">
                                  <h2 class="title">' . $stick["name"] . '</h2>

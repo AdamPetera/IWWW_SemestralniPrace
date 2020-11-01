@@ -24,20 +24,25 @@ if ($_POST) {
         $email = $_POST["email"];
         $password = $_POST["password"];
 
-        $stmt = $conn->prepare("SELECT * FROM user WHERE email = :email AND password = :password");
+        $stmt = $conn->prepare("SELECT *, r.name FROM user u
+                                            JOIN user_has_role ur ON u.user_id = ur.user_id
+                                            LEFT JOIN role r ON r.role_id = ur.role_id
+                                            WHERE u.email = :email
+                                            AND u.password = :password");
 
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $password);
 
         $stmt->execute();
 
+        $role = $stmt->fetchColumn(10);
+
         if ($stmt->rowCount() == 0) {
             $error_message = "Omlouváme se, ale zadané údaje nesouhlasí";
-            $_SESSION["login"] = false;
         } else {
             $succ_message = "Přihlášení proběhlo úspěšně";
-            $_SESSION["login"] = true;
             $_SESSION["email"] = $email;
+            $_SESSION["role"] = $role;
         }
     } else {
         $error_message = "Musíte zadat všechny údaje";

@@ -24,6 +24,15 @@
                 ?>
             </li>
             <li><a href="index.php?page=basket">Košík</a></li>
+            <?php
+            if (isset($_SESSION["role"])) {
+                if ($_SESSION["role"] == "admin") {
+            ?>
+            <li><a href="#">Správa uživatelů</a></li>
+                <?php
+                }
+            }
+            ?>
         </ul>
     </nav>
 </header>

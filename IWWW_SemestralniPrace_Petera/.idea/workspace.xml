@@ -22,17 +22,16 @@
     <list default="true" id="6c2ad563-02c3-4ff8-a6e3-502d766f109e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/c14e573e-726f-43bd-8f77-4e703b535828.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c14e573e-726f-43bd-8f77-4e703b535828.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/db.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Stick.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/basket.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/basket.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/login_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/login_form.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/register_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/register_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/user_details.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/user_details.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/shopitems_sticks.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/shopitems_sticks.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sidemenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/sidemenu.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sidemenu_transform.php" beforeDir="false" afterPath="$PROJECT_DIR$/sidemenu_transform.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/shopitems_sticks.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/shopitems_sticks.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +98,8 @@
       <workItem from="1604081536412" duration="1893000" />
       <workItem from="1604142751752" duration="746000" />
       <workItem from="1604143600438" duration="475000" />
-      <workItem from="1604144123702" duration="21544000" />
+      <workItem from="1604144123702" duration="21778000" />
+      <workItem from="1604237797504" duration="11173000" />
     </task>
     <servers />
   </component>
@@ -139,49 +139,61 @@
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="713" y="360" key="#com.intellij.fileTypes.FileTypeChooser/-1440.23.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1603912261500" />
+    <state x="806" y="364" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604246278292">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="806" y="364" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604246278292" />
     <state x="-982" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604143992130">
       <screen x="-1440" y="0" width="1440" height="900" />
     </state>
     <state x="-982" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.900/0.0.1920.1080@-1440.0.1440.900" timestamp="1604143992130" />
-    <state width="1294" height="305" key="GridCell.Tab.0.bottom" timestamp="1604173375500">
+    <state width="1294" height="305" key="GridCell.Tab.0.bottom" timestamp="1604243646205">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1294" height="305" key="GridCell.Tab.0.bottom/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604173375500" />
-    <state width="1294" height="305" key="GridCell.Tab.0.center" timestamp="1604173375499">
+    <state width="1294" height="305" key="GridCell.Tab.0.bottom/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604243646205" />
+    <state width="1294" height="305" key="GridCell.Tab.0.center" timestamp="1604243646203">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1294" height="305" key="GridCell.Tab.0.center/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604173375499" />
-    <state width="1294" height="305" key="GridCell.Tab.0.left" timestamp="1604173375498">
+    <state width="1294" height="305" key="GridCell.Tab.0.center/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604243646203" />
+    <state width="1294" height="305" key="GridCell.Tab.0.left" timestamp="1604243646202">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1294" height="305" key="GridCell.Tab.0.left/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604173375498" />
-    <state width="1294" height="305" key="GridCell.Tab.0.right" timestamp="1604173375500">
+    <state width="1294" height="305" key="GridCell.Tab.0.left/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604243646202" />
+    <state width="1294" height="305" key="GridCell.Tab.0.right" timestamp="1604243646204">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1294" height="305" key="GridCell.Tab.0.right/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604173375500" />
-    <state x="361" y="220" key="NewPhpClassDialog" timestamp="1604172330275">
+    <state width="1294" height="305" key="GridCell.Tab.0.right/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604243646204" />
+    <state x="361" y="220" key="NewPhpClassDialog" timestamp="1604237913483">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="-1169" y="183" key="NewPhpClassDialog/-1440.0.1440.900/0.0.1920.1080@-1440.0.1440.900" timestamp="1604159270240" />
-    <state x="361" y="220" key="NewPhpClassDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604172330275" />
-    <state x="783" y="483" key="NewPhpFileDialog" timestamp="1604163605566">
-      <screen x="0" y="23" width="1920" height="1057" />
+    <state x="361" y="220" key="NewPhpClassDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604237913483" />
+    <state x="783" y="470" key="NewPhpFileDialog" timestamp="1604245081602">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="-853" y="392" key="NewPhpFileDialog/-1440.0.1440.900/0.0.1920.1080@-1440.0.1440.900" timestamp="1604156785540" />
-    <state x="783" y="470" key="NewPhpFileDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604083252825" />
+    <state x="783" y="470" key="NewPhpFileDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604245081602" />
     <state x="783" y="483" key="NewPhpFileDialog/-1440.23.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1604163605566" />
     <state x="867" y="424" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1604054023275">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="867" y="424" key="com.intellij.database.actions.DdlActions$CreateObject$1/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604054023275" />
+    <state x="862" y="434" width="323" height="232" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1604238774787">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="862" y="434" width="323" height="232" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604238774787" />
     <state x="746" y="367" width="428" height="341" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1604172598581">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="746" y="367" width="428" height="341" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604172598581" />
-    <state x="498" y="226" width="596" height="510" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1604163292915">
-      <screen x="0" y="23" width="1920" height="1057" />
+    <state x="694" y="432" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1604241534789">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="498" y="207" width="596" height="510" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604056548921" />
+    <state x="694" y="432" key="com.intellij.database.run.ParametersPanel.Standalone/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604241534789" />
+    <state x="498" y="207" width="596" height="510" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1604249184146">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="498" y="207" width="596" height="510" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604249184146" />
     <state x="498" y="226" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/-1440.23.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1604163292915" />
     <state x="773" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603970064780">
       <screen x="0" y="0" width="1920" height="1080" />

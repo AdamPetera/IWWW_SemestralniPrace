@@ -13,7 +13,7 @@ include "./slider_show.php";
             </a>
         </div>
         <div class="item">
-            <a href="index.php?page=shop_items">
+            <a href="index.php?page=shopitems&items=bag">
                 <h3>Vaky, tašky</h3>
                 <div class="image_wrap">
                     <img src="images/itemprev_bag.jpg" alt="Vaky, tašky">
@@ -21,7 +21,7 @@ include "./slider_show.php";
             </a>
         </div>
         <div class="item">
-            <a href="index.php?page=shop_items">
+            <a href="index.php?page=shopitems&items=goalie">
                 <h3>Brankáři</h3>
                 <div class="image_wrap">
                     <img src="images/itemprev_mask.png" alt="Brankáři">

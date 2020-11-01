@@ -4,9 +4,7 @@
     }
     session_start();
     if (isset($_POST["email"])) {
-        if ($_POST["email"] == 'ad.petera@gmail.com') {
-            $_SESSION["login"] = true;
-        }
+        $_SESSION["login"] = true;
     }
 ?>
 
@@ -23,6 +21,7 @@
     <link rel="stylesheet" href="styles/register_form.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/shopitems_sticks.css">
+    <link rel="stylesheet" href="styles/shopitems.css">
     <link rel="stylesheet" href="styles/style.css">
     <script src="https://kit.fontawesome.com/cb337acf51.js" crossorigin="anonymous"></script>
 </head>
