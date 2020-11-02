@@ -9,38 +9,29 @@
 
 <?php
 if ($_POST) {
-    $validation = array();
 
-    if (empty($_POST["email"])) {
-        $validation["email"] = "Email musí být vyplněn";
-    }
-    if (empty($_POST["password"])) {
-        $validation["password"] = "Heslo musí být vyplněné";
-    }
+    $validation = UserController::loginUserValidation($_POST["email"], $_POST["password"]);
 
     if (count($validation) == 0) {
         $conn = Connection::getPdoInstance();
-
-        $email = $_POST["email"];
-
-        $stmt = $conn->prepare("SELECT *, r.name FROM user u
-                                            JOIN user_has_role ur ON u.user_id = ur.user_id
-                                            LEFT JOIN role r ON r.role_id = ur.role_id
-                                            WHERE u.email = :email");
-
-        $stmt->bindParam(':email', $email);
+        $stmt = UserController::loginUser($conn, $_POST["email"]);
 
         $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $password = $stmt->fetchColumn(5);
-        $role = $stmt->fetchColumn(10);
+        $password = $row["password"];
+        $role = $row["name"];
+        $email = $row["email"];
 
         if ($stmt->rowCount() == 0) {
             $error_message = "Omlouváme se, ale zadané údaje nesouhlasí";
         } else if (password_verify($_POST["password"], $password)) {
-            $succ_message = "Přihlášení proběhlo úspěšně";
+            //$succ_message = "Přihlášení proběhlo úspěšně";
             $_SESSION["email"] = $email;
             $_SESSION["role"] = $role;
+            echo '<script type="text/javascript">
+                    window.location = "index.php"
+                    </script>';
         }
     } else {
         $error_message = "Musíte zadat všechny údaje";
@@ -71,9 +62,9 @@ if ($_POST) {
             <span class="error"><?php echo $error_message; ?></span>
         </div>
     <?php endif ?>
-    <?php if (isset($succ_message)): ?>
+<!--    <?php /*if (isset($succ_message)): */?>
         <div class="successful">
-            <span class="message"><?php echo $succ_message; ?></span>
+            <span class="message"><?php /*echo $succ_message; */?></span>
         </div>
-    <?php endif ?>
+    --><?php /*endif */?>
 </div>

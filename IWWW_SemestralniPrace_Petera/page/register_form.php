@@ -86,7 +86,7 @@ if ($_POST) {
         <div class="successful">
             <div class="succ_mess">
                 <span class="message"><?php echo $register_confirmed; ?></span>
-                <button><a href="login_form.php">Přihlásit se</a></button>
+                <button><a href="index.php?page=login_form">Přihlásit se</a></button>
             </div>
         </div>
     <?php endif ?>

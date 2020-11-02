@@ -56,6 +56,12 @@ body {
     display: table;
 }
 
+.edit_form_wrap {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+}
+
 @media (max-width: 1040px) {
     .slider_show_wrap {
         display: none;
@@ -78,6 +84,17 @@ body {
     width: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.table_wrapper {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.content table {
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
 

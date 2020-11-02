@@ -13,7 +13,7 @@
             <li>
                 <a href="index.php?page=user_details">Účet</a>
                 <?php
-                    if (!isset($_SESSION["login"])) {
+                    if (!isset($_SESSION["email"])) {
                 ?>
                     <ul>
                         <li><a href="index.php?page=login_form">Přihlášení</a></li>
@@ -28,7 +28,7 @@
             if (isset($_SESSION["role"])) {
                 if ($_SESSION["role"] == "admin") {
             ?>
-            <li><a href="#">Správa uživatelů</a></li>
+            <li><a href="index.php?page=manage_users">Správa uživatelů</a></li>
                 <?php
                 }
             }

@@ -2,9 +2,14 @@
     function __autoload($class) {
         require_once './classes/' . $class . '.php';
     }
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+
     if (isset($_POST["email"])) {
-        $_SESSION["login"] = true;
+        if ($_POST["email"] != "") {
+            //$_SESSION["login"] = true;
+        }
     }
 ?>
 
@@ -22,6 +27,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/shopitems_sticks.css">
     <link rel="stylesheet" href="styles/shopitems.css">
+    <link rel="stylesheet" href="styles/manage_users.css">
     <link rel="stylesheet" href="styles/style.css">
     <script src="https://kit.fontawesome.com/cb337acf51.js" crossorigin="anonymous"></script>
 </head>
