@@ -22,24 +22,22 @@ if ($_POST) {
         $conn = Connection::getPdoInstance();
 
         $email = $_POST["email"];
-        $password = $_POST["password"];
 
         $stmt = $conn->prepare("SELECT *, r.name FROM user u
                                             JOIN user_has_role ur ON u.user_id = ur.user_id
                                             LEFT JOIN role r ON r.role_id = ur.role_id
-                                            WHERE u.email = :email
-                                            AND u.password = :password");
+                                            WHERE u.email = :email");
 
         $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':password', $password);
 
         $stmt->execute();
 
+        $password = $stmt->fetchColumn(5);
         $role = $stmt->fetchColumn(10);
 
         if ($stmt->rowCount() == 0) {
             $error_message = "Omlouváme se, ale zadané údaje nesouhlasí";
-        } else {
+        } else if (password_verify($_POST["password"], $password)) {
             $succ_message = "Přihlášení proběhlo úspěšně";
             $_SESSION["email"] = $email;
             $_SESSION["role"] = $role;

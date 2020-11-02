@@ -5111,7 +5111,7 @@
     </column>
     <column id="1227" parent="417" name="password">
       <Position>6</Position>
-      <DataType>varchar(50)|0s</DataType>
+      <DataType>varchar(250)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <index id="1228" parent="417" name="user_email_uindex">

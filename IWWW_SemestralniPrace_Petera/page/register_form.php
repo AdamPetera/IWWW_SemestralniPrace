@@ -10,53 +10,30 @@
 <?php
 if ($_POST) {
 
-    $validation = array();
-    if (empty($_POST["firstname"])) {
-        $validation["firstname"] = "Jméno musí být vyplněné";
-    }
-    if (empty($_POST["lastname"])) {
-        $validation["lastname"] = "Příjmení musí být vyplněné";
-    }
-    if (empty($_POST["email"])) {
-        $validation["email"] = "Email musí být vyplněn";
-    }
-    if (empty($_POST["phone"])) {
-        $validation["phone"] = "Telefonní číslo musí být vyplněné";
-    }
-    if (empty($_POST["password"])) {
-        $validation["password"] = "Heslo musí být vyplněné";
-    }
+    $email = $_POST["email"];
+    $validation = UserController::registerUserValidation($_POST["firstname"], $_POST["lastname"], $email,
+                                                            $_POST["phone"], $_POST["password"]);
 
     if (count($validation) == 0) {
 
         $conn = Connection::getPdoInstance();
 
         try {
-            $firstname = $_POST["firstname"];
-            $lastname = $_POST["lastname"];
-            $email = $_POST["email"];
-            $phone = $_POST["phone"];
-            $password = $_POST["password"];
 
-            $stmt = $conn->prepare("INSERT INTO user (firstname, lastname, email, phone, password)
-                                                        VALUES (:firstname, :lastname, :email, :phone, :password)");
+            $stmt = UserController::insertUser($conn, $_POST["firstname"], $_POST["lastname"], $email,
+                                            $_POST["phone"], $_POST["password"]);
 
-            $stmt->bindParam(':firstname', $firstname);
-            $stmt->bindParam(':lastname', $lastname);
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':phone', $phone);
-            $stmt->bindParam(':password', $password);
-
-            $chk = $conn->prepare("SELECT email FROM user WHERE email = :email");
-            $chk->bindParam(':email', $email);
-
-            $chk->execute();
-
-            if ($chk->rowCount() > 0) {
+            if (UserController::emailExists($conn, $email) > 0) {
                 $email_error = "Omlouváme se, ale zadaný email již někdo používá";
             } else {
-                $stmt->execute();
-                $register_confirmed = "Registrace proběhla úspěšně";
+                try {
+                    $stmt->execute();
+                    UserHasRoleController::insertIntoUHRNormalUser($conn, $conn->lastInsertId());
+                    $register_confirmed = "Registrace proběhla úspěšně";
+                } catch (PDOException $e) {
+                    echo "<br>" . $e->getMessage();
+                }
+
             }
 
         } catch (PDOException $e) {
