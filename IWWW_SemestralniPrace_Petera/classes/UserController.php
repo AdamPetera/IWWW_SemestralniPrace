@@ -21,6 +21,17 @@ class UserController
         return $chk->rowCount();
     }
 
+    static function emailExistsReturnArray($conn, $email): array {
+        $chk = $conn->prepare("SELECT * FROM user WHERE email = :email");
+        $chk->bindParam(':email', $email);
+
+        $chk->execute();
+        $row = $chk->fetch(PDO::FETCH_ASSOC);
+
+        return array("rowCount" => $chk->rowCount(),
+                        "row" => $row);
+    }
+
     static function insertUser($conn, $firstname, $lastname, $email, $phone, $password) {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -34,6 +45,21 @@ class UserController
         $stmt->bindParam(':password', $hashed_password);
 
         return $stmt;
+    }
+
+    static function updateUser($conn, $currEmail, $firstname, $lastname, $email, $phone) {
+        $stmt = $conn->prepare("UPDATE user SET firstname = :firstname, lastname = :lastname,
+                               email = :email, phone = :phone WHERE email = :currEmail");
+
+        $stmt->bindParam(':firstname', $firstname);
+        $stmt->bindParam(':lastname', $lastname);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':phone', $phone);
+        $stmt->bindParam(':currEmail', $currEmail);
+
+        $stmt->execute();
+
+        return $stmt->rowCount();
     }
 
     static function loginUser($conn, $email) {

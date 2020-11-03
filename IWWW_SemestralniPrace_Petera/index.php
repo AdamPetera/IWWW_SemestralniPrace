@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="styles/shopitems_sticks.css">
     <link rel="stylesheet" href="styles/shopitems.css">
     <link rel="stylesheet" href="styles/manage_users.css">
+    <link rel="stylesheet" href="styles/user_details.css">
     <link rel="stylesheet" href="styles/style.css">
     <script src="https://kit.fontawesome.com/cb337acf51.js" crossorigin="anonymous"></script>
 </head>

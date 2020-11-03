@@ -104,3 +104,15 @@ table tbody  td {
     box-shadow: 0 0 5px #33ffff,
     0 0 5px #66ffff;
 }
+
+.form_error {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.form_error .error {
+    width: 100%;
+    height: 35px;
+    font-size: 16px;
+    color: red;
+}

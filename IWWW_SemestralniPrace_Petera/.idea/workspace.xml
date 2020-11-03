@@ -22,13 +22,14 @@
     <list default="true" id="6c2ad563-02c3-4ff8-a6e3-502d766f109e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/basket.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/basket.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/login_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/login_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/register_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/register_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/manage_users.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/manage_users.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/user_details.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/user_details.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/manage_users.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/manage_users.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/user_details.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/user_details.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +99,8 @@
       <workItem from="1604237797504" duration="11418000" />
       <workItem from="1604255533845" duration="338000" />
       <workItem from="1604312079135" duration="3949000" />
-      <workItem from="1604335007532" duration="8231000" />
+      <workItem from="1604335007532" duration="8341000" />
+      <workItem from="1604392192409" duration="8227000" />
     </task>
     <servers />
   </component>
@@ -146,22 +148,22 @@
       <screen x="-1440" y="0" width="1440" height="900" />
     </state>
     <state x="-982" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.900/0.0.1920.1080@-1440.0.1440.900" timestamp="1604143992130" />
-    <state width="1294" height="305" key="GridCell.Tab.0.bottom" timestamp="1604341278667">
+    <state width="1294" height="305" key="GridCell.Tab.0.bottom" timestamp="1604395144248">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1294" height="305" key="GridCell.Tab.0.bottom/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604341278667" />
-    <state width="1294" height="305" key="GridCell.Tab.0.center" timestamp="1604341278665">
+    <state width="1294" height="305" key="GridCell.Tab.0.bottom/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604395144248" />
+    <state width="1294" height="305" key="GridCell.Tab.0.center" timestamp="1604395144247">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1294" height="305" key="GridCell.Tab.0.center/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604341278665" />
-    <state width="1294" height="305" key="GridCell.Tab.0.left" timestamp="1604341278663">
+    <state width="1294" height="305" key="GridCell.Tab.0.center/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604395144247" />
+    <state width="1294" height="305" key="GridCell.Tab.0.left" timestamp="1604395144246">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1294" height="305" key="GridCell.Tab.0.left/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604341278663" />
-    <state width="1294" height="305" key="GridCell.Tab.0.right" timestamp="1604341278666">
+    <state width="1294" height="305" key="GridCell.Tab.0.left/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604395144246" />
+    <state width="1294" height="305" key="GridCell.Tab.0.right" timestamp="1604395144247">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1294" height="305" key="GridCell.Tab.0.right/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604341278666" />
+    <state width="1294" height="305" key="GridCell.Tab.0.right/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604395144247" />
     <state x="361" y="220" key="NewPhpClassDialog" timestamp="1604340269478">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

@@ -62,9 +62,5 @@ if ($_POST) {
             <span class="error"><?php echo $error_message; ?></span>
         </div>
     <?php endif ?>
-<!--    <?php /*if (isset($succ_message)): */?>
-        <div class="successful">
-            <span class="message"><?php /*echo $succ_message; */?></span>
-        </div>
-    --><?php /*endif */?>
+
 </div>
