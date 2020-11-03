@@ -78,7 +78,16 @@ if (isset($_POST["logOut"])) {
                     </script>';
 }
 ?>
-
+<div class="user_datails_wrap">
+    <div class="user_info">
+        <?php
+            $row = $_SESSION["row"];
+            echo $row["firstname"] . '<br>';
+            echo $row["lastname"] . '<br>';
+            echo $row["email"] . '<br>';
+            echo $row["phone"] . '<br>';
+        ?>
+    </div>
     <div class="edit_profile_form_wrap">
         <div class="edit_profile_form">
             <h1>Úprava uživatelských údajů</h1>
@@ -117,8 +126,10 @@ if (isset($_POST["logOut"])) {
             </div>
         <?php endif ?>
     </div>
-<form class="logout_button_wrap" method="post">
-    <input class="logOut_button" type="submit" name="logOut" value="Odhlásit se">
-</form>
+    <form class="logout_button_wrap" method="post">
+        <input class="logOut_button" type="submit" name="logOut" value="Odhlásit se">
+    </form>
+</div>
+
 
 

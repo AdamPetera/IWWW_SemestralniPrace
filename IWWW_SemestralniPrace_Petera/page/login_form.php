@@ -26,9 +26,9 @@ if ($_POST) {
         if ($stmt->rowCount() == 0) {
             $error_message = "Omlouváme se, ale zadané údaje nesouhlasí";
         } else if (password_verify($_POST["password"], $password)) {
-            //$succ_message = "Přihlášení proběhlo úspěšně";
             $_SESSION["email"] = $email;
             $_SESSION["role"] = $role;
+            $_SESSION["row"] = $row;
             echo '<script type="text/javascript">
                     window.location = "index.php"
                     </script>';
