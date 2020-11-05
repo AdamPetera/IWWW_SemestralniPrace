@@ -21,8 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6c2ad563-02c3-4ff8-a6e3-502d766f109e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/login_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/login_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/user_details.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/user_details.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/shopitems.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/shopitems.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/shopitems_sticks.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/shopitems_sticks.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +95,8 @@
       <workItem from="1604312079135" duration="3949000" />
       <workItem from="1604335007532" duration="8341000" />
       <workItem from="1604392192409" duration="8262000" />
-      <workItem from="1604403212932" duration="615000" />
+      <workItem from="1604403212932" duration="633000" />
+      <workItem from="1604599239848" duration="2045000" />
     </task>
     <servers />
   </component>
@@ -163,11 +165,11 @@
     </state>
     <state x="-1169" y="183" key="NewPhpClassDialog/-1440.0.1440.900/0.0.1920.1080@-1440.0.1440.900" timestamp="1604159270240" />
     <state x="361" y="220" key="NewPhpClassDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604340269478" />
-    <state x="783" y="470" key="NewPhpFileDialog" timestamp="1604339976574">
+    <state x="783" y="470" key="NewPhpFileDialog" timestamp="1604599382899">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="-853" y="392" key="NewPhpFileDialog/-1440.0.1440.900/0.0.1920.1080@-1440.0.1440.900" timestamp="1604156785540" />
-    <state x="783" y="470" key="NewPhpFileDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604339976574" />
+    <state x="783" y="470" key="NewPhpFileDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604599382899" />
     <state x="783" y="483" key="NewPhpFileDialog/-1440.23.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1604163605566" />
     <state x="867" y="424" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1604054023275">
       <screen x="0" y="0" width="1920" height="1080" />

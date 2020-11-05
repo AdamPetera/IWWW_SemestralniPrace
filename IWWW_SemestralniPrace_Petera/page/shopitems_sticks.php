@@ -4,7 +4,7 @@
         <?php
         foreach (ProductController::getAllSticks() as $stick) {
             echo '
-                  <a href="#">
+                  <a href="index.php?page=product&id='. $stick['product_id'] .'">
                        <div class="stick_card">
                             <div class="stick_card_image_wrap">
                                 <img src="' . $stick["image"] . '" alt="Florbalka ' . $stick["name"] . '">
