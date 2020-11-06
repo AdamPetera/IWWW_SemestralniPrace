@@ -20,6 +20,7 @@
     } else {
         die ("Produkt neexistuje");
     }
+
 ?>
 
 <div class="product_detail_wrap">
@@ -43,7 +44,7 @@
             <form action="index.php?page=cart" method="post">
                 <input type="number" name="quantity" value="1" min="1"" placeholder="Quantity" required>
                 <input type="hidden" name="product_id" value="<?=$product['product_id']?>">
-                <input type="submit" value="Přidat do košíku">
+                <input type="submit" name="add_to_basket" value="Přidat do košíku">
             </form>
             <div class="description">
                 <?=$product['description']?>

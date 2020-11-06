@@ -6,11 +6,11 @@
         session_start();
     }
 
-    if (isset($_POST["email"])) {
-        if ($_POST["email"] != "") {
-            //$_SESSION["login"] = true;
-        }
-    }
+//    if (isset($_POST["email"])) {
+//        if ($_POST["email"] != "") {
+//            //$_SESSION["login"] = true;
+//        }
+//    }
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="styles/manage_users.css">
     <link rel="stylesheet" href="styles/user_details.css">
     <link rel="stylesheet" href="styles/product.css">
+    <link rel="stylesheet" href="styles/cart.css">
     <link rel="stylesheet" href="styles/style.css">
     <script src="https://kit.fontawesome.com/cb337acf51.js" crossorigin="anonymous"></script>
 </head>

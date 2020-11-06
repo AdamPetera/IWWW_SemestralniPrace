@@ -23,7 +23,7 @@
                     }
                 ?>
             </li>
-            <li><a href="index.php?page=basket">Košík</a></li>
+            <li><a href="index.php?page=cart">Košík</a></li>
             <?php
             if (isset($_SESSION["role"])) {
                 if ($_SESSION["role"] == "admin") {
