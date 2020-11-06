@@ -46,5 +46,12 @@ class ProductController
 
         return $stmt->fetchColumn(0);
     }
+    static function getProductById($conn, $product_id) {
+        $stmt = $conn->prepare("SELECT * FROM product where product_id = ?");
+        $stmt->execute([$product_id]);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
 
 }

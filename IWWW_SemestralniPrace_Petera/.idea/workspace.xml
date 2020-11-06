@@ -21,9 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6c2ad563-02c3-4ff8-a6e3-502d766f109e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/shopitems.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/shopitems.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/shopitems_sticks.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/shopitems_sticks.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/basket.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/product.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +98,8 @@
       <workItem from="1604335007532" duration="8341000" />
       <workItem from="1604392192409" duration="8262000" />
       <workItem from="1604403212932" duration="633000" />
-      <workItem from="1604599239848" duration="2045000" />
+      <workItem from="1604599239848" duration="2356000" />
+      <workItem from="1604654063415" duration="6750000" />
     </task>
     <servers />
   </component>
@@ -160,11 +163,11 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1294" height="305" key="GridCell.Tab.0.right/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604395144247" />
-    <state x="361" y="220" key="NewPhpClassDialog" timestamp="1604340269478">
+    <state x="361" y="220" key="NewPhpClassDialog" timestamp="1604661014178">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="-1169" y="183" key="NewPhpClassDialog/-1440.0.1440.900/0.0.1920.1080@-1440.0.1440.900" timestamp="1604159270240" />
-    <state x="361" y="220" key="NewPhpClassDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604340269478" />
+    <state x="361" y="220" key="NewPhpClassDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604661014178" />
     <state x="783" y="470" key="NewPhpFileDialog" timestamp="1604599382899">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -214,9 +217,10 @@
     </state>
     <state x="625" y="161" key="run.anything.popup/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604403785711" />
     <state x="625" y="181" key="run.anything.popup/-1440.23.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1603982912920" />
-    <state x="-1055" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1604156025427">
-      <screen x="-1440" y="0" width="1440" height="900" />
+    <state x="513" y="235" width="894" height="812" key="search.everywhere.popup" timestamp="1604662506594">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="-1055" y="196" width="670" height="676" key="search.everywhere.popup/-1440.0.1440.900/0.0.1920.1080@-1440.0.1440.900" timestamp="1604156025427" />
+    <state x="513" y="235" width="894" height="812" key="search.everywhere.popup/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604662506594" />
   </component>
 </project>

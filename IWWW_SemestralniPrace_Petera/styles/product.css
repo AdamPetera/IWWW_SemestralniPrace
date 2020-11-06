@@ -1,38 +1,58 @@
-.product {
+.product_wrap {
     display: flex;
-    padding: 40px 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 75%;
+    margin: auto;
 }
-.product > div {
-    padding-left: 15px;
+
+.properties {
+    margin: 0 auto;
 }
-.product h1 {
+
+.properties h1 {
     font-size: 34px;
     font-weight: normal;
     margin: 0;
     padding: 20px 0 10px 0;
 }
-.product .price {
-    display: block;
-    font-size: 22px;
-    color: #999999;
+
+.product_img {
+    border-radius: 10px;
+    border: 4px solid #1b1b1b;
 }
-.product form {
+.product_stick_img {
+    border-radius: 10px;
+    border: 4px solid #1b1b1b;
+    margin: auto;
+}
+
+
+.properties .price {
+    display: block;
+    font-size: 25px;
+    color: cyan;
+}
+
+.properties form {
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
     margin: 40px 0;
 }
-.product form input[type="number"] {
-    width: 400px;
+
+.properties form input[type="number"] {
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     color: #555555;
     border-radius: 5px;
+    width: 400px;
 }
-.product form input[type="submit"] {
-    background: #4e5c70;
+
+.properties form input[type="submit"] {
+    background: #1b1b1b;
     border: 0;
-    color: #FFFFFF;
+    color: white;
     width: 400px;
     padding: 12px 0;
     text-transform: uppercase;
@@ -41,6 +61,71 @@
     border-radius: 5px;
     cursor: pointer;
 }
-.product form input[type="submit"]:hover {
-    background: #434f61;
+
+.properties form input[type="submit"]:hover {
+    color: cyan;
+    box-shadow: 0 0 5px #33ffff,
+    0 0 5px #66ffff;
+}
+
+.properties .description {
+    height: 100%;
+    width: 400px
+}
+
+@media (max-width: 1987px) {
+    .product_img {
+        margin: auto;
+    }
+}
+
+@media (max-width: 1250px) {
+    .product_stick_img {
+        width: 90%;
+        height: 90%;
+    }
+}
+
+@media (max-width: 623px) {
+    .product_img {
+        width: 90%;
+        height: 90%;
+        margin: auto;
+    }
+
+    .properties {
+        text-align: center;
+        width: 100%;
+    }
+
+    .properties h1 {
+        font-size: 27px;
+        font-weight: normal;
+        padding: 10px 0 5px 0;
+    }
+
+    .properties .price {
+        font-size: 20px;
+    }
+
+    .properties form {
+        margin: 10px auto;
+    }
+
+    .properties form input[type="number"] {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+
+    .properties form input[type="submit"] {
+        width: 100%;
+        padding: 8px 0;
+        font-size: 10px;
+    }
+
+    .properties .description {
+        width: 100%;
+    }
+
 }
