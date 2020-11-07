@@ -39,31 +39,31 @@ if (isset($_GET['remove']) && is_numeric($_GET['remove'])) {
 
 if (isset($_POST['update'])) {
     foreach ($_POST as $k => $v) {
-        echo $v;
-        if (strpos($k, 'quantity') !== false && is_numeric($v)) {
+        $trimmed_v = trim($v, "Obnovit");
+        if (strpos($k, 'quantity') !== false && is_numeric($trimmed_v)) {
             $id = str_replace('quantity-', '', $k);
-            $quantity = (int) $v;
+            $quantity = (int) $trimmed_v;
             if (is_numeric($id) && $quantity > 0) {
                 CartHasProductsController::updateQuantity($conn, $cart_id, (int) $id, $quantity);
             }
-        } else {
-            //echo 'mimo';
         }
     }
 }
 
-$products_in_cart = CartHasProductsController::getAllCartProductIds($conn, $cart_id);
-$product_ids = CartHasProductsController::getAllCartProductIds($conn, $cart_id);
+$product_ids_and_keys = CartHasProductsController::getAllCartProductIds($conn, $cart_id);
 $products = array();
 $subtotal = 0.00;
 
-if ($products_in_cart) {
-    $array_to_question_marks = implode(',', array_fill(0, count($product_ids), '?'));
+if ($product_ids_and_keys) {
+    $array_to_question_marks = implode(',', array_fill(0, count($product_ids_and_keys), '?'));
     $stmt = $conn->prepare('SELECT * FROM product WHERE product_id IN (' . $array_to_question_marks . ')');
-    $result = $stmt->execute(array_keys($product_ids));
+    (int) $i = 1;
+    foreach ($product_ids_and_keys as $k => $id)
+        $stmt->bindValue(($i++), $k);
+    $stmt->execute();
     $products = $stmt->fetchAll();
     foreach ($products as $product) {
-        $subtotal += (float)$product['price'] * (int)$products_in_cart[$product['product_id']];
+        $subtotal += (float)$product['price'] * (int)$product_ids_and_keys[$product['product_id']];
     }
 }
 ?>
@@ -101,9 +101,9 @@ if ($products_in_cart) {
                         </td>
                         <td class="price"><?=$product['price']?> Kč</td>
                         <td class="quantity">
-                            <input type="number" name="quantity-<?=$product['product_id']?>" value="<?=$products_in_cart[$product['product_id']]?>" min="1"" placeholder="Počet" required>
+                            <input type="number" name="quantity-<?=$product['product_id']?>" value="<?=$product_ids_and_keys[$product['product_id']]?>" min="1"" placeholder="Počet" required>
                         </td>
-                        <td class="price"><?=$product['price'] * $products_in_cart[$product['product_id']]?> Kč</td>
+                        <td class="price"><?=$product['price'] * $product_ids_and_keys[$product['product_id']]?> Kč</td>
                     </tr>
                     <?php endforeach; ?>
                     <?php endif; ?>

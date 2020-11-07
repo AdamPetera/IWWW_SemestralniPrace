@@ -70,11 +70,12 @@ class CartHasProductsController
         $stmt->execute();
 
         $products_in_cart = $stmt->fetchAll();
-        $product_ids = array();
+        $product_ids_and_keys = array();
         foreach ($products_in_cart as $pic) {
-            array_push($product_ids, (int)$pic['product_id']);
+            $product_ids_and_keys[(int)$pic['product_id']] = (int) $pic['quantity'];
         }
 
-        return $product_ids;
+        return $product_ids_and_keys;
     }
+
 }

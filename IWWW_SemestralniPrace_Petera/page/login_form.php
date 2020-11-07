@@ -8,8 +8,7 @@
 </head>
 
 <?php
-if ($_POST) {
-
+if (isset($_POST["email"]) && isset($_POST["password"])) {
     $validation = UserController::loginUserValidation($_POST["email"], $_POST["password"]);
 
     if (count($validation) == 0) {
@@ -33,7 +32,8 @@ if ($_POST) {
                     window.location = "index.php"
                     </script>';
         }
-    } else {
+    }
+    else {
         $error_message = "Musíte zadat všechny údaje";
     }
 }
