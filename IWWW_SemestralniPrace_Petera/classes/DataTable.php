@@ -21,13 +21,20 @@ class DataTable
             echo '<th>'.$value.'</th>';
         }
         echo '</tr>';
-        foreach ($this->dataSet as $row) {
-            echo '<tr>';
-            foreach ($this->columns as $key => $value) {
-                echo '<td>'.$row[$key].'</td>';
-            }
+        if (!empty($this->dataSet)) {
+            foreach ($this->dataSet as $row) {
+                echo '<tr>';
+                foreach ($this->columns as $key => $value) {
+                    echo '<td>' . $row[$key] . '</td>';
+                }
 
-            echo '</tr>';
+                echo '</tr>';
+            }
+        } else {
+            echo '
+                <tr>
+                    <td colspan="5" style="text-align: center">Žádní uživatelé k editaci :(</td>
+                </tr>';
         }
         echo '</table>';
     }

@@ -1,5 +1,16 @@
 <div class="items_wrapper">
     <?php
+    if (isset($_SESSION["role"])) {
+        if ($_SESSION["role"] == "admin") {
+            ?>
+            <form method="post" action="index.php?page=add_product" class="addProductForm">
+                <input class="addProduct" type="submit" name="addProduct" value="Přidej produkt">
+            </form>
+            <?php
+        }
+    }
+    ?>
+    <?php
     echo '<h2 class="items_title">' . ProductController::getAllSpecifiedItemName($_GET["items"]) . '</h2>';
     ?>
     <div class="items_preview">

@@ -4,6 +4,29 @@
     background: #1b1b1b;
 }
 
+.addProductForm {
+    width: 300px;
+    margin: 5px auto 5px auto;
+}
+
+.addProduct {
+    width: 250px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 700;
+    background: white;
+    transition: .5s;
+    outline: none;
+    cursor: pointer;
+}
+
+.addProduct:hover {
+    color: cyan;
+    border-radius: 25px;
+    box-shadow: 0 0 5px #33ffff,
+    0 0 5px #66ffff;
+}
+
 .items_preview {
     display: flex;
     flex-direction: row;

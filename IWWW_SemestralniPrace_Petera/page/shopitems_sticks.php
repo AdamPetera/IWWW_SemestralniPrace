@@ -1,4 +1,15 @@
 <div class="sticks_wrapper">
+    <?php
+    if (isset($_SESSION["role"])) {
+        if ($_SESSION["role"] == "admin") {
+            ?>
+            <form method="post" action="index.php?page=add_product" class="addProductForm">
+                <input class="addProduct" type="submit" name="addProduct" value="Přidej produkt">
+            </form>
+            <?php
+        }
+    }
+    ?>
     <h2 class="stick_title"><i class="fas fa-check"></i>&nbsp;Florbalky</h2>
     <div class="sticks_preview">
         <?php

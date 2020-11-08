@@ -1,3 +1,22 @@
+.user_info {
+    margin: auto;
+    width: 400px;
+    border-bottom: 3px solid cyan;
+}
+
+.user_info h2 {
+    text-align: center;
+    text-decoration: underline cyan;
+}
+
+.user_info .info p {
+    margin-top: 5px;
+}
+.user_info .info p:last-child {
+    margin-bottom: 5px;
+}
+
+
 .edit_profile_form {
     position: relative;
     color: white;

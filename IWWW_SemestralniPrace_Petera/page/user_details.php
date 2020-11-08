@@ -78,15 +78,19 @@ if (isset($_POST["logOut"])) {
                     </script>';
 }
 ?>
+
 <div class="user_datails_wrap">
     <div class="user_info">
-        <?php
+        <h2>Vaše uživatelské údaje</h2>
+        <div class="info">
+            <?php
             $row = $_SESSION["row"];
-            echo $row["firstname"] . '<br>';
-            echo $row["lastname"] . '<br>';
-            echo $row["email"] . '<br>';
-            echo $row["phone"] . '<br>';
-        ?>
+                echo '<p>Jméno: '.$row['firstname'].'</p>';
+                echo '<p>Příjmení: '.$row['lastname'].'</p>';
+                echo '<p>Email: '.$row['email'].'</p>';
+                echo '<p>Telefon: '.$row['phone'].'</p>';
+            ?>
+        </div>
     </div>
     <div class="edit_profile_form_wrap">
         <div class="edit_profile_form">
