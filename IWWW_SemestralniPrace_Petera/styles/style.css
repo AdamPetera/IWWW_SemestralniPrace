@@ -93,7 +93,12 @@ body {
 }
 
 .user_datails_wrap {
-    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.add_product_form_wrap {
+    width: 99%;
     margin-top: 20px;
     margin-bottom: 20px;
 }

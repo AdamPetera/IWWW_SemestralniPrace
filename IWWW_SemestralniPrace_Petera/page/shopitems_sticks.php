@@ -35,4 +35,8 @@
         ?>
     </div>
 </div>
+<?php
+//$a = ProductImageController::getProductImage(Connection::getPdoInstance(), 1, 'main_image');
+//echo '<img src="data:image/jpeg;base64,'.base64_encode( $a['image'] ).'"/>';
+//echo '<img src="data:image/gif;base64,'.base64_encode( $a['image'] ).'"/>';
 
