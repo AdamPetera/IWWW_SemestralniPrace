@@ -26,13 +26,14 @@
 <div class="product_detail_wrap">
     <div class="product_wrap">
         <?php
+        $image = ProductImageController::getProductImage($product['product_id'], 'main');
         if (strpos($product["description"], 'Florbalka') !== false) {
             ?>
-            <img src="<?=$product['image']?>" width="600" height="250" class="product_stick_img" alt="<?=$product['name']?>">
+            <img src="<?=$image?>" width="600" height="250" class="product_stick_img" alt="<?=$product['name']?>">
             <?php
         } else {
             ?>
-            <img src="<?=$product['image']?>" width="400" height="400" class="product_img" alt="<?=$product['name']?>">
+            <img src="<?=$image?>" width="400" height="400" class="product_img" alt="<?=$product['name']?>">
             <?php
         }
         ?>

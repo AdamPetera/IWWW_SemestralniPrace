@@ -53,5 +53,34 @@ class ProductController
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    static function insertProductAndImageValidation($name, $description, $price, $img_name) {
+        $validation = array();
+        if (empty($name)) {
+            $validation["name"] = "Název produktu musí být vyplněn";
+        }
+        if (empty($description)) {
+            $validation["description"] = "Popis produktu musí být vyplněn";
+        }
+        if (empty($price)) {
+            $validation["price"] = "Cena produktu musí být vyplněna";
+        }
+        if (empty($img_name)) {
+            $validation["img_name"] = "Název obrázku musí být vyplněn";
+        }
+
+        return $validation;
+    }
+
+    static function insertProduct($name, $description, $price) {
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("INSERT INTO product (name, description, price) VALUES (:name, :description, :price)");
+
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':description', $description);
+        $stmt->bindParam(':price', $price);
+
+        $stmt->execute();
+    }
+
 
 }

@@ -88,10 +88,11 @@ if ($product_ids_and_keys) {
                     </tr>
                     <?php else: ?>
                     <?php foreach ($products as $product): ?>
+                    <?$image = ProductImageController::getProductImage($product['product_id'], 'main');?>
                     <tr>
                         <td class="img">
                             <a href="index.php?page=product&id=<?=$product['product_id']?>">
-                                <img src="<?=$product['image']?>" width="50" height="50" alt="<?=$product['name']?>">
+                                <img src="<?=$image?>" width="50" height="50" alt="<?=$product['name']?>">
                             </a>
                         </td>
                         <td>

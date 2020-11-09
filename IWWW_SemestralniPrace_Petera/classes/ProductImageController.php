@@ -3,8 +3,10 @@
 
 class ProductImageController
 {
-    static function getProductImage($conn, $product_id, $name) {
-        $stmt = $conn->prepare("SELECT mime, image FROM product_image
+
+    static function getProductImage($product_id, $name) {
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("SELECT image FROM product_image
                     WHERE product_id = :product_id AND name = :name");
 
         $stmt->bindParam(':product_id', $product_id);
@@ -12,20 +14,15 @@ class ProductImageController
 
         $stmt->execute();
 
-        $stmt->bindColumn(1, $mime);
-        $stmt->bindColumn(2, $image, PDO::PARAM_LOB);
-        $stmt->fetch(PDO::FETCH_BOUND);
-
-        return array("mime" => $mime, "image" => $image);
+        return $stmt->fetchColumn();
     }
 
-    static function insert($conn, $name, $description, $image, $mime, $product_id) {
-        $stmt = $conn->prepare("INSERT INTO product_image (name, desctiption, image, product_id, mime) VALUES (:name, :description, :image, :product_id, :mime)");
+    static function insert($name, $image, $product_id) {
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("INSERT INTO product_image (name, image, product_id) VALUES (:name, :image, :product_id)");
 
         $stmt->bindParam(':name', $name);
-        $stmt->bindParam(':description', $description);
-        $stmt->bindParam(':image', $image, PDO::PARAM_LOB);
-        $stmt->bindParam(':mime', $mime);
+        $stmt->bindParam(':image', $image);
         $stmt->bindParam(':product_id', $product_id);
 
         $stmt->execute();
