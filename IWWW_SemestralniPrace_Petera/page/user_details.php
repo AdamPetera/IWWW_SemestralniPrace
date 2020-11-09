@@ -13,69 +13,46 @@
         exit();
     }
 
+$conn = Connection::getPdoInstance();
+$result = UserController::emailExistsReturnArray($conn, $_SESSION["email"]);
+$row = $result["row"];
+$addressAndRowcount = AddressController::getUsersAddress($row['user_id']);
+$addressRowCount = $addressAndRowcount['rowCount'];
+$address = $addressAndRowcount['row'];
+
 if (isset($_POST["updateProfile"])) {
-    $conn = Connection::getPdoInstance();
-    $result = UserController::emailExistsReturnArray($conn, $_SESSION["email"]);
-    $row = $result["row"];
+    $variableArray = UserController::setVariables($_POST, $row);
 
-    if (isset($_POST["firstname"])) {
-        if (!empty($_POST["firstname"])) {
-            $firstname = $_POST["firstname"];
-        } else {
-            $firstname = $row["firstname"];
-        }
-    }
-    if (isset($_POST["lastname"])) {
-        if (!empty($_POST["lastname"])) {
-            $lastname = $_POST["lastname"];
-        } else {
-            $lastname = $row["lastname"];
-        }
-    }
-    if (isset($_POST["email"])) {
-        $emailRowCount = UserController::emailExists($conn, $_POST["email"]);
-        if (!empty($_POST["email"])) {
-            $email = $_POST["email"];
-        } else {
-            $email = $row["email"];
-        }
-    }
-    if (isset($_POST["phone"])) {
-        if (!empty($_POST["phone"])) {
-            $phone = $_POST["phone"];
-        } else {
-            $phone = $row["phone"];
-        }
-    }
-    if (isset($_POST["password"])) {
-        if (!empty($_POST["password"])) {
-            $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-        } else {
-            $password = $row["password"];
-        }
-    }
-
-    if ($emailRowCount > 0) {
-        $error_message = "Tento nový email již někdo používá!";
+    if ($variableArray['emailRowCount'] > 0) {
+        $error_message_profile = "Tento nový email již někdo používá!";
     } else {
         try {
-            UserController::updateUser($conn, $email, $firstname, $lastname, $email, $phone);
+            UserController::updateUser($conn, $variableArray['email'], $variableArray['firstname'],
+                $variableArray['lastname'], $variableArray['email'], $variableArray['phone'],
+                $variableArray['password']);
+            $updated = UserController::getUserById($row['user_id']);
+            $_SESSION["row"] = $updated;
+            $success_message_profile = "Uživatelské údaje změněny :)";
         } catch (PDOException $e) {
-            $error_message = "Něco se pokazilo :(";
+            $error_message_profile = "Něco se pokazilo :(";
         }
     }
 }
 
-
-
-if (isset($_POST["logOut"])) {
-    session_destroy();
-    session_unset();
-    unset($_SESSION["email"]);
-    $_SESSION = array();
-    echo '<script type="text/javascript">
-                    window.location = "index.php"
-                    </script>';
+if (isset($_POST['updateAddress'])) {
+    $userAddress = AddressController::getAddressByUserId($row['user_id']);
+    $variableArray = AddressController::setVariables($_POST, $userAddress);
+    try {
+        $addressRowCount = AddressController::updateAddress($variableArray['street'], $variableArray['no'],
+            $variableArray['city'], $variableArray['zipcode'], $row['user_id']);
+        if ($addressRowCount != 0) {
+            $success_message_address = "Adresa byla uložena :)";
+        } else {
+            $error_message_address = "Něco se pokazilo :(";
+        }
+    } catch (PDOException $e) {
+        $error_message_address = "Něco se pokazilo :(";
+    }
 }
 ?>
 
@@ -84,11 +61,25 @@ if (isset($_POST["logOut"])) {
         <h2>Vaše uživatelské údaje</h2>
         <div class="info">
             <?php
-            $row = $_SESSION["row"];
-                echo '<p>Jméno: '.$row['firstname'].'</p>';
-                echo '<p>Příjmení: '.$row['lastname'].'</p>';
-                echo '<p>Email: '.$row['email'].'</p>';
-                echo '<p>Telefon: '.$row['phone'].'</p>';
+            $info = $_SESSION["row"];
+                echo '<p>Jméno: '.$info['firstname'].'</p>';
+                echo '<p>Příjmení: '.$info['lastname'].'</p>';
+                echo '<p>Email: '.$info['email'].'</p>';
+                echo '<p>Telefon: '.$info['phone'].'</p>';
+            ?>
+        </div>
+        <div class="address">
+            <?php
+                if ($addressRowCount != 0) {
+                    echo '<p>Ulice: '.$address['street'].'</p>';
+                    echo '<p>Číslo popisné: '.$address['no'].'</p>';
+                    echo '<p>Obec: '.$address['city'].'</p>';
+                    echo '<p>PSČ: '.$address['zipcode'].'</p>';
+                } else {
+                    echo '<form action="index.php?page=add_address&id='. $_SESSION['row']['user_id'] .'" method="post" class="addressButton">
+                            <input class="addAddressButton" type="submit" value="Přidat adresu">
+                          </form>';
+                }
             ?>
         </div>
     </div>
@@ -123,16 +114,54 @@ if (isset($_POST["logOut"])) {
                 </div>
                 <input type="submit" name="updateProfile" value="Uložit změny">
             </form>
+            <?php if (isset($error_message_profile)): ?>
+                <div class="error_message">
+                    <span class="error_msg"><?php echo $error_message_profile; ?></span>
+                </div>
+            <?php endif ?>
+            <?php if (isset($success_message_profile)): ?>
+                <div class="success_message">
+                    <span class="success_msg"><?php echo $success_message_profile; ?></span>
+                </div>
+            <?php endif ?>
         </div>
-        <?php if (isset($error_message)): ?>
-            <div class="form_error">
-                <span class="error"><?php echo $error_message; ?></span>
-            </div>
-        <?php endif ?>
+        <div class="edit_address_form">
+            <h1>Úprava adresy</h1>
+            <form method="post">
+                <div class="txt_field">
+                    <input type="text" name="street">
+                    <span></span>
+                    <label>Ulice</label>
+                </div>
+                <div class="txt_field">
+                    <input type="text" name="no">
+                    <span></span>
+                    <label>Číslo popisné</label>
+                </div>
+                <div class="txt_field">
+                    <input type="text" name="city">
+                    <span></span>
+                    <label>Obec</label>
+                </div>
+                <div class="txt_field">
+                    <input type="number" name="zipcode" min="0">
+                    <span></span>
+                    <label>PSČ</label>
+                </div>
+                <input type="submit" name="updateAddress" value="Upravit adresu">
+            </form>
+            <?php if (isset($error_message_address)): ?>
+                <div class="error_message">
+                    <span class="error_msg"><?php echo $error_message_address; ?></span>
+                </div>
+            <?php endif ?>
+            <?php if (isset($success_message_address)): ?>
+                <div class="success_message">
+                    <span class="success_msg"><?php echo $success_message_address; ?></span>
+                </div>
+            <?php endif ?>
+        </div>
     </div>
-    <form class="logout_button_wrap" method="post">
-        <input class="logOut_button" type="submit" name="logOut" value="Odhlásit se">
-    </form>
 </div>
 
 

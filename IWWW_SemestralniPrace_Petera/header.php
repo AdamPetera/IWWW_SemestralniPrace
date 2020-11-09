@@ -20,6 +20,12 @@
                         <li><a href="index.php?page=register_form">Registrace</a></li>
                     </ul>
                 <?php
+                    } else {
+                ?>
+                        <ul>
+                            <li><a href="index.php?page=log_out">Odhlásit se</a></li>
+                        </ul>
+                <?php
                     }
                 ?>
             </li>

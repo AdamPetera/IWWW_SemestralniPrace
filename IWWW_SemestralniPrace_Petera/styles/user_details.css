@@ -1,12 +1,19 @@
 .user_info {
     margin: auto;
     width: 400px;
-    border-bottom: 3px solid cyan;
 }
 
 .user_info h2 {
     text-align: center;
     text-decoration: underline cyan;
+}
+
+.user_info .info {
+    border-bottom: 3px solid cyan;
+}
+
+.user_info .address {
+    border-bottom: 3px solid cyan;
 }
 
 .user_info .info p {
@@ -16,6 +23,13 @@
     margin-bottom: 5px;
 }
 
+.user_info .address p {
+    margin-top: 5px;
+}
+
+.user_info .address p:last-child {
+    margin-bottom: 5px;
+}
 
 .edit_profile_form {
     position: relative;
@@ -23,8 +37,7 @@
     width: 450px;
     background: #1b1b1b;
     border-radius: 10px;
-    margin-left: 50%;
-    transform: translateX(-50%);
+    margin: 0 auto 20px auto;
 }
 
 .edit_profile_form h1 {
@@ -106,20 +119,63 @@
     0 0 5px #66ffff;
 }
 
-.form_error {
+.error_message {
     margin-top: 20px;
     text-align: center;
 }
 
-.form_error .error {
+.error_message .error_msg {
     width: 100%;
     height: 35px;
     font-size: 16px;
     color: red;
 }
 
-.logOut_button {
-    width: 33%;
+.success_message {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.success_message .success_msg {
+    width: 100%;
+    height: 35px;
+    font-size: 16px;
+    color: green;
+}
+
+.addressButton {
+    margin: 10px 0 10px 0;
+    text-align: center;
+}
+
+.edit_address_form {
+    position: relative;
+    color: white;
+    width: 450px;
+    background: #1b1b1b;
+    border-radius: 10px;
+    margin: 0 auto 20px auto;
+}
+
+.edit_address_form h1 {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px 0 20px 0;
+    border-bottom: 1px solid cyan;
+}
+
+.edit_address_form form {
+    padding: 20px;
+}
+
+.edit_address_form form .txt_field {
+    position: relative;
+    border-bottom: 1px solid white;
+    margin: 30px 0;
+}
+
+.edit_address_form form input[type="submit"] {
+    width: 100%;
     height: 40px;
     font-size: 18px;
     font-weight: 700;
@@ -127,9 +183,10 @@
     transition: .5s;
     outline: none;
     cursor: pointer;
+    margin-top: 30px;
 }
 
-.logOut_button:hover {
+.edit_address_form form input[type="submit"]:hover {
     color: cyan;
     border-radius: 25px;
     box-shadow: 0 0 5px #33ffff,

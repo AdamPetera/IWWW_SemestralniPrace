@@ -49,16 +49,25 @@
                     $phone = $row["phone"];
                 }
             }
+            if (isset($_POST["password"])) {
+                if (!empty($_POST["password"])) {
+                    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+                } else {
+                    $password = $row["password"];
+                }
+            }
 
             if ($emailRowCount > 0) {
                 $error_message = "Tento nový email již někdo používá!";
             } else {
-                $updateRowCount = UserController::updateUser($conn, $_POST["current_email"], $firstname, $lastname, $email, $phone);
+                $updateRowCount = UserController::updateUser($conn, $_POST["current_email"], $firstname, $lastname, $email, $phone, $password);
 
                 if ($updateRowCount == 1) {
                     echo '<script type="text/javascript">
                     window.location = "index.php?page=manage_users"
                     </script>';
+                } else {
+                    $error_message = "Něco se pokazilo :(";
                 }
             }
 
@@ -96,6 +105,11 @@
                 <input type="tel" name="phone" pattern="((\+420|00420) ?)?\d{3}( |-)?\d{3}( |-)?\d{3}">
                 <span></span>
                 <label>Telefonní číslo</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" name="password">
+                <span></span>
+                <label>Heslo</label>
             </div>
             <input type="submit" name="updateUser" value="Uložit změny">
         </form>

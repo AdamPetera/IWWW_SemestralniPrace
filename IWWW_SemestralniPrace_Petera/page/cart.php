@@ -66,6 +66,17 @@ if ($product_ids_and_keys) {
         $subtotal += (float)$product['price'] * (int)$product_ids_and_keys[$product['product_id']];
     }
 }
+
+if (isset($_POST['placeorder'])) {
+    if ($subtotal != 0) {
+        echo '<script type="text/javascript">
+                window.location = "index.php?page=payment&subtotal='.$subtotal.'"
+              </script>';
+    } else {
+        $error_message = 'Nelze přejít na platbu s prázdným košíkem :(';
+    }
+
+}
 ?>
 
 <div class="cart_wrapper">
@@ -116,8 +127,13 @@ if ($product_ids_and_keys) {
             </div>
             <div class="buttons">
                 <input type="submit" value="Obnovit" name="update">
-                <input type="submit" value="Závazně objednat" name="placeorder">
+                <input type="submit" value="Přejít na platbu" name="placeorder">
             </div>
+            <?php if (isset($error_message)): ?>
+                <div class="error_message">
+                    <span class="error_msg"><?php echo $error_message; ?></span>
+                </div>
+            <?php endif ?>
         </form>
     </div>
 </div>

@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="styles/product.css">
     <link rel="stylesheet" href="styles/cart.css">
     <link rel="stylesheet" href="styles/add_product.css">
+    <link rel="stylesheet" href="styles/add_address.css">
     <link rel="stylesheet" href="styles/style.css">
     <script src="https://kit.fontawesome.com/cb337acf51.js" crossorigin="anonymous"></script>
 </head>
