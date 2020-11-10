@@ -1,0 +1,72 @@
+.form_wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    text-align: right;
+    padding-bottom: 40px;
+}
+
+.buttons input {
+    border: none;
+    color: white;
+    border-bottom: 2px solid cyan;
+    width: 150px;
+    height: 50px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.buttons input:hover {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #33ffff,
+    0 0 5px #66ffff;
+}
+
+.subtotal {
+    text-align: right;
+    padding-bottom: 20px;
+}
+
+.subtotal .price {
+    font-size: 18px;
+    color: cyan;
+}
+
+.payment_wrap input {
+    border: none;
+    border-bottom: 2px solid cyan;
+    background-color: #1b1b1b;
+    width: 200px;
+    height: 30px;
+    color: white;
+    padding-left: 8px;
+}
+
+.delivery_info_address, .delivery_info_user {
+    margin-bottom: 20px;
+}
+
+.row_name {
+    margin-bottom: 5px;
+}
+
+.form_wrapper p {
+    margin-top: 10px;
+}
+
+.payment_delivery_method select {
+    border: none;
+    border-bottom: 2px solid cyan;
+    background-color: #1b1b1b;
+    width: 300px;
+    height: 30px;
+    color: white;
+    padding-left: 8px;
+}

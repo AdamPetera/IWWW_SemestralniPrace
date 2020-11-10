@@ -109,6 +109,12 @@ body {
     margin-bottom: 20px;
 }
 
+.payment_wrapper {
+    width: 99%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .edit_profile_form_wrap {
     width: 99%;
     margin-top: 20px;
