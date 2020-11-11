@@ -70,3 +70,15 @@
     color: white;
     padding-left: 8px;
 }
+
+.cart_button .button input {
+    border: none;
+    border-bottom: 2px solid cyan;
+    background-color: #1b1b1b;
+    width: 200px;
+    height: 30px;
+    color: white;
+    padding-left: 8px;
+    float: right;
+    cursor: pointer;
+}

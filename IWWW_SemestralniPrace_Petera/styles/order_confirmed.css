@@ -1,0 +1,14 @@
+.order_confirmed_wrap h3 {
+    margin-top: 20px;
+}
+
+.order_confirmed_wrap p {
+    margin-top: 20px;
+}
+
+.order_confirmed_wrap a {
+    font-weight: bolder;
+    color: #1b1b1b;
+    text-decoration: underline solid cyan;
+    text-transform: uppercase;
+}

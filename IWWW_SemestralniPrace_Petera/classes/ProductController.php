@@ -82,5 +82,25 @@ class ProductController
         $stmt->execute();
     }
 
+    static function getProductPrice($product_id) {
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("SELECT price FROM product
+                                            WHERE product_id = '$product_id'");
+
+        $stmt->execute();
+        return $stmt->fetchColumn();
+    }
+
+    static function getAllProductsByIds($product_ids_and_keys) {
+        $conn = Connection::getPdoInstance();
+        $array_to_question_marks = implode(',', array_fill(0, count($product_ids_and_keys), '?'));
+        $stmt = $conn->prepare('SELECT * FROM product WHERE product_id IN (' . $array_to_question_marks . ')');
+        (int) $i = 1;
+        foreach ($product_ids_and_keys as $k => $id)
+            $stmt->bindValue(($i++), $k);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
 
 }

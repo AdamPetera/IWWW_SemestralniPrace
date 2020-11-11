@@ -78,4 +78,11 @@ class CartHasProductsController
         return $product_ids_and_keys;
     }
 
+    static function deleteAllCartProducts($conn, $cart_id) {
+        $stmt = $conn->prepare("DELETE FROM cart_has_products WHERE cart_id = :cart_id");
+        $stmt->bindParam(':cart_id', $cart_id);
+
+        $stmt->execute();
+    }
+
 }

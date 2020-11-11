@@ -55,13 +55,7 @@ $products = array();
 $subtotal = 0.00;
 
 if ($product_ids_and_keys) {
-    $array_to_question_marks = implode(',', array_fill(0, count($product_ids_and_keys), '?'));
-    $stmt = $conn->prepare('SELECT * FROM product WHERE product_id IN (' . $array_to_question_marks . ')');
-    (int) $i = 1;
-    foreach ($product_ids_and_keys as $k => $id)
-        $stmt->bindValue(($i++), $k);
-    $stmt->execute();
-    $products = $stmt->fetchAll();
+    $products = ProductController::getAllProductsByIds($product_ids_and_keys);
     foreach ($products as $product) {
         $subtotal += (float)$product['price'] * (int)$product_ids_and_keys[$product['product_id']];
     }

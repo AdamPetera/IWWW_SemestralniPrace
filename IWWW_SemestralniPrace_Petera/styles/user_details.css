@@ -192,3 +192,38 @@
     box-shadow: 0 0 5px #33ffff,
     0 0 5px #66ffff;
 }
+
+.orders_wrap {
+    margin-top: 20px;
+}
+
+.orders_wrap h2 {
+    text-align: center;
+    text-decoration: underline cyan;
+}
+
+.orders_wrap table {
+    width: 100%;
+}
+
+.orders_wrap table thead td {
+    padding: 30px 0;
+    border-bottom: 1px solid cyan;
+}
+
+.orders_wrap table tbody td {
+    padding: 20px 0;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.orders_wrap table .price {
+    color: #999999;
+}
+
+.orders_wrap table a {
+    text-decoration: none;
+    color: white;
+}
+.orders_wrap table a:hover {
+    color: cyan;
+}

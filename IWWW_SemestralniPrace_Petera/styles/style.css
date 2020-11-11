@@ -137,6 +137,18 @@ body {
     margin-bottom: 20px;
 }
 
+.order_confirmed_wrapper {
+    width: 99%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.order_detail_wrapper {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .table_wrapper {
     width: 100%;
     margin-top: 20px;

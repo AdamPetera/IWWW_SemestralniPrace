@@ -19,6 +19,8 @@ $row = $result["row"];
 $addressAndRowcount = AddressController::getUsersAddress($row['user_id']);
 $addressRowCount = $addressAndRowcount['rowCount'];
 $address = $addressAndRowcount['row'];
+$orders = OrderController::getAllUsersOrders($_SESSION['row']['user_id']);
+
 
 if (isset($_POST["updateProfile"])) {
     $variableArray = UserController::setVariables($_POST, $row);
@@ -82,6 +84,41 @@ if (isset($_POST['updateAddress'])) {
                 }
             ?>
         </div>
+    </div>
+    <div class="orders_wrap">
+        <h2>Vaše objednávky</h2>
+        <form method="post">
+            <table>
+                <thead class="t_head">
+                <tr>
+                    <td>Číslo objednávky</td>
+                    <td>Cena</td>
+                    <td>Datum</td>
+                    <td>Detail</td>
+                </tr>
+                </thead>
+                <tbody class="t_body">
+                <?php if (empty($orders)): ?>
+                    <tr>
+                        <td colspan="4" style="text-align: center">Nemáte zatím žádné objednávky</td>
+                    </tr>
+                <?php else: ?>
+                    <?php foreach ($orders as $order): ?>
+                        <tr>
+                            <td class="order_number">
+                                <a href="index.php?page=order_detail&order_number=<?=$order['order_number']?>"><?=$order['order_number']?></a>
+                            </td>
+                            <td class="price"><?=$order['price']?> Kč</td>
+                            <td class="order_date"><?=$order['order_date']?></td>
+                            <td class="detail_button">
+                                <a href="index.php?page=order_detail&order_number=<?=$order['order_number']?>">Detail objednávky</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                </tbody>
+            </table>
+        </form>
     </div>
     <div class="edit_profile_form_wrap">
         <div class="edit_profile_form">
