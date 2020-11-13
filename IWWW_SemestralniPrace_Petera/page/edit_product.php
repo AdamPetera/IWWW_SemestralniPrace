@@ -31,11 +31,17 @@ if (isset($_SESSION['role'])) {
             $attribute_id = (int) AttributesController::getAttributeId($_POST['select']);
             if ($attribute_id) {
                 ProductHasAttributesController::insertPHA($product_id, $attribute_id, $_POST['value']);
+                echo '<script type="text/javascript">
+                                window.location = "index.php?page=edit_product&product_id='.$product_id.'"
+                            </script>';
             }
         }
 
         if (isset($_GET['remove']) && is_numeric($_GET['remove'])) {
             ProductHasAttributesController::deleteAttribute($product_id, $_GET['remove'], $_GET['value']);
+            echo '<script type="text/javascript">
+                                window.location = "index.php?page=edit_product&product_id='.$product_id.'"
+                            </script>';
         }
 
     } else {
@@ -101,7 +107,7 @@ if (isset($_SESSION['role'])) {
             </form>
         </div>
     </div>
-    <form method="post">
+    <form method="post" class="table_wrap">
         <table>
             <thead class="t_head">
             <tr>
