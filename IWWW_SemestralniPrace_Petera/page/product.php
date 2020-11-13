@@ -10,9 +10,7 @@
 <?php
     $conn = Connection::getPdoInstance();
     if (isset($_GET['id'])) {
-        $stmt = $conn->prepare('SELECT * FROM product WHERE product_id = ?');
-        $stmt->execute([$_GET['id']]);
-        $product = $stmt->fetch(PDO::FETCH_ASSOC);
+        $product = ProductController::getProductById($conn, $_GET['id']);
 
         if (!$product) {
             die ("Produkt neexistuje");
@@ -21,13 +19,23 @@
         die ("Produkt neexistuje");
     }
 
+    $category = ProductController::getProductCategory($_GET['id']);
+    $attributes = ProductController::getAllProductAttributes($_GET['id']);
+    $length_attributes = $holding_attributes = array();
+    foreach ($attributes as $at) {
+        if ($at['name'] == 'length') {
+            array_push($length_attributes, (int) $at['value']);
+        } elseif ($at['name'] == 'holding') {
+            array_push($holding_attributes, $at['value']);
+        }
+    }
 ?>
 
 <div class="product_detail_wrap">
     <div class="product_wrap">
         <?php
         $image = ProductImageController::getProductImage($product['product_id'], 'main');
-        if (strpos($product["description"], 'Florbalka') !== false) {
+        if (strpos($category, 'stick') !== false) {
             ?>
             <img src="<?=$image?>" width="600" height="250" class="product_stick_img" alt="<?=$product['name']?>">
             <?php
@@ -43,13 +51,28 @@
                 <?=$product['price']?> Kč
             </span>
             <form action="index.php?page=cart" method="post">
-                <input type="number" name="quantity" value="1" min="1"" placeholder="Quantity" required>
+                <?php if (!empty($length_attributes)): ?>
+                    <select name="length_atrs" class="length_attributes">
+                        <?php foreach ($length_attributes as $la): ?>
+                            <option value="<?=$la?>"><?=$la?> cm</option>
+                        <?php endforeach; ?>
+                    </select>
+                <?php endif; ?>
+                <?php if (!empty($holding_attributes)): ?>
+                    <select name="holding_atrs" class="holding_attributes">
+                        <?php foreach ($holding_attributes as $ha): ?>
+                            <option value="<?=$ha?>"><?=$ha?></option>
+                        <?php endforeach; ?>
+                    </select>
+                <?php endif; ?>
+                <input type="number" name="quantity" value="1" min="1" placeholder="Quantity" required>
                 <input type="hidden" name="product_id" value="<?=$product['product_id']?>">
                 <input type="submit" name="add_to_basket" value="Přidat do košíku">
             </form>
-            <div class="description">
-                <?=$product['description']?>
-            </div>
         </div>
+    </div>
+    <div class="product_description">
+        <h2>Popis produktu</h2>
+        <p><?=$product['description']?></p>
     </div>
 </div>

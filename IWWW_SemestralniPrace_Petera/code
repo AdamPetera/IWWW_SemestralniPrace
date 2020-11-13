@@ -1,0 +1,20 @@
+// product code
+
+<div class="length_variants">
+                        <?php $i = 1?>
+                        <?php foreach ($length_attributes as $la): ?>
+                            <?php $id = 'rl' .$i++ ?>
+                            <input type="radio" name="radio_length" id="<?=$id?>" checked>
+                            <label for="<?=$id?>"><?=$la?> cm</label>
+                        <?php endforeach; ?>
+                    </div>
+
+<div class="holding_variants">
+                        <?php foreach ($holding_attributes as $ha): ?>
+                            <?php $id = 'rl' .$i++ ?>
+                            <input type="radio" name="radio_holding" id="<?=$id?>" checked>
+                            <label for="<?=$id?>"><?=$ha?></label>
+                        <?php endforeach; ?>
+                    </div>
+
+//

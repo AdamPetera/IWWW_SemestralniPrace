@@ -33,6 +33,10 @@
     margin-bottom: 20px;
 }
 
+.img img {
+    background-color: white;
+}
+
 .order_table {
     margin-top: 20px;
 }
