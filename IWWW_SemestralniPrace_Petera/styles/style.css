@@ -137,6 +137,12 @@ body {
     margin-bottom: 20px;
 }
 
+.edit_product_form_wrap {
+    width: 99%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .order_confirmed_wrapper {
     width: 99%;
     margin-top: 20px;

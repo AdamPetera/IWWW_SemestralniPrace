@@ -42,6 +42,10 @@ if (isset($_SESSION['role'])) {
                             ProductHasCategoryController::insert($last_inserted_product_id, $_POST['select']);
                             move_uploaded_file($file_tmp,"images/".$file_name);
                             $success_message = "Produkt úspěšně vložen";
+
+                            echo '<script type="text/javascript">
+                                window.location = "index.php?page=edit_product&product_id='.$last_inserted_product_id.'"
+                            </script>';
                         } else {
                             print_r($errors);
                         }

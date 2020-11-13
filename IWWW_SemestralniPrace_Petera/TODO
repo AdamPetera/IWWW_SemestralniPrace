@@ -1,4 +1,2 @@
-- platba s adresou
-- po platbe odstraneni polozek z kosiku
-- objednavka do databaze a vypis na profilu + rozklik na detail
-- tabulka adresy + predvyplnovani, pokud ma uzivatel zadanou adresu v databazi
+- kosik s atributy
+- vypis atributu u produktu

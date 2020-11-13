@@ -82,6 +82,20 @@ class ProductController
         $stmt->execute();
     }
 
+    static function updateProduct($product_id, $name, $description, $price) {
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("UPDATE product SET name = :name, description = :description, price = :price WHERE product_id = :product_id");
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':description', $description);
+        $stmt->bindParam(':price', $price);
+        $stmt->bindParam(':product_id', $product_id);
+
+        $stmt->execute();
+
+        return $stmt->rowCount();
+
+    }
+
     static function getProductPrice($product_id) {
         $conn = Connection::getPdoInstance();
         $stmt = $conn->prepare("SELECT price FROM product
@@ -128,4 +142,29 @@ class ProductController
         return $stmt->fetchColumn();
     }
 
+    static function setVariables($post, $row): array {
+        if (isset($post["name"])) {
+            if (!empty($post["name"])) {
+                $name = $post["name"];
+            } else {
+                $name = $row["name"];
+            }
+        }
+        if (isset($post["description"])) {
+            if (!empty($post["description"])) {
+                $description = $post["description"];
+            } else {
+                $description = $row["description"];
+            }
+        }
+        if (isset($post["price"])) {
+            if (!empty($post["price"])) {
+                $price = $post["price"];
+            } else {
+                $price = $row["price"];
+            }
+        }
+
+        return array('name' => $name, 'description' => $description, 'price' => $price);
+    }
 }

@@ -127,6 +127,11 @@
     color: white;
 }
 
+.edit_button a {
+    color: #1b1b1b;
+    text-decoration: underline cyan;
+}
+
 .holding_attributes {
     width: 60%;
     margin: 0 auto 10px auto;

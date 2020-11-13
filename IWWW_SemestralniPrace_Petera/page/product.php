@@ -32,6 +32,17 @@
 ?>
 
 <div class="product_detail_wrap">
+    <?php
+    if (isset($_SESSION["role"])) {
+        if ($_SESSION["role"] == "admin") {
+            ?>
+                <div class="edit_button">
+                    <p><a href="index.php?page=edit_product&product_id=<?=$_GET['id']?>">Editovat produkt</a></p>
+                </div>
+            <?php
+        }
+    }
+    ?>
     <div class="product_wrap">
         <?php
         $image = ProductImageController::getProductImage($product['product_id'], 'main');

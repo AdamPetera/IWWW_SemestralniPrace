@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="styles/payment.css">
     <link rel="stylesheet" href="styles/order_confirmed.css">
     <link rel="stylesheet" href="styles/order_detail.css">
+    <link rel="stylesheet" href="styles/edit_product.css">
     <link rel="stylesheet" href="styles/style.css">
     <script src="https://kit.fontawesome.com/cb337acf51.js" crossorigin="anonymous"></script>
 </head>
