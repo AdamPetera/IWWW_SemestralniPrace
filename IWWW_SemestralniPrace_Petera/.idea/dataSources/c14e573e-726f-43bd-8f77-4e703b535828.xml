@@ -5101,338 +5101,333 @@
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="1232" parent="416" name="attributes">
-      <Position>4</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <index id="1233" parent="416" name="cart_id">
+    <index id="1232" parent="416" name="cart_id">
       <ColNames>cart_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1234" parent="416" name="product_id">
+    <index id="1233" parent="416" name="product_id">
       <ColNames>product_id</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="1235" parent="416" name="cart_has_products_ibfk_1">
+    <foreign-key id="1234" parent="416" name="cart_has_products_ibfk_1">
       <ColNames>cart_id</ColNames>
       <RefTableName>cart</RefTableName>
       <RefColNames>cart_id</RefColNames>
     </foreign-key>
-    <foreign-key id="1236" parent="416" name="cart_has_products_ibfk_2">
+    <foreign-key id="1235" parent="416" name="cart_has_products_ibfk_2">
       <ColNames>product_id</ColNames>
       <RefTableName>product</RefTableName>
       <RefColNames>product_id</RefColNames>
     </foreign-key>
-    <column id="1237" parent="417" name="category_id">
+    <column id="1236" parent="417" name="category_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="1238" parent="417" name="identifier">
+    <column id="1237" parent="417" name="identifier">
       <Position>2</Position>
       <DataType>varchar(25)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="1239" parent="417" name="name">
+    <column id="1238" parent="417" name="name">
       <Position>3</Position>
       <DataType>varchar(25)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="1240" parent="417" name="PRIMARY">
+    <key id="1239" parent="417" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>category_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="1241" parent="418" name="order_id">
+    <column id="1240" parent="418" name="order_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="1242" parent="418" name="user_id">
+    <column id="1241" parent="418" name="user_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="1243" parent="418" name="price">
+    <column id="1242" parent="418" name="price">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="1244" parent="418" name="order_number">
+    <column id="1243" parent="418" name="order_number">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="1245" parent="418" name="order_date">
+    <column id="1244" parent="418" name="order_date">
       <Position>5</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="1246" parent="418" name="user_id">
+    <index id="1245" parent="418" name="user_id">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1247" parent="418" name="PRIMARY">
+    <key id="1246" parent="418" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>order_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="1248" parent="418" name="order_ibfk_1">
+    <foreign-key id="1247" parent="418" name="order_ibfk_1">
       <ColNames>user_id</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>user_id</RefColNames>
     </foreign-key>
-    <column id="1249" parent="419" name="order_id">
+    <column id="1248" parent="419" name="order_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="1250" parent="419" name="product_id">
+    <column id="1249" parent="419" name="product_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="1251" parent="419" name="price">
+    <column id="1250" parent="419" name="price">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="1252" parent="419" name="quantity">
+    <column id="1251" parent="419" name="quantity">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="1253" parent="419" name="order_id">
+    <index id="1252" parent="419" name="order_id">
       <ColNames>order_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1254" parent="419" name="product_id">
+    <index id="1253" parent="419" name="product_id">
       <ColNames>product_id</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="1255" parent="419" name="order_has_products_ibfk_1">
+    <foreign-key id="1254" parent="419" name="order_has_products_ibfk_1">
       <ColNames>order_id</ColNames>
       <RefTableName>order</RefTableName>
       <RefColNames>order_id</RefColNames>
     </foreign-key>
-    <foreign-key id="1256" parent="419" name="order_has_products_ibfk_2">
+    <foreign-key id="1255" parent="419" name="order_has_products_ibfk_2">
       <ColNames>product_id</ColNames>
       <RefTableName>product</RefTableName>
       <RefColNames>product_id</RefColNames>
     </foreign-key>
-    <column id="1257" parent="420" name="product_id">
+    <column id="1256" parent="420" name="product_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="1258" parent="420" name="name">
+    <column id="1257" parent="420" name="name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="1259" parent="420" name="description">
+    <column id="1258" parent="420" name="description">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="1260" parent="420" name="price">
+    <column id="1259" parent="420" name="price">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="1261" parent="420" name="PRIMARY">
+    <key id="1260" parent="420" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>product_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="1262" parent="421" name="product_id">
+    <column id="1261" parent="421" name="product_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="1263" parent="421" name="attribute_id">
+    <column id="1262" parent="421" name="attribute_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="1264" parent="421" name="value">
+    <column id="1263" parent="421" name="value">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
     </column>
-    <index id="1265" parent="421" name="product_id">
+    <index id="1264" parent="421" name="product_id">
       <ColNames>product_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1266" parent="421" name="attribute_id">
+    <index id="1265" parent="421" name="attribute_id">
       <ColNames>attribute_id</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="1267" parent="421" name="product_has_attributes_ibfk_1">
+    <foreign-key id="1266" parent="421" name="product_has_attributes_ibfk_1">
       <ColNames>product_id</ColNames>
       <RefTableName>product</RefTableName>
       <RefColNames>product_id</RefColNames>
     </foreign-key>
-    <foreign-key id="1268" parent="421" name="product_has_attributes_ibfk_2">
+    <foreign-key id="1267" parent="421" name="product_has_attributes_ibfk_2">
       <ColNames>attribute_id</ColNames>
       <RefTableName>attribute</RefTableName>
       <RefColNames>attribute_id</RefColNames>
     </foreign-key>
-    <column id="1269" parent="422" name="category_id">
+    <column id="1268" parent="422" name="category_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="1270" parent="422" name="product_id">
+    <column id="1269" parent="422" name="product_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="1271" parent="422" name="category_id">
+    <index id="1270" parent="422" name="category_id">
       <ColNames>category_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1272" parent="422" name="product_id">
+    <index id="1271" parent="422" name="product_id">
       <ColNames>product_id</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="1273" parent="422" name="product_has_category_ibfk_1">
+    <foreign-key id="1272" parent="422" name="product_has_category_ibfk_1">
       <ColNames>category_id</ColNames>
       <RefTableName>category</RefTableName>
       <RefColNames>category_id</RefColNames>
     </foreign-key>
-    <foreign-key id="1274" parent="422" name="product_has_category_ibfk_2">
+    <foreign-key id="1273" parent="422" name="product_has_category_ibfk_2">
       <ColNames>product_id</ColNames>
       <RefTableName>product</RefTableName>
       <RefColNames>product_id</RefColNames>
     </foreign-key>
-    <column id="1275" parent="423" name="product_image_id">
+    <column id="1274" parent="423" name="product_image_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="1276" parent="423" name="name">
+    <column id="1275" parent="423" name="name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="1277" parent="423" name="description">
+    <column id="1276" parent="423" name="description">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="1278" parent="423" name="image">
+    <column id="1277" parent="423" name="image">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="1279" parent="423" name="product_id">
+    <column id="1278" parent="423" name="product_id">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="1280" parent="423" name="product_id">
+    <index id="1279" parent="423" name="product_id">
       <ColNames>product_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1281" parent="423" name="PRIMARY">
+    <key id="1280" parent="423" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>product_image_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="1282" parent="423" name="product_image_ibfk_1">
+    <foreign-key id="1281" parent="423" name="product_image_ibfk_1">
       <ColNames>product_id</ColNames>
       <RefTableName>product</RefTableName>
       <RefColNames>product_id</RefColNames>
     </foreign-key>
-    <column id="1283" parent="424" name="role_id">
+    <column id="1282" parent="424" name="role_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="1284" parent="424" name="name">
+    <column id="1283" parent="424" name="name">
       <Position>2</Position>
       <DataType>varchar(25)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="1285" parent="424" name="PRIMARY">
+    <key id="1284" parent="424" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>role_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="1286" parent="425" name="user_id">
+    <column id="1285" parent="425" name="user_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="1287" parent="425" name="firstname">
+    <column id="1286" parent="425" name="firstname">
       <Position>2</Position>
       <DataType>varchar(25)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="1288" parent="425" name="lastname">
+    <column id="1287" parent="425" name="lastname">
       <Position>3</Position>
       <DataType>varchar(25)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="1289" parent="425" name="email">
+    <column id="1288" parent="425" name="email">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="1290" parent="425" name="phone">
+    <column id="1289" parent="425" name="phone">
       <Position>5</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="1291" parent="425" name="password">
+    <column id="1290" parent="425" name="password">
       <Position>6</Position>
       <DataType>varchar(250)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="1292" parent="425" name="user_email_uindex">
+    <index id="1291" parent="425" name="user_email_uindex">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="1293" parent="425" name="PRIMARY">
+    <key id="1292" parent="425" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="1294" parent="425" name="user_email_uindex">
+    <key id="1293" parent="425" name="user_email_uindex">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>user_email_uindex</UnderlyingIndexName>
     </key>
-    <column id="1295" parent="426" name="user_id">
+    <column id="1294" parent="426" name="user_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="1296" parent="426" name="role_id">
+    <column id="1295" parent="426" name="role_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="1297" parent="426" name="user_id">
+    <index id="1296" parent="426" name="user_id">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1298" parent="426" name="role_id">
+    <index id="1297" parent="426" name="role_id">
       <ColNames>role_id</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="1299" parent="426" name="user_has_role_ibfk_1">
+    <foreign-key id="1298" parent="426" name="user_has_role_ibfk_1">
       <ColNames>user_id</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>user_id</RefColNames>
     </foreign-key>
-    <foreign-key id="1300" parent="426" name="user_has_role_ibfk_2">
+    <foreign-key id="1299" parent="426" name="user_has_role_ibfk_2">
       <ColNames>role_id</ColNames>
       <RefTableName>role</RefTableName>
       <RefColNames>role_id</RefColNames>

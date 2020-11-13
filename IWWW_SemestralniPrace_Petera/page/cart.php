@@ -21,10 +21,9 @@ if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['produc
     $product = ProductController::getProductById($conn, $product_id);
 
     if ($product && $quantity > 0) {
-        $attributes = 'Délka: ' . $_POST['length_atrs'] . 'cm, držení: ' . $_POST['holding_atrs'];
         if (isset($_POST['add_to_basket'])) {
             if (isset($_SESSION['email'])) {
-                CartHasProductsController::insertOrUpdate($conn, $cart_id, $product['product_id'], $quantity, $attributes);
+                CartHasProductsController::insertOrUpdate($conn, $cart_id, $product['product_id'], $quantity);
             } else {
                 include "login_form.php";
                 exit();

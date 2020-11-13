@@ -20,14 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c2ad563-02c3-4ff8-a6e3-502d766f109e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c14e573e-726f-43bd-8f77-4e703b535828.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c14e573e-726f-43bd-8f77-4e703b535828.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/CartHasProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/CartHasProductsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/cart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/order_detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/order_detail.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/product.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
