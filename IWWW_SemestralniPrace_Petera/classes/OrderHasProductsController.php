@@ -55,4 +55,11 @@ class OrderHasProductsController
 
         return $product_ids_and_prices;
     }
+
+    static function removeAllProductFromOrder($product_id) {
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("DELETE FROM order_has_products WHERE product_id = :product_id");
+        $stmt->bindParam(':product_id', $product_id);
+        $stmt->execute();
+    }
 }

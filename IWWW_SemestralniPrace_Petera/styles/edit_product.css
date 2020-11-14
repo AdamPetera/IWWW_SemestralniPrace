@@ -156,6 +156,10 @@
     padding-top: 1px;
 }
 
+.selection {
+    margin-bottom: 10px;
+}
+
 .table_wrap table .remove:hover {
     text-decoration: underline;
 }

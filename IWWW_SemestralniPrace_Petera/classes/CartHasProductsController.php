@@ -84,4 +84,11 @@ class CartHasProductsController
         $stmt->execute();
     }
 
+    static function removeProductFromAllCarts($product_id) {
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("DELETE FROM cart_has_products WHERE product_id = :product_id");
+        $stmt->bindParam(':product_id', $product_id);
+        $stmt->execute();
+    }
+
 }

@@ -167,4 +167,16 @@ class ProductController
 
         return array('name' => $name, 'description' => $description, 'price' => $price);
     }
+
+    static function deleteProduct($product_id) {
+        CartHasProductsController::removeProductFromAllCarts($product_id);
+        ProductHasAttributesController::removeAllProductAttributes($product_id);
+        OrderHasProductsController::removeAllProductFromOrder($product_id);
+        ProductHasCategoryController::removeCategoryOfProduct($product_id);
+        ProductImageController::removeAllImagesOfProduct($product_id);
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("DELETE FROM product WHERE product_id = :product_id");
+        $stmt->bindParam(':product_id', $product_id);
+        $stmt->execute();
+    }
 }

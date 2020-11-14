@@ -21,7 +21,19 @@
   <component name="ChangeListManager">
     <list default="true" id="6c2ad563-02c3-4ff8-a6e3-502d766f109e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/CartHasProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/CartHasProductsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/OrderHasProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/OrderHasProductsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/ProductHasAttributesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/ProductHasAttributesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/ProductHasCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/ProductHasCategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/ProductImageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/ProductImageController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/edit_product.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/edit_product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/cart.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/edit_product.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/edit_product.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/product.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/shopitems.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/shopitems.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +117,8 @@
       <workItem from="1604996388263" duration="5521000" />
       <workItem from="1605096347016" duration="15659000" />
       <workItem from="1605264193720" duration="11232000" />
-      <workItem from="1605295328708" duration="488000" />
+      <workItem from="1605295328708" duration="848000" />
+      <workItem from="1605347750295" duration="9312000" />
     </task>
     <servers />
   </component>
@@ -220,10 +233,10 @@
     <state x="-1019" y="82" width="671" height="735" key="find.popup/-1440.0.1440.900/0.0.1920.1080@-1440.0.1440.900" timestamp="1604156660546" />
     <state x="313" y="93" width="1371" height="883" key="find.popup/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1605275344221" />
     <state x="561" y="119" width="895" height="864" key="find.popup/-1440.23.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1604164592690" />
-    <state width="600" height="428" key="javadoc.popup" timestamp="1603903009237">
+    <state width="600" height="428" key="javadoc.popup" timestamp="1605360006934">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="600" height="428" key="javadoc.popup/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1603903009237" />
+    <state width="600" height="428" key="javadoc.popup/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1605360006934" />
     <state x="625" y="161" key="run.anything.popup" timestamp="1605265535425">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>

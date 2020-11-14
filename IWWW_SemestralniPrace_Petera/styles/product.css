@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 75%;
+    width: 99%;
     margin: auto;
 }
 
@@ -20,6 +20,7 @@
 .product_img {
     border-radius: 10px;
     border: 4px solid #1b1b1b;
+    background-color: white;
 }
 .product_stick_img {
     border-radius: 10px;
@@ -87,39 +88,9 @@
     text-decoration: underline cyan;
 }
 
-/*.length_variants,*/
-/*.holding_variants {*/
-/*    margin-bottom: 10px;*/
-/*}*/
-
-/*.length_variants input[type="radio"],*/
-/*.holding_variants input[type="radio"] {*/
-/*    opacity: 0;*/
-/*    position: fixed;*/
-/*    width: 0;*/
-/*}*/
-
-/*.length_variants label,*/
-/*.holding_variants label {*/
-/*    display: inline-block;*/
-/*    background-color: #ddd;*/
-/*    padding: 10px 20px;*/
-/*    font-size: 16px;*/
-/*    border: 2px solid #444;*/
-/*    border-radius: 4px;*/
-/*    cursor: pointer;*/
-/*}*/
-
-/*.length_variants input[type="radio"]:checked + label,*/
-/*.holding_variants input[type="radio"]:checked + label {*/
-/*    background-color:#1b1b1b;*/
-/*    border-color: cyan;*/
-/*    color: white;*/
-/*}*/
-
 .length_attributes {
-    width: 60%;
-    margin: 0 auto 10px auto;
+    width: 40%;
+    margin-bottom: 10px;
     height: 40px;
     border: 2px solid cyan;
     border-radius: 10px;
@@ -132,14 +103,64 @@
     text-decoration: underline cyan;
 }
 
+.edit_button {
+    width: 150px;
+}
+
+.delete_form {
+    width: 150px;
+}
+
+.delete_form input {
+    width: 100%;
+    border: 1px solid cyan;
+    background-color: #1b1b1b;
+    color: white;
+    cursor: pointer;
+}
+
 .holding_attributes {
-    width: 60%;
-    margin: 0 auto 10px auto;
+    width: 40%;
+    margin-bottom: 10px;
     height: 40px;
     border: 2px solid cyan;
     border-radius: 10px;
     background-color: #1b1b1b;
     color: white;
+}
+
+.size_attributes {
+    width: 40%;
+    margin-bottom: 10px;
+    height: 40px;
+    border: 2px solid cyan;
+    border-radius: 10px;
+    background-color: #1b1b1b;
+    color: white;
+}
+
+.additional_attributes h3 {
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+    text-decoration: underline cyan;
+}
+
+.additional_attributes {
+    margin-top: 20px;
+    width: 100%;
+    background-color: rgba(27, 27, 27, 0.2);
+    padding-bottom: 20px;
+}
+
+.aa_list {
+    padding-left: 20px;
+}
+
+.editors_buttons {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
 }
 
 @media (max-width: 1987px) {

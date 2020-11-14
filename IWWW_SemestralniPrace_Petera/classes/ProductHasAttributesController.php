@@ -37,4 +37,11 @@ class ProductHasAttributesController
 
         $stmt->execute();
     }
+
+    static function removeAllProductAttributes($product_id) {
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("DELETE FROM product_has_attributes WHERE product_id = :product_id");
+        $stmt->bindParam(':product_id', $product_id);
+        $stmt->execute();
+    }
 }

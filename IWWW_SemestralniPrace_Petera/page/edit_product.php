@@ -21,8 +21,9 @@ if (isset($_SESSION['role'])) {
 
         if (isset($_POST['update'])) {
             $variables_array = ProductController::setVariables($_POST, $product);
-            $updateRowCount = ProductController::updateProduct($product_id, $_POST['name'], $_POST['description'], $_POST['price']);
-            if ($updateRowCount != 0) {
+            $updateProductRowCount = ProductController::updateProduct($product_id, $_POST['name'], $_POST['description'], $_POST['price']);
+            $updateProductCategoryRowCount = ProductHasCategoryController::updateProductCategory($product_id, $_POST['select']);
+            if (($updateProductRowCount + $updateProductCategoryRowCount) == 2) {
                 $success_message = 'Produkt úspěšně zeditován';
             }
         }
@@ -53,6 +54,17 @@ if (isset($_SESSION['role'])) {
 ?>
 
 <div class="edit_product_form_wrap">
+    <?php
+    if (isset($_SESSION["role"])) {
+        if ($_SESSION["role"] == "admin") {
+            ?>
+            <div class="edit_button">
+                <p><a href="index.php?page=product&id=<?=$_GET['product_id']?>">Zpět na produkt</a></p>
+            </div>
+            <?php
+        }
+    }
+    ?>
     <div class="forms">
         <div class="edit_product_form">
             <h1>Editace produktu</h1>
@@ -71,6 +83,15 @@ if (isset($_SESSION['role'])) {
                     <input type="number" name="price" min="0" value="<?=$product['price']?>">
                     <span></span>
                     <label>Cena produktu</label>
+                </div>
+                <div class="selection">
+                    <select name="select" required>
+                        <?php
+                        foreach (CategoryController::getAllCategories() as $cat) {
+                            echo '<option value="'.$cat['name'].'">'.$cat['name'].'</option>';
+                        }
+                        ?>
+                    </select>
                 </div>
                 <div class="save_button">
                     <input name="update" type="submit" value="Uložit do databáze" class="save">

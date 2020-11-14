@@ -29,11 +29,14 @@
 
 .cart table .img {
     width: 100px;
+    height: 100px;
 }
 
 .cart table .img img {
     border: 1px solid cyan;
     background-color: white;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .cart table .remove {

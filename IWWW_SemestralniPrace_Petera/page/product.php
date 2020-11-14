@@ -12,6 +12,17 @@
     if (isset($_GET['id'])) {
         $product = ProductController::getProductById($conn, $_GET['id']);
 
+        if (isset($_SESSION["role"])) {
+            if ($_SESSION["role"] == "admin") {
+                if (isset($_POST['remove'])) {
+                    ProductController::deleteProduct($_GET['id']);
+                    echo '<script type="text/javascript">
+                                window.location = "index.php"
+                            </script>';
+                }
+            }
+        }
+
         if (!$product) {
             die ("Produkt neexistuje");
         }
@@ -21,14 +32,21 @@
 
     $category = ProductController::getProductCategory($_GET['id']);
     $attributes = ProductController::getAllProductAttributes($_GET['id']);
-    $length_attributes = $holding_attributes = array();
+    $length_attributes = $holding_attributes = $size_attributes = $additional_attributes = array();
     foreach ($attributes as $at) {
         if ($at['name'] == 'length') {
             array_push($length_attributes, (int) $at['value']);
         } elseif ($at['name'] == 'holding') {
             array_push($holding_attributes, $at['value']);
+        } elseif ($at['name'] == 'size') {
+            array_push($size_attributes, $at['value']);
+        } else {
+            array_push($additional_attributes, [0 => $at['human_readable'],
+                                                            1 => $at['value']]);
         }
     }
+
+
 ?>
 
 <div class="product_detail_wrap">
@@ -36,8 +54,13 @@
     if (isset($_SESSION["role"])) {
         if ($_SESSION["role"] == "admin") {
             ?>
-                <div class="edit_button">
-                    <p><a href="index.php?page=edit_product&product_id=<?=$_GET['id']?>">Editovat produkt</a></p>
+                <div class="editors_buttons">
+                    <div class="edit_button">
+                        <p><a href="index.php?page=edit_product&product_id=<?=$_GET['id']?>">Editovat produkt</a></p>
+                    </div>
+                    <form method="post" class="delete_form">
+                        <input class="delete_button" name="remove" type="submit" value="Smazat produkt">
+                    </form>
                 </div>
             <?php
         }
@@ -69,6 +92,13 @@
                         <?php endforeach; ?>
                     </select>
                 <?php endif; ?>
+                <?php if (!empty($size_attributes)): ?>
+                    <select name="size_atrs" class="size_attributes">
+                        <?php foreach ($size_attributes as $sa): ?>
+                            <option value="<?=$sa?>"><?=$sa?></option>
+                        <?php endforeach; ?>
+                    </select>
+                <?php endif; ?>
                 <?php if (!empty($holding_attributes)): ?>
                     <select name="holding_atrs" class="holding_attributes">
                         <?php foreach ($holding_attributes as $ha): ?>
@@ -82,6 +112,16 @@
             </form>
         </div>
     </div>
+    <?php if (!empty($additional_attributes)): ?>
+        <div class="additional_attributes">
+            <h3>Ostatní parametry</h3>
+            <ul class="aa_list">
+                <?php foreach ($additional_attributes as $aa): ?>
+                    <li class="aa_element"><?=ucfirst($aa[0])?>: <?=ucfirst($aa[1])?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
     <div class="product_description">
         <h2>Popis produktu</h2>
         <p><?=$product['description']?></p>

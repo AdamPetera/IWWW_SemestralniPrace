@@ -27,4 +27,11 @@ class ProductImageController
 
         $stmt->execute();
     }
+
+    static function removeAllImagesOfProduct($product_id) {
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("DELETE FROM product_image WHERE product_id = :product_id");
+        $stmt->bindParam(':product_id', $product_id);
+        $stmt->execute();
+    }
 }
