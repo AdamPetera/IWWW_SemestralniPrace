@@ -24,16 +24,12 @@
       <change beforePath="$PROJECT_DIR$/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/CartHasProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/CartHasProductsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/OrderHasProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/OrderHasProductsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/ProductHasAttributesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/ProductHasAttributesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/ProductHasCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/ProductHasCategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/ProductImageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/ProductImageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/edit_product.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/edit_product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/cart.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/edit_product.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/edit_product.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/product.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sidemenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/sidemenu.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/shopitems.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/shopitems.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/sidemenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/sidemenu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +114,8 @@
       <workItem from="1605096347016" duration="15659000" />
       <workItem from="1605264193720" duration="11232000" />
       <workItem from="1605295328708" duration="848000" />
-      <workItem from="1605347750295" duration="9312000" />
+      <workItem from="1605347750295" duration="9775000" />
+      <workItem from="1605438717122" duration="4333000" />
     </task>
     <servers />
   </component>
@@ -167,32 +164,32 @@
       <screen x="-1440" y="0" width="1440" height="900" />
     </state>
     <state x="-982" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.900/0.0.1920.1080@-1440.0.1440.900" timestamp="1604143992130" />
-    <state width="1830" height="305" key="GridCell.Tab.0.bottom" timestamp="1605290743623">
+    <state width="1830" height="305" key="GridCell.Tab.0.bottom" timestamp="1605443329916">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1830" height="305" key="GridCell.Tab.0.bottom/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1605290743623" />
-    <state width="1830" height="305" key="GridCell.Tab.0.center" timestamp="1605290743621">
+    <state width="1830" height="305" key="GridCell.Tab.0.bottom/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1605443329916" />
+    <state width="1830" height="305" key="GridCell.Tab.0.center" timestamp="1605443329915">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1830" height="305" key="GridCell.Tab.0.center/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1605290743621" />
-    <state width="1830" height="305" key="GridCell.Tab.0.left" timestamp="1605290743620">
+    <state width="1830" height="305" key="GridCell.Tab.0.center/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1605443329915" />
+    <state width="1830" height="305" key="GridCell.Tab.0.left" timestamp="1605443329914">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1830" height="305" key="GridCell.Tab.0.left/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1605290743620" />
-    <state width="1830" height="305" key="GridCell.Tab.0.right" timestamp="1605290743622">
+    <state width="1830" height="305" key="GridCell.Tab.0.left/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1605443329914" />
+    <state width="1830" height="305" key="GridCell.Tab.0.right" timestamp="1605443329915">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1830" height="305" key="GridCell.Tab.0.right/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1605290743622" />
+    <state width="1830" height="305" key="GridCell.Tab.0.right/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1605443329915" />
     <state x="361" y="220" key="NewPhpClassDialog" timestamp="1605267418986">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="-1169" y="183" key="NewPhpClassDialog/-1440.0.1440.900/0.0.1920.1080@-1440.0.1440.900" timestamp="1604159270240" />
     <state x="361" y="220" key="NewPhpClassDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1605267418986" />
-    <state x="783" y="470" key="NewPhpFileDialog" timestamp="1605285096464">
+    <state x="783" y="470" key="NewPhpFileDialog" timestamp="1605439685698">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="-853" y="392" key="NewPhpFileDialog/-1440.0.1440.900/0.0.1920.1080@-1440.0.1440.900" timestamp="1604156785540" />
-    <state x="783" y="470" key="NewPhpFileDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1605285096464" />
+    <state x="783" y="470" key="NewPhpFileDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1605439685698" />
     <state x="783" y="483" key="NewPhpFileDialog/-1440.23.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1604163605566" />
     <state x="867" y="424" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1604054023275">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -210,10 +207,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="746" y="367" width="428" height="341" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604172598581" />
-    <state x="694" y="432" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1605290420429">
+    <state x="694" y="432" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1605443290510">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="694" y="432" key="com.intellij.database.run.ParametersPanel.Standalone/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1605290420429" />
+    <state x="694" y="432" key="com.intellij.database.run.ParametersPanel.Standalone/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1605443290510" />
     <state x="498" y="207" width="840" height="671" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1605282894429">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -227,11 +224,11 @@
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="303" y="0" width="1617" height="1080" key="dock-window-1/-1440.23.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1604061558001" />
-    <state x="313" y="93" width="1371" height="883" key="find.popup" timestamp="1605275344221">
+    <state x="313" y="93" width="1371" height="883" key="find.popup" timestamp="1605438826094">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="-1019" y="82" width="671" height="735" key="find.popup/-1440.0.1440.900/0.0.1920.1080@-1440.0.1440.900" timestamp="1604156660546" />
-    <state x="313" y="93" width="1371" height="883" key="find.popup/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1605275344221" />
+    <state x="313" y="93" width="1371" height="883" key="find.popup/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1605438826094" />
     <state x="561" y="119" width="895" height="864" key="find.popup/-1440.23.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1604164592690" />
     <state width="600" height="428" key="javadoc.popup" timestamp="1605360006934">
       <screen x="0" y="0" width="1920" height="1080" />

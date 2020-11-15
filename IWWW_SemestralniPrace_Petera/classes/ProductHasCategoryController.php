@@ -15,6 +15,7 @@ class ProductHasCategoryController
     }
 
     static function insert($product_id, $category) {
+        $conn = Connection::getPdoInstance();
         $category_id = self::getCategoryId($category);
 
         $stmt = $conn->prepare("INSERT INTO product_has_category (category_id, product_id) VALUES (:category_id, :product_id)");

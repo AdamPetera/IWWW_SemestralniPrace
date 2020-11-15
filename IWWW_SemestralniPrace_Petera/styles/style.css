@@ -30,6 +30,7 @@ body {
     float: right;
     width: 85%;
     height: 100%;
+    transition: .5s;
 }
 
 .content {

@@ -19,7 +19,7 @@ class OrderHasProductsController
             $stmt->execute();
         }
 
-        CartHasProductsController::deleteAllCartProducts($conn, $cart_id);
+        CartHasProductsController::deleteAllCartProducts($cart_id);
     }
 
     static function getAllOrderProductIds($order_id) {
