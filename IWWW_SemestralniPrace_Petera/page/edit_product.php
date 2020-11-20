@@ -94,7 +94,7 @@ if (isset($_SESSION['role'])) {
                     </select>
                 </div>
                 <div class="save_button">
-                    <input name="update" type="submit" value="Uložit do databáze" class="save">
+                    <input name="update" type="submit" value="Uložit do databáze" class="savebtn">
                 </div>
             </form>
         </div>
@@ -123,7 +123,7 @@ if (isset($_SESSION['role'])) {
                     <label>Hodnota</label>
                 </div>
                 <div class="save_button">
-                    <input name="add_attribute" type="submit" value="Přidat atribut" class="save">
+                    <input name="add_attribute" type="submit" value="Přidat atribut" class="savebtn">
                 </div>
             </form>
         </div>

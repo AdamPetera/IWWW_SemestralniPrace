@@ -46,6 +46,14 @@
         }
     }
 
+    if (isset($_POST['saveReview'])) {
+        $validation = ReviewController::reviewValidation($_POST['reviewName'], $_POST['reviewBody']);
+        if (count($validation) == 0) {
+            ReviewController::insertReview($product['product_id'], $_SESSION['row']['user_id'], $_POST['reviewName'], $_POST['reviewRating'], $_POST['reviewBody']);
+        }
+    }
+
+    $reviews = ReviewController::getAllProductReviews($product['product_id']);
 
 ?>
 
@@ -125,5 +133,62 @@
     <div class="product_description">
         <h2>Popis produktu</h2>
         <p><?=$product['description']?></p>
+    </div>
+    <?php
+        if (isset($_SESSION['email'])) {
+            $data = ReviewController::getUserProductReview($product['product_id'], $_SESSION['row']['user_id']);
+            if ($data['rowCount'] == 0) {
+    ?>
+        <div class="add_review">
+            <h2>Přidání vlastní recenze</h2>
+            <div class="review_form_wrap">
+                <form method="post">
+                    <div class="txt_field_name">
+                        <p>Název recenze:</p>
+                        <input type="text" name="reviewName" required class="reviewName">
+                    </div>
+                    <div class="txt_field_rating">
+                        <p>Hodnocení produktu v %:</p>
+                        <input type="number" name="reviewRating" required min="0" max="100" value="50">
+                    </div>
+                    <div class="txt_field_body">
+                        <p>Vlastní recenze:</p>
+                        <input type="text" name="reviewBody" required class="reviewBody">
+                    </div>
+                    <div class="save_button">
+                        <input name="saveReview" type="submit" value="Uložit recenzi" class="saveReview">
+                    </div>
+                </form>
+            </div>
+            <?php if (isset($error_message)): ?>
+                <div class="form_error">
+                    <span class="error"><?php echo $error_message; ?></span>
+                </div>
+            <?php endif ?>
+        </div>
+    <?php
+            }
+        }
+    ?>
+    <div class="product_review_wrap">
+        <?php
+            echo '<h2>Recenze produktu</h2>';
+            if (!empty($reviews)) {
+                foreach ($reviews as $review) {
+                    $lastnameCharacter = substr($review['lastname'], 0, 1);
+                    $date = strtotime($review['dateAdded']);
+                    $editedDate = date("d. m. yy", $date);
+                    echo '
+                        <div class="review_card">
+                        <p class="review_author_date">'. $review['firstname'] .' '.$lastnameCharacter.'. dne '.$editedDate.'</p>
+                        <p class="review_name">'. $review['name'] .'</p>
+                        <p class="review_rating">'. $review['rating'] .' %</p>
+                        <p class="review_body">'. $review['description'] .'</p>
+                        </div>';
+                }
+            } else {
+                echo '<p class="noReviews">Produkt zatím nemá žádné recence :(</p>';
+            }
+        ?>
     </div>
 </div>
