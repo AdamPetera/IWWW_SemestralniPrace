@@ -20,13 +20,7 @@
     }
 
     $order = OrderController::getOrderByOrderNumber($_GET['order_number']);
-    $product_ids_and_keys = OrderHasProductsController::getAllOrderProductIds($order['order_id']);
-
-    if ($product_ids_and_keys) {
-    $products = ProductController::getAllProductsByIds($product_ids_and_keys);
-    }
-
-    $order_products_prices = OrderHasProductsController::getAllOrderProducts($order['order_id']);
+    $products = OrderHasProductsController::getAllOrderProducts($order['order_id']);
 
     if (isset($_POST['backtouserdetails'])) {
         echo '<script type="text/javascript">
@@ -38,7 +32,7 @@
 
 <div class="order_detail_wrapper">
     <div class="order_detail_wrap">
-        <h2>Detail objednávky číslo <?=$_GET['order_number']?></h2>
+        <h2>Detail objednávky číslo <?=$order['order_number']?></h2>
         <p>Datum objednávky: <?=$order['order_date']?></p>
         <p>Celková cena objednávky: <?=$order['price']?> Kč</p>
         <div class="order_table">
@@ -54,21 +48,23 @@
                 </thead>
                 <tbody class="t_body">
                     <?php foreach ($products as $product): ?>
-                        <?$image = ProductImageController::getProductImage($product['product_id'], 'main');?>
+                        <?$product_id = (int) $product['product_id']?>
+                        <?$image = ProductImageController::getProductImage($product_id, 'main');?>
                         <tr>
                             <td class="img">
-                                <a href="index.php?page=product&id=<?=$product['product_id']?>">
+                                <a href="index.php?page=product&id=<?=$product_id?>">
                                     <img src="<?=$image?>" width="50" height="50" alt="<?=$product['name']?>">
                                 </a>
                             </td>
                             <td>
-                                <a href="index.php?page=product&id=<?=$product['product_id']?>"><?=$product['name']?></a>
+                                <a href="index.php?page=product&id=<?=$product_id?>"><?=$product['product_name']?></a>
+                                <p class="var_name"><?=$product['pv_name']?></p>
                             </td>
-                            <td class="price"><?=$order_products_prices[$product['product_id']]?> Kč</td>
+                            <td class="price"><?=(double)$product['order_price']?> Kč</td>
                             <td class="quantity">
-                                <input type="number" value="<?=$product_ids_and_keys[$product['product_id']]?>" readonly>
+                                <input type="number" value="<?=(int)$product['order_quantity']?>" readonly>
                             </td>
-                            <td class="price"><?=$order_products_prices[$product['product_id']] * $product_ids_and_keys[$product['product_id']]?> Kč</td>
+                            <td class="price"><?=(double)$product['order_price'] * (int)$product['order_quantity']?> Kč</td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

@@ -32,13 +32,10 @@
 
     $category = ProductController::getProductCategory($_GET['id']);
     $attributes = ProductController::getAllProductAttributes($_GET['id']);
-    $length_attributes = $holding_attributes = $size_attributes = $additional_attributes = array();
+    $variants = ProductVariantsController::getAllProductVariants($_GET['id']);
+    $size_attributes = $additional_attributes = array();
     foreach ($attributes as $at) {
-        if ($at['name'] == 'length') {
-            array_push($length_attributes, (int) $at['value']);
-        } elseif ($at['name'] == 'holding') {
-            array_push($holding_attributes, $at['value']);
-        } elseif ($at['name'] == 'size') {
+        if ($at['name'] == 'size') {
             array_push($size_attributes, $at['value']);
         } else {
             array_push($additional_attributes, [0 => $at['human_readable'],
@@ -93,10 +90,10 @@
                 <?=$product['price']?> Kč
             </span>
             <form action="index.php?page=cart" method="post">
-                <?php if (!empty($length_attributes)): ?>
-                    <select name="length_atrs" class="length_attributes">
-                        <?php foreach ($length_attributes as $la): ?>
-                            <option value="<?=$la?>"><?=$la?> cm</option>
+                <?php if (!empty($variants)): ?>
+                    <select name="variants" class="variants">
+                        <?php foreach ($variants as $variant): ?>
+                            <option value="<?=$variant?>"><?=$variant?></option>
                         <?php endforeach; ?>
                     </select>
                 <?php endif; ?>
@@ -104,13 +101,6 @@
                     <select name="size_atrs" class="size_attributes">
                         <?php foreach ($size_attributes as $sa): ?>
                             <option value="<?=$sa?>"><?=$sa?></option>
-                        <?php endforeach; ?>
-                    </select>
-                <?php endif; ?>
-                <?php if (!empty($holding_attributes)): ?>
-                    <select name="holding_atrs" class="holding_attributes">
-                        <?php foreach ($holding_attributes as $ha): ?>
-                            <option value="<?=$ha?>"><?=$ha?></option>
                         <?php endforeach; ?>
                     </select>
                 <?php endif; ?>

@@ -3,27 +3,28 @@
 
 class CartHasProductsController
 {
-    static function insertOrUpdate($conn, $cart_id, $product_id, $quantity)
+    static function insertOrUpdate($cart_id, $variant_id, $quantity)
     {
-        $stmt = $conn->prepare("SELECT * FROM cart_has_products WHERE cart_id = :cart_id AND product_id = :product_id");
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("SELECT * FROM cart_has_products WHERE cart_id = :cart_id AND variant_id = :variant_id");
 
         $stmt->bindParam(':cart_id', $cart_id);
-        $stmt->bindParam(':product_id', $product_id);
+        $stmt->bindParam(':variant_id', $variant_id);
 
         $stmt->execute();
 
         if ($stmt->rowCount() == 0) {
-            $stmt = $conn->prepare("INSERT INTO cart_has_products (cart_id, product_id, quantity) VALUES (:cart_id, :product_id, :quantity)");
+            $stmt = $conn->prepare("INSERT INTO cart_has_products (cart_id, variant_id, quantity) VALUES (:cart_id, :variant_id, :quantity)");
 
             $stmt->bindParam(':cart_id', $cart_id);
-            $stmt->bindParam(':product_id', $product_id);
+            $stmt->bindParam(':variant_id', $variant_id);
             $stmt->bindParam(':quantity', $quantity);
             $stmt->execute();
         } else {
-            $stmt = $conn->prepare("UPDATE cart_has_products SET quantity = quantity + :quantity WHERE cart_id = :cart_id AND product_id = :product_id");
+            $stmt = $conn->prepare("UPDATE cart_has_products SET quantity = quantity + :quantity WHERE cart_id = :cart_id AND variant_id = :variant_id");
 
             $stmt->bindParam(':cart_id', $cart_id);
-            $stmt->bindParam(':product_id', $product_id);
+            $stmt->bindParam(':variant_id', $variant_id);
             $stmt->bindParam(':quantity', $quantity);
 
             $stmt->execute();
@@ -31,19 +32,14 @@ class CartHasProductsController
 
     }
 
-    static function updateQuantity($conn, $cart_id, $product_id, $quantity)
+    static function updateQuantity($cart_id, $variant_id, $quantity)
     {
-        $stmt = $conn->prepare("SELECT * FROM cart_has_products WHERE cart_id = :cart_id AND product_id = :product_id");
+        $conn = Connection::getPdoInstance();
+
+        $stmt = $conn->prepare("UPDATE cart_has_products SET quantity = :quantity WHERE cart_id = :cart_id AND variant_id = :variant_id");
 
         $stmt->bindParam(':cart_id', $cart_id);
-        $stmt->bindParam(':product_id', $product_id);
-
-        $stmt->execute();
-
-        $stmt = $conn->prepare("UPDATE cart_has_products SET quantity = :quantity WHERE cart_id = :cart_id AND product_id = :product_id");
-
-        $stmt->bindParam(':cart_id', $cart_id);
-        $stmt->bindParam(':product_id', $product_id);
+        $stmt->bindParam(':variant_id', $variant_id);
         $stmt->bindParam(':quantity', $quantity);
 
         $stmt->execute();
@@ -60,21 +56,18 @@ class CartHasProductsController
         $stmt->execute();
     }
 
-    static function getAllCartProductIds($conn, $cart_id)
-    {
-        $stmt = $conn->prepare("SELECT * FROM cart_has_products WHERE cart_id = :cart_id");
+    static function getAllCartProductIds($cart_id) {
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("SELECT p.product_id product_id, p.name pname, p.description description, p.price price, pv.variant_id, pv.name, cart.quantity FROM cart_has_products cart
+                                            LEFT JOIN product_variants pv ON pv.variant_id = cart.variant_id
+                                            LEFT JOIN product p ON p.product_id = pv.product_id
+                                            WHERE cart_id = :cart_id");
 
         $stmt->bindParam(':cart_id', $cart_id);
 
         $stmt->execute();
 
-        $products_in_cart = $stmt->fetchAll();
-        $product_ids_and_keys = array();
-        foreach ($products_in_cart as $pic) {
-            $product_ids_and_keys[(int)$pic['product_id']] = (int) $pic['quantity'];
-        }
-
-        return $product_ids_and_keys;
+        return $stmt->fetchAll();
     }
 
     static function deleteAllCartProducts($cart_id) {

@@ -88,7 +88,7 @@
     text-decoration: underline cyan;
 }
 
-.length_attributes {
+.variants {
     width: 40%;
     margin-bottom: 10px;
     height: 40px;
@@ -117,16 +117,6 @@
     background-color: #1b1b1b;
     color: white;
     cursor: pointer;
-}
-
-.holding_attributes {
-    width: 40%;
-    margin-bottom: 10px;
-    height: 40px;
-    border: 2px solid cyan;
-    border-radius: 10px;
-    background-color: #1b1b1b;
-    color: white;
 }
 
 .size_attributes {

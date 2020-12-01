@@ -105,6 +105,10 @@
     margin-top: 20px;
 }
 
+.var_name {
+    color: #adadad;
+}
+
 .error_message .error_msg {
     width: 100%;
     height: 35px;

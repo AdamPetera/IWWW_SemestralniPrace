@@ -23,7 +23,12 @@ if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['produc
     if ($product && $quantity > 0) {
         if (isset($_POST['add_to_basket'])) {
             if (isset($_SESSION['email'])) {
-                CartHasProductsController::insertOrUpdate($conn, $cart_id, $product['product_id'], $quantity);
+                if (isset($_POST['variants'])) {
+                    $variant_id = ProductVariantsController::getVariantIdByNameAndProductId($_POST['variants'], $product_id);
+                    CartHasProductsController::insertOrUpdate($cart_id, $variant_id, $quantity);
+                } else {
+                    //CartHasProductsController::insertOrUpdate($cart_id, 9999999, $quantity);
+                }
             } else {
                 include "login_form.php";
                 exit();
@@ -44,20 +49,18 @@ if (isset($_POST['update'])) {
             $id = str_replace('quantity-', '', $k);
             $quantity = (int) $trimmed_v;
             if (is_numeric($id) && $quantity > 0) {
-                CartHasProductsController::updateQuantity($conn, $cart_id, (int) $id, $quantity);
+                CartHasProductsController::updateQuantity($cart_id, (int) $id, $quantity);
             }
         }
     }
 }
 
-$product_ids_and_keys = CartHasProductsController::getAllCartProductIds($conn, $cart_id);
-$products = array();
+$products = CartHasProductsController::getAllCartProductIds($cart_id);
 $subtotal = 0.00;
 
-if ($product_ids_and_keys) {
-    $products = ProductController::getAllProductsByIds($product_ids_and_keys);
+if ($products) {
     foreach ($products as $product) {
-        $subtotal += (float)$product['price'] * (int)$product_ids_and_keys[$product['product_id']];
+        $subtotal += (float)$product['price'] * (int)$product['quantity'];
     }
 }
 
@@ -97,19 +100,20 @@ if (isset($_POST['placeorder'])) {
                     <tr>
                         <td class="img">
                             <a href="index.php?page=product&id=<?=$product['product_id']?>">
-                                <img src="<?=$image?>" width="50" height="50" alt="<?=$product['name']?>">
+                                <img src="<?=$image?>" width="50" height="50" alt="<?=$product['p.name']?>">
                             </a>
                         </td>
                         <td>
-                            <a href="index.php?page=product&id=<?=$product['product_id']?>"><?=$product['name']?></a>
+                            <a href="index.php?page=product&id=<?=$product['product_id']?>"><?=$product['pname']?></a>
                             <br>
+                            <p class="var_name"><?=$product['name']?></p>
                             <a href="index.php?page=cart&remove=<?=$product['product_id']?>" class="remove">Odstranit</a>
                         </td>
                         <td class="price"><?=$product['price']?> Kč</td>
                         <td class="quantity">
-                            <input type="number" name="quantity-<?=$product['product_id']?>" value="<?=$product_ids_and_keys[$product['product_id']]?>" min="1"" placeholder="Počet" required>
+                            <input type="number" name="quantity-<?=$product['variant_id']?>" value="<?=$product['quantity']?>" min="1"" placeholder="Počet" required>
                         </td>
-                        <td class="price"><?=$product['price'] * $product_ids_and_keys[$product['product_id']]?> Kč</td>
+                        <td class="price"><?=$product['price'] * $product['quantity']?> Kč</td>
                     </tr>
                     <?php endforeach; ?>
                     <?php endif; ?>
