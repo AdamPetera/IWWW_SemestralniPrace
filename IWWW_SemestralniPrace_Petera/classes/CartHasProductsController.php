@@ -46,12 +46,12 @@ class CartHasProductsController
 
     }
 
-    static function deleteProductFromCart($conn, $cart_id, $product_id)
+    static function deleteProductFromCart($conn, $cart_id, $variant_id)
     {
-        $stmt = $conn->prepare("DELETE FROM cart_has_products WHERE cart_id = :cart_id AND product_id = :product_id");
+        $stmt = $conn->prepare("DELETE FROM cart_has_products WHERE cart_id = :cart_id AND variant_id = :variant_id");
 
         $stmt->bindParam(':cart_id', $cart_id);
-        $stmt->bindParam(':product_id', $product_id);
+        $stmt->bindParam(':variant_id', $variant_id);
 
         $stmt->execute();
     }

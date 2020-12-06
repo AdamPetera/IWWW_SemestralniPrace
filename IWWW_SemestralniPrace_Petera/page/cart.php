@@ -106,8 +106,8 @@ if (isset($_POST['placeorder'])) {
                         <td>
                             <a href="index.php?page=product&id=<?=$product['product_id']?>"><?=$product['pname']?></a>
                             <br>
-                            <p class="var_name"><?=$product['name']?></p>
-                            <a href="index.php?page=cart&remove=<?=$product['product_id']?>" class="remove">Odstranit</a>
+                            <p class="var_name">Varianta: <?=$product['name']?></p>
+                            <a href="index.php?page=cart&remove=<?=$product['variant_id']?>" class="remove">Odstranit</a>
                         </td>
                         <td class="price"><?=$product['price']?> Kč</td>
                         <td class="quantity">

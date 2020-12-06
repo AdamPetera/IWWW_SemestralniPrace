@@ -107,6 +107,7 @@
 
 .var_name {
     color: #adadad;
+    padding-top: 7px;
 }
 
 .error_message .error_msg {

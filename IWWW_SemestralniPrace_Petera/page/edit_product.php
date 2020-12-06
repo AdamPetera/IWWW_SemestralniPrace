@@ -15,6 +15,8 @@ if (isset($_SESSION['role'])) {
             $conn = Connection::getPdoInstance();
             $product = ProductController::getProductById($conn, $product_id);
             $product_attributes = ProductHasAttributesController::getAllProductAttributes($product_id);
+            $product_variants = ProductVariantsController::getAllProductVariants($product_id);
+            //var_dump($product_variants);
         } else {
             die('Produkt neexistuje :(');
         }
@@ -38,8 +40,24 @@ if (isset($_SESSION['role'])) {
             }
         }
 
-        if (isset($_GET['remove']) && is_numeric($_GET['remove'])) {
-            ProductHasAttributesController::deleteAttribute($product_id, $_GET['remove'], $_GET['value']);
+        if (isset($_POST['add_variant'])) {
+            if (!empty($_POST['var_value'])) {
+                ProductVariantsController::insertVariantOfProduct($product_id, $_POST['var_value']);
+                echo '<script type="text/javascript">
+                                window.location = "index.php?page=edit_product&product_id='.$product_id.'"
+                            </script>';
+            }
+        }
+
+        if (isset($_GET['remove_atr']) && is_numeric($_GET['remove_atr'])) {
+            ProductHasAttributesController::deleteAttribute($product_id, $_GET['remove_atr'], $_GET['value_atr']);
+            echo '<script type="text/javascript">
+                                window.location = "index.php?page=edit_product&product_id='.$product_id.'"
+                            </script>';
+        }
+
+        if (isset($_GET['remove_var'])) {
+            ProductVariantsController::removeVariantOfProduct($product_id, $_GET['remove_var']);
             echo '<script type="text/javascript">
                                 window.location = "index.php?page=edit_product&product_id='.$product_id.'"
                             </script>';
@@ -127,7 +145,46 @@ if (isset($_SESSION['role'])) {
                 </div>
             </form>
         </div>
+        <div class="add_variant_form">
+            <h1>Přidání varianty</h1>
+            <form method="post">
+                <div class="txt_field">
+                    <input type="text" name="var_value" required>
+                    <span></span>
+                    <label>Varianta</label>
+                </div>
+                <div class="save_button">
+                    <input name="add_variant" type="submit" value="Přidat variantu" class="savebtn">
+                </div>
+            </form>
+        </div>
     </div>
+    <form method="post" class="table_wrap">
+        <table>
+            <thead class="t_head">
+            <tr>
+                <td>Varianta</td>
+            </tr>
+            </thead>
+            <tbody class="t_body">
+            <?php if (empty($product_variants)): ?>
+                <tr>
+                    <td colspan="1" style="text-align: center">Produkt nemá žádné varianty</td>
+                </tr>
+            <?php else: ?>
+                <?php foreach ($product_variants as $pv): ?>
+                    <tr>
+                        <td>
+                            <p><?=$pv?></p>
+                            <br>
+                            <a href="index.php?page=edit_product&product_id=<?=$product_id?>&remove_var=<?=$pv?>" class="remove">Odstranit</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            </tbody>
+        </table>
+    </form>
     <form method="post" class="table_wrap">
         <table>
             <thead class="t_head">
@@ -147,7 +204,7 @@ if (isset($_SESSION['role'])) {
                         <td>
                             <p><?=$pa['human_readable']?></p>
                             <br>
-                            <a href="index.php?page=edit_product&product_id=<?=$product_id?>&remove=<?=$pa['attribute_id']?>&value=<?=$pa['value']?>" class="remove">Odstranit</a>
+                            <a href="index.php?page=edit_product&product_id=<?=$product_id?>&remove_atr=<?=$pa['attribute_id']?>&value_atr=<?=$pa['value']?>" class="remove">Odstranit</a>
                         </td>
                         <td class="value"><?=$pa['value']?></td>
                     </tr>

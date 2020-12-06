@@ -35,12 +35,8 @@
     $variants = ProductVariantsController::getAllProductVariants($_GET['id']);
     $size_attributes = $additional_attributes = array();
     foreach ($attributes as $at) {
-        if ($at['name'] == 'size') {
-            array_push($size_attributes, $at['value']);
-        } else {
             array_push($additional_attributes, [0 => $at['human_readable'],
                                                             1 => $at['value']]);
-        }
     }
 
     if (isset($_POST['saveReview'])) {

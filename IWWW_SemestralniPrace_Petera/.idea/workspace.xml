@@ -20,16 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c2ad563-02c3-4ff8-a6e3-502d766f109e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c14e573e-726f-43bd-8f77-4e703b535828.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c14e573e-726f-43bd-8f77-4e703b535828.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/CartHasProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/CartHasProductsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/OrderHasProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/OrderHasProductsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/ProductVariantsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/ProductVariantsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/cart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/order_detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/order_detail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/edit_product.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/edit_product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/cart.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/product.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/edit_product.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/edit_product.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +118,8 @@
       <workItem from="1605531083152" duration="437000" />
       <workItem from="1605868594004" duration="9198000" />
       <workItem from="1606816824245" duration="4456000" />
-      <workItem from="1606826377194" duration="7117000" />
+      <workItem from="1606826377194" duration="7395000" />
+      <workItem from="1607256396913" duration="4186000" />
     </task>
     <servers />
   </component>

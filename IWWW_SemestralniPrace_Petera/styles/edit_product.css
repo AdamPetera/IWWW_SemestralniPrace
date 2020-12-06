@@ -1,14 +1,24 @@
 .add_attribute_form,
-.edit_product_form {
+.add_variant_form {
     position: relative;
     color: white;
-    width: 400px;
+    width: 250px;
     background: #1b1b1b;
     border-radius: 10px;
     margin: auto;
 }
 
-.add_attribute_form {
+.edit_product_form {
+    position: relative;
+    color: white;
+    width: 350px;
+    background: #1b1b1b;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.add_attribute_form,
+.add_variant_form {
     margin-top: 20px;
 }
 
@@ -18,7 +28,8 @@
 }
 
 .add_attribute_form h1,
-.edit_product_form h1 {
+.edit_product_form h1,
+.add_variant_form h1 {
     text-align: center;
     margin-top: 30px;
     padding: 20px 0 20px 0;
@@ -26,24 +37,28 @@
 }
 
 .add_attribute_form form,
-.edit_product_form form {
+.edit_product_form form,
+.add_variant_form form {
     padding: 20px;
 }
 
 .add_attribute_form form .txt_field,
-.edit_product_form form .txt_field {
+.edit_product_form form .txt_field,
+.add_variant_form form .txt_field {
     position: relative;
     border-bottom: 1px solid white;
     margin: 30px 0;
 }
 
-.add_attribute_form form .selection {
+.add_attribute_form form .selection,
+.edit_product_form form .selection {
     width: 99%;
     margin-bottom: 20px;
     text-align: center;
 }
 
-.add_attribute_form form .selection select {
+.add_attribute_form form .selection select,
+.edit_product_form form .selection select{
     width: 150px;
     height: 35px;
     border: 2px solid cyan;
@@ -94,13 +109,15 @@
 }
 
 .add_attribute_form .save_button,
-.edit_product_form .save_button {
+.edit_product_form .save_button,
+.add_variant_form .save_button {
     width: 75%;
     margin: auto;
 }
 
 .add_attribute_form .savebtn,
-.edit_product_form .savebtn {
+.edit_product_form .savebtn,
+.add_variant_form .savebtn {
     width: 100%;
     height: 40px;
     font-size: 18px;
@@ -113,7 +130,8 @@
 }
 
 .add_attribute_form .savebtn:hover,
-.edit_product_form .savebtn:hover {
+.edit_product_form .savebtn:hover,
+.add_variant_form .savebtn:hover {
     color: cyan;
     border-radius: 25px;
     box-shadow: 0 0 5px #33ffff,

@@ -31,4 +31,24 @@ class ProductVariantsController
         return (int) $variant[0]['variant_id'];
 
     }
+
+    static function insertVariantOfProduct($product_id, $name) {
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("INSERT INTO product_variants (name, product_id) VALUES (:name, :product_id)");
+        $stmt->bindParam(':product_id', $product_id);
+        $stmt->bindParam(':name', $name);
+        $stmt->execute();
+
+        return $stmt->rowCount();
+    }
+
+    static function removeVariantOfProduct($product_id, $name) {
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("DELETE FROM product_variants WHERE product_id = :product_id AND name = :name");
+
+        $stmt->bindParam(':product_id', $product_id);
+        $stmt->bindParam(':name', $name);
+
+        $stmt->execute();
+    }
 }
