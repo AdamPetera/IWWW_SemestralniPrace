@@ -6,8 +6,7 @@
             <li>
                 <a href="#">Kontakt</a>
                 <ul>
-                    <li><a href="#">Formulář</a></li>
-                    <li><a href="#">Obecné info</a></li>
+                    <li><a href="index.php?page=contact">Formulář</a></li>
                 </ul>
             </li>
             <li>

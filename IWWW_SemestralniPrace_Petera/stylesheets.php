@@ -16,4 +16,5 @@
 <link rel="stylesheet" href="styles/order_confirmed.css">
 <link rel="stylesheet" href="styles/order_detail.css">
 <link rel="stylesheet" href="styles/edit_product.css">
+<link rel="stylesheet" href="styles/contact.css">
 <link rel="stylesheet" href="styles/style.css">

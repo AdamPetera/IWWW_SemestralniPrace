@@ -104,6 +104,12 @@ body {
     margin-bottom: 20px;
 }
 
+.contact_form_wrap {
+    width: 99%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .add_address_form_wrap {
     width: 99%;
     margin-top: 20px;
