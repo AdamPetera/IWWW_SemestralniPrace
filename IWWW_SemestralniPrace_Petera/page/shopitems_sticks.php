@@ -1,7 +1,7 @@
 <div class="sticks_wrapper">
     <?php
     if (isset($_SESSION["role"])) {
-        if ($_SESSION["role"] == "admin") {
+        if ($_SESSION["role"] == "admin" || $_SESSION['role'] == 'seller') {
             ?>
             <form method="post" action="index.php?page=add_product" class="addProductForm">
                 <input class="addProduct" type="submit" name="addProduct" value="Přidej produkt">

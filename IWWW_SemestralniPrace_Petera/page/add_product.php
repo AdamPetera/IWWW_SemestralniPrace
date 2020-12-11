@@ -9,7 +9,7 @@
 
 <?php
 if (isset($_SESSION['role'])) {
-    if ($_SESSION['role'] == 'admin') {
+    if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'seller') {
         $conn = Connection::getPdoInstance();
         if (isset($_POST)) {
             if (isset($_FILES['image'])) {

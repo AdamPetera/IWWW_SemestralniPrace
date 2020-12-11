@@ -116,3 +116,9 @@ table tbody  td {
     font-size: 16px;
     color: red;
 }
+
+.selection select {
+    width: 150px;
+    height: 35px;
+    border: 2px solid cyan;
+}

@@ -9,7 +9,7 @@
 
 <?php
 if (isset($_SESSION['role'])) {
-    if ($_SESSION['role'] == 'admin') {
+    if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'seller') {
         if (isset($_GET['product_id']) && is_numeric($_GET['product_id'])) {
             $product_id = $_GET['product_id'];
             $conn = Connection::getPdoInstance();

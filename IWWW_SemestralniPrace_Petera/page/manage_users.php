@@ -1,80 +1,53 @@
 <!DOCTYPE html>
 <html lang="cs">
 <?php
-    if (isset($_SESSION['role'])) {
-        if ($_SESSION['role'] == 'admin') {
-            $dataTable = new DataTable(UserController::getAllUsers());
-            $dataTable->addColumn('user_id', 'ID');
-            $dataTable->addColumn('firstname', 'Jméno');
-            $dataTable->addColumn('lastname', 'Příjmení');
-            $dataTable->addColumn('email', 'Email');
-            $dataTable->addColumn('phone', 'Telefon');
-            $dataTable->renderTable();
-        }
-    }
+if (isset($_SESSION["role"])) {
+    if ($_SESSION["role"] == "admin" || $_SESSION['role'] == 'seller') {
+        $roles = RoleController::getAllRoles();
+        $dataTable = new DataTable(UserController::getAllUsers());
+        $dataTable->addColumn('user_id', 'ID');
+        $dataTable->addColumn('firstname', 'Jméno');
+        $dataTable->addColumn('lastname', 'Příjmení');
+        $dataTable->addColumn('email', 'Email');
+        $dataTable->addColumn('phone', 'Telefon');
+        $dataTable->renderTable();
 
-    if (isset($_POST["updateUser"])) {
-        $conn = Connection::getPdoInstance();
-        $result = UserController::emailExistsReturnArray($conn, $_POST["current_email"]);
-        $row = $result["row"];
-        $rowCount = $result["rowCount"];
+        if (isset($_POST["updateUser"])) {
+            $conn = Connection::getPdoInstance();
+            $result = UserController::emailExistsReturnArray($conn, $_POST["current_email"]);
+            $row = $result["row"];
+            $rowCount = $result["rowCount"];
 
-        if ($rowCount == 1) {
-            if (isset($_POST["firstname"])) {
-                if (!empty($_POST["firstname"])) {
-                    $firstname = $_POST["firstname"];
-                } else {
-                    $firstname = $row["firstname"];
-                }
-            }
-            if (isset($_POST["lastname"])) {
-                if (!empty($_POST["lastname"])) {
-                    $lastname = $_POST["lastname"];
-                } else {
-                    $lastname = $row["lastname"];
-                }
-            }
-            if (isset($_POST["email"])) {
-                if (!empty($_POST["email"])) {
-                    $email = $_POST["email"];
-                    $emailRowCount = UserController::emailExists($conn, $email);
-                } else {
-                    $email = $row["email"];
-                }
-            }
-            if (isset($_POST["phone"])) {
-                if (!empty($_POST["phone"])) {
-                    $phone = $_POST["phone"];
-                } else {
-                    $phone = $row["phone"];
-                }
-            }
-            if (isset($_POST["password"])) {
-                if (!empty($_POST["password"])) {
-                    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-                } else {
-                    $password = $row["password"];
-                }
-            }
+            if ($rowCount == 1) {
+                $variableArray = UserController::setVariables($_POST, $row);
 
-            if ($emailRowCount > 0) {
-                $error_message = "Tento nový email již někdo používá!";
+                if ($variableArray['emailRowCount'] > 0) {
+                    $error_message = "Tento nový email již někdo používá!";
+                } else {
+                    $role_id = RoleController::getRoleIdByName($_POST['select']);
+                    if ($role_id) {
+                        $user_id = UserController::getUserIdByEmail($_POST["current_email"]);
+                        UserController::updateUser($conn, $_POST["current_email"], $variableArray['firstname'],
+                            $variableArray['lastname'], $variableArray['email'], $variableArray['phone'],
+                            $variableArray['password']);
+                        RoleController::updateUserRole($user_id, $role_id);
+                        echo '<script type="text/javascript">
+                              window.location = "index.php?page=manage_users"
+                              </script>';
+                    } else {
+                        $error_message = "Něco se pokazilo :(";
+                    }
+                }
             } else {
-                $updateRowCount = UserController::updateUser($conn, $_POST["current_email"], $firstname, $lastname, $email, $phone, $password);
-
-                if ($updateRowCount == 1) {
-                    echo '<script type="text/javascript">
-                    window.location = "index.php?page=manage_users"
-                    </script>';
-                } else {
-                    $error_message = "Něco se pokazilo :(";
-                }
+                $error_message = "Uživatel s tímto emailem neexistuje";
             }
-
-        } else {
-            $error_message = "Uživatel s tímto emailem neexistuje";
         }
+    } else {
+        die('Na editaci produktu musíš mít práva :(');
     }
+} else {
+    die('Tady nemáš co dělat :(');
+}
 ?>
 
 <div class="edit_form_wrap">
@@ -110,6 +83,15 @@
                 <input type="password" name="password">
                 <span></span>
                 <label>Heslo</label>
+            </div>
+            <div class="selection">
+                <select name="select" required>
+                    <?php
+                    foreach ($roles as $role) {
+                        echo '<option value="'.$role.'">'.$role.'</option>';
+                    }
+                    ?>
+                </select>
             </div>
             <input type="submit" name="updateUser" value="Uložit změny">
         </form>

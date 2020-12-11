@@ -116,8 +116,17 @@ class UserController
         return $validation;
     }
 
+    static function getUserIdByEmail($email) {
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("SELECT user_id FROM user WHERE email = :email");
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        return ((int)$stmt->fetchColumn());
+    }
+
     static function setVariables($post, $row): array {
         $conn = Connection::getPdoInstance();
+        $emailRowCount = 0;
         if (isset($post["firstname"])) {
             if (!empty($post["firstname"])) {
                 $firstname = $post["firstname"];
@@ -133,9 +142,9 @@ class UserController
             }
         }
         if (isset($post["email"])) {
-            $emailRowCount = UserController::emailExists($conn, $post["email"]);
             if (!empty($post["email"])) {
                 $email = $post["email"];
+                $emailRowCount = UserController::emailExists($conn, $post["email"]);
             } else {
                 $email = $row["email"];
             }

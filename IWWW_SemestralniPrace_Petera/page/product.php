@@ -13,7 +13,7 @@
         $product = ProductController::getProductById($conn, $_GET['id']);
 
         if (isset($_SESSION["role"])) {
-            if ($_SESSION["role"] == "admin") {
+            if ($_SESSION["role"] == "admin" || $_SESSION['role'] == 'seller') {
                 if (isset($_POST['remove'])) {
                     ProductController::deleteProduct($_GET['id']);
                     echo '<script type="text/javascript">
