@@ -21,14 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6c2ad563-02c3-4ff8-a6e3-502d766f109e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/add_product.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/add_product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/edit_product.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/edit_product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/manage_users.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/manage_users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/shopitems.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/shopitems.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/shopitems_sticks.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/shopitems_sticks.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/manage_users.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/manage_users.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/product.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +118,8 @@
       <workItem from="1606826377194" duration="7395000" />
       <workItem from="1607256396913" duration="4281000" />
       <workItem from="1607414116349" duration="3407000" />
-      <workItem from="1607715272457" duration="3288000" />
+      <workItem from="1607715272457" duration="3395000" />
+      <workItem from="1607938024747" duration="3935000" />
     </task>
     <servers />
   </component>
@@ -170,25 +168,25 @@
       <screen x="-1440" y="0" width="1440" height="900" />
     </state>
     <state x="-982" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.900/0.0.1920.1080@-1440.0.1440.900" timestamp="1604143992130" />
-    <state width="1830" height="155" key="GridCell.Tab.0.bottom" timestamp="1606832885856">
+    <state width="1830" height="164" key="GridCell.Tab.0.bottom" timestamp="1607940041803">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1830" height="155" key="GridCell.Tab.0.bottom/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606832885856" />
+    <state width="1830" height="164" key="GridCell.Tab.0.bottom/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1607940041803" />
     <state width="1830" height="287" key="GridCell.Tab.0.bottom/-1440.25.1440.875/0.25.1920.1055@0.25.1920.1055" timestamp="1605879963941" />
-    <state width="1830" height="155" key="GridCell.Tab.0.center" timestamp="1606832885855">
+    <state width="1830" height="164" key="GridCell.Tab.0.center" timestamp="1607940041798">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1830" height="155" key="GridCell.Tab.0.center/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606832885855" />
+    <state width="1830" height="164" key="GridCell.Tab.0.center/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1607940041798" />
     <state width="1830" height="287" key="GridCell.Tab.0.center/-1440.25.1440.875/0.25.1920.1055@0.25.1920.1055" timestamp="1605879963940" />
-    <state width="1830" height="155" key="GridCell.Tab.0.left" timestamp="1606832885854">
+    <state width="1830" height="164" key="GridCell.Tab.0.left" timestamp="1607940041797">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1830" height="155" key="GridCell.Tab.0.left/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606832885854" />
+    <state width="1830" height="164" key="GridCell.Tab.0.left/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1607940041797" />
     <state width="1830" height="287" key="GridCell.Tab.0.left/-1440.25.1440.875/0.25.1920.1055@0.25.1920.1055" timestamp="1605879963940" />
-    <state width="1830" height="155" key="GridCell.Tab.0.right" timestamp="1606832885856">
+    <state width="1830" height="164" key="GridCell.Tab.0.right" timestamp="1607940041802">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1830" height="155" key="GridCell.Tab.0.right/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606832885856" />
+    <state width="1830" height="164" key="GridCell.Tab.0.right/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1607940041802" />
     <state width="1830" height="287" key="GridCell.Tab.0.right/-1440.25.1440.875/0.25.1920.1055@0.25.1920.1055" timestamp="1605879963941" />
     <state x="361" y="240" key="NewPhpClassDialog" timestamp="1607715798631">
       <screen x="0" y="25" width="1920" height="1055" />
@@ -220,10 +218,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="746" y="367" width="428" height="341" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604172598581" />
-    <state x="694" y="432" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1606832795905">
+    <state x="694" y="432" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1607940662319">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="694" y="432" key="com.intellij.database.run.ParametersPanel.Standalone/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606832795905" />
+    <state x="694" y="432" key="com.intellij.database.run.ParametersPanel.Standalone/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1607940662319" />
     <state x="694" y="447" key="com.intellij.database.run.ParametersPanel.Standalone/-1440.25.1440.875/0.25.1920.1055@0.25.1920.1055" timestamp="1605879953734" />
     <state x="798" y="245" width="894" height="707" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1607416090735">
       <screen x="0" y="25" width="1920" height="1055" />

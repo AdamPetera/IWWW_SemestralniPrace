@@ -105,6 +105,21 @@ class ProductController
         return $stmt->fetchColumn();
     }
 
+    static function getSimilarProducts($product_id, $identifier) {
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("SELECT p.* FROM product p
+                    JOIN product_has_category pc ON p.product_id = pc.product_id
+                    JOIN category c ON c.category_id = pc.category_id
+                    WHERE c.identifier = :identifier AND p.product_id <> :product_id
+                    ORDER BY RAND() LIMIT 2");
+        $stmt->bindParam(":identifier", $identifier);
+        $stmt->bindParam(":product_id", $product_id);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
     static function getAllProductsByIds($product_ids_and_keys) {
         $conn = Connection::getPdoInstance();
         $array_to_question_marks = implode(',', array_fill(0, count($product_ids_and_keys), '?'));

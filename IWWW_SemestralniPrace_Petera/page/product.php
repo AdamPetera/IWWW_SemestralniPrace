@@ -11,7 +11,8 @@
     $conn = Connection::getPdoInstance();
     if (isset($_GET['id'])) {
         $product = ProductController::getProductById($conn, $_GET['id']);
-
+        $product_identifier = CategoryController::getProductCategory($_GET['id']);
+        $similar_products = ProductController::getSimilarProducts($_GET['id'], $product_identifier, 3);
         if (isset($_SESSION["role"])) {
             if ($_SESSION["role"] == "admin" || $_SESSION['role'] == 'seller') {
                 if (isset($_POST['remove'])) {
@@ -176,5 +177,55 @@
                 echo '<p class="noReviews">Produkt zatím nemá žádné recence :(</p>';
             }
         ?>
+    </div>
+    <div class="similar_products_wrap">
+        <h2 class="similar_title">Uživatelé také zakoupili</h2>
+        <div class="sticks_preview">
+            <?php
+            if ($product_identifier == 'stick') {
+                foreach ($similar_products as $item) {
+                    $image = ProductImageController::getProductImage($item['product_id'], 'main');
+                    echo '
+                          <a href="index.php?page=product&id=' . $item['product_id'] . '">
+                               <div class="stick_card">
+                                    <div class="stick_card_image_wrap">
+                                        <img src="' . $image . '" alt="Florbalka ' . $item["name"] . '">
+                                    </div>
+                                    <div class="stick_card_name">
+                                         <h2 class="title">' . $item["name"] . '</h2>
+                                    </div>
+                                    <div class="stick_card_price">
+                                         <span class="price" itemprop="price" content="' . $item["price"] . '">' . $item["price"] . ' Kč</span>
+                                    </div>
+                                    <div class="stick_card_button">
+                                         <button class="detail_button">Detail produktu</button>
+                                    </div>
+                               </div>
+                          </a>';
+                }
+            } else {
+                foreach ($similar_products as $item) {
+                    $image = ProductImageController::getProductImage($item['product_id'], 'main');
+                    echo '
+                        <a href="index.php?page=product&id=' . $item['product_id'] . '">
+                            <div class="item_card">
+                                <div class="item_card_image_wrap">
+                                    <img src="' . $image . '" alt="' . $item["name"] . '">
+                                </div>
+                                <div class="item_card_name">
+                                    <h2 class="title">' . $item["name"] . '</h2>
+                                </div>
+                                <div class="item_card_price">
+                                    <span class="price" itemprop="price" content="' . $item["price"] . '">' . $item["price"] . ' Kč</span>
+                                </div>
+                                <div class="item_card_button">
+                                    <button class="item_detail_button">Detail produktu</button>
+                                </div>
+                            </div>
+                        </a>';
+                }
+            }
+            ?>
+        </div>
     </div>
 </div>

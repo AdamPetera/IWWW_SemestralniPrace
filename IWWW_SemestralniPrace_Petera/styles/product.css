@@ -271,6 +271,19 @@
     margin-bottom: 20px;
 }
 
+.similar_products_wrap {
+    margin-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    background-color: rgba(27, 27, 27, 0.2);
+}
+
+.similar_products_wrap .similar_title {
+    padding-top: 10px;
+    text-decoration: underline cyan;
+    text-align: center;
+}
+
 @media (max-width: 1987px) {
     .product_img {
         margin: auto;
