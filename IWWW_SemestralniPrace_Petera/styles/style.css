@@ -173,12 +173,19 @@ body {
     transform: translateX(-50%);
 }
 
-.main .footer {
+.footer {
     position: relative;
+    display: block;
     bottom: 0;
     width: 100%;
     height: 4rem;
     background-color: #555555;
+}
+
+@media (max-width: 618px) {
+    .footer {
+        height: 5rem;
+    }
 }
 
 .footer .logo {
