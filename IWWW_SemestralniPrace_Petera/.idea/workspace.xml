@@ -21,11 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6c2ad563-02c3-4ff8-a6e3-502d766f109e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/product.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/sidemenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/sidemenu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +117,9 @@
       <workItem from="1607256396913" duration="4281000" />
       <workItem from="1607414116349" duration="3407000" />
       <workItem from="1607715272457" duration="3395000" />
-      <workItem from="1607938024747" duration="3935000" />
+      <workItem from="1607938024747" duration="3986000" />
+      <workItem from="1607949021549" duration="593000" />
+      <workItem from="1608018175193" duration="1781000" />
     </task>
     <servers />
   </component>
@@ -168,25 +168,25 @@
       <screen x="-1440" y="0" width="1440" height="900" />
     </state>
     <state x="-982" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.900/0.0.1920.1080@-1440.0.1440.900" timestamp="1604143992130" />
-    <state width="1830" height="164" key="GridCell.Tab.0.bottom" timestamp="1607940041803">
+    <state width="1830" height="252" key="GridCell.Tab.0.bottom" timestamp="1607942159819">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1830" height="164" key="GridCell.Tab.0.bottom/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1607940041803" />
+    <state width="1830" height="252" key="GridCell.Tab.0.bottom/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1607942159819" />
     <state width="1830" height="287" key="GridCell.Tab.0.bottom/-1440.25.1440.875/0.25.1920.1055@0.25.1920.1055" timestamp="1605879963941" />
-    <state width="1830" height="164" key="GridCell.Tab.0.center" timestamp="1607940041798">
+    <state width="1830" height="252" key="GridCell.Tab.0.center" timestamp="1607942159817">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1830" height="164" key="GridCell.Tab.0.center/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1607940041798" />
+    <state width="1830" height="252" key="GridCell.Tab.0.center/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1607942159817" />
     <state width="1830" height="287" key="GridCell.Tab.0.center/-1440.25.1440.875/0.25.1920.1055@0.25.1920.1055" timestamp="1605879963940" />
-    <state width="1830" height="164" key="GridCell.Tab.0.left" timestamp="1607940041797">
+    <state width="1830" height="252" key="GridCell.Tab.0.left" timestamp="1607942159816">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1830" height="164" key="GridCell.Tab.0.left/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1607940041797" />
+    <state width="1830" height="252" key="GridCell.Tab.0.left/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1607942159816" />
     <state width="1830" height="287" key="GridCell.Tab.0.left/-1440.25.1440.875/0.25.1920.1055@0.25.1920.1055" timestamp="1605879963940" />
-    <state width="1830" height="164" key="GridCell.Tab.0.right" timestamp="1607940041802">
+    <state width="1830" height="252" key="GridCell.Tab.0.right" timestamp="1607942159818">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1830" height="164" key="GridCell.Tab.0.right/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1607940041802" />
+    <state width="1830" height="252" key="GridCell.Tab.0.right/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1607942159818" />
     <state width="1830" height="287" key="GridCell.Tab.0.right/-1440.25.1440.875/0.25.1920.1055@0.25.1920.1055" timestamp="1605879963941" />
     <state x="361" y="240" key="NewPhpClassDialog" timestamp="1607715798631">
       <screen x="0" y="25" width="1920" height="1055" />

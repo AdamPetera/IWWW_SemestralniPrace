@@ -39,6 +39,16 @@ include "header.php"
                 }
             ?>
         </div>
+        <footer class="footer">
+            <div class="logo"><a href="index.php">SALIBANDYSTORE.CZ</a></div>
+            <div class="footer_columns">
+                <div class="footer_contact"><p><a href="index.php?page=contact">Kontakt</a></p></div>
+                <div><p>Děkujeme, že jste s námi!</p></div>
+                <div>
+                    <p>©2020 SALIBANDYSTORE</p>
+                </div>
+            </div>
+        </footer>
     </div>
 </div>
 
