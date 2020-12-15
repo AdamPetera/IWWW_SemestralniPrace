@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -21,7 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6c2ad563-02c3-4ff8-a6e3-502d766f109e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +45,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="1jVqWgFVrFAugOm7YcGS6JobkO1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -60,6 +68,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -117,7 +126,8 @@
       <workItem from="1607715272457" duration="3395000" />
       <workItem from="1607938024747" duration="3986000" />
       <workItem from="1607949021549" duration="593000" />
-      <workItem from="1608018175193" duration="2882000" />
+      <workItem from="1608018175193" duration="3028000" />
+      <workItem from="1608023594679" duration="324000" />
     </task>
     <servers />
   </component>
@@ -199,6 +209,10 @@
     <state x="783" y="470" key="NewPhpFileDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1605439685698" />
     <state x="783" y="483" key="NewPhpFileDialog/-1440.23.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1604163605566" />
     <state x="783" y="484" key="NewPhpFileDialog/-1440.25.1440.875/0.25.1920.1055@0.25.1920.1055" timestamp="1607414173723" />
+    <state x="469" y="176" key="SettingsEditor" timestamp="1608027291385">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="469" y="176" key="SettingsEditor/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1608027291385" />
     <state x="867" y="424" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1604054023275">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
