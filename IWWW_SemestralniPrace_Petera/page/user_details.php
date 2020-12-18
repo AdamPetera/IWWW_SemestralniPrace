@@ -85,13 +85,15 @@ if (isset($_POST['updateAddress'])) {
                     <td>Číslo objednávky</td>
                     <td>Cena</td>
                     <td>Datum</td>
+                    <td>Stav</td>
+                    <td>Zaplaceno</td>
                     <td>Detail</td>
                 </tr>
                 </thead>
                 <tbody class="t_body">
                 <?php if (empty($orders)): ?>
                     <tr>
-                        <td colspan="4" style="text-align: center">Nemáte zatím žádné objednávky</td>
+                        <td colspan="6" style="text-align: center">Nemáte zatím žádné objednávky</td>
                     </tr>
                 <?php else: ?>
                     <?php foreach ($orders as $order): ?>
@@ -101,6 +103,8 @@ if (isset($_POST['updateAddress'])) {
                             </td>
                             <td class="price"><?=$order['price']?> Kč</td>
                             <td class="order_date"><?=$order['order_date']?></td>
+                            <td class="order_state"><?=$order['human_readable']?></td>
+                            <td class="order_paid"><?=(int) $order['paid'] == 0 ? 'NE' : 'ANO' ?></td>
                             <td class="detail_button">
                                 <a href="index.php?page=order_detail&order_number=<?=$order['order_number']?>">Detail objednávky</a>
                             </td>

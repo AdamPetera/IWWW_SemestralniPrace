@@ -19,6 +19,14 @@
               </script>';
     }
 
+    if (isset($_POST['change_state'])) {
+        OrderController::updatePaidState($order['order_id'], $_POST['select_paid']);
+        OrderController::updateOrderState($order['order_id'], $_POST['select_state']);
+        echo '<script type="text/javascript">
+                window.location = "index.php?page=order_detail&order_number='.$order['order_number'].'"
+              </script>';
+    }
+
 ?>
 
 <div class="order_detail_wrapper">
@@ -33,26 +41,29 @@
         if (isset($_SESSION["role"])) {
             if ($_SESSION["role"] == "admin" || $_SESSION["role"] == "seller") {
                 ?>
-                <div class="selections_wrap">
-                    <div class="selection">
-                        <select name="select_state" required>
-                            <?php
-                            foreach (OrderStateRepository::getAllOrderStates() as $state) {
-                                echo '<option value="'.$state['human_readable'].'">'.$state['human_readable'].'</option>';
-                            }
-                            ?>
-                        </select>
+                <form method="post">
+                    <div class="selections_wrap">
+                        <div class="selection">
+                            <select name="select_state" required>
+                                <?php
+                                foreach (OrderStateRepository::getAllOrderStates() as $state) {
+                                    echo '<option value="'.$state['human_readable'].'">'.$state['human_readable'].'</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="selection">
+                            <select name="select_paid" required>
+                                <option value="O">NE</option>;
+                                <option value="1">ANO</option>;
+                            </select>
+                        </div>
                     </div>
-                    <div class="selection">
-                        <select name="select_paid" required>
-                            <option value="O">NE</option>;
-                            <option value="1">ANO</option>;
-                        </select>
+
+                    <div class="btn_change_state">
+                        <input type="submit" value="Potvrdit změny v objednávce" name="change_state">
                     </div>
-                </div>
-                <div class="btn_change_state">
-                    <input type="submit" value="Potvrdit změny v objednávce" name="change_state">
-                </div>
+                </form>
                 <?php
             }
         }

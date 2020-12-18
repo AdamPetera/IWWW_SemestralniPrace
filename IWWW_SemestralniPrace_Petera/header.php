@@ -38,6 +38,15 @@
                 }
             }
             ?>
+            <?php
+            if (isset($_SESSION["role"])) {
+                if ($_SESSION["role"] == "seller" || "admin") {
+                    ?>
+                    <li><a href="index.php?page=manage_orders">Správa objednávek</a></li>
+                    <?php
+                }
+            }
+            ?>
         </ul>
     </nav>
 </header>

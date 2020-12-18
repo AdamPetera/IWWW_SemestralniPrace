@@ -49,7 +49,9 @@ class OrderController
 
     static function getAllUsersOrders($user_id) {
         $conn = Connection::getPdoInstance();
-        $stmt = $conn->prepare("SELECT * FROM `order` WHERE user_id = :user_id");
+        $stmt = $conn->prepare("SELECT o.*, os.human_readable FROM `order` o
+                                LEFT JOIN order_state os ON os.order_state_id = o.order_state_id 
+                                WHERE user_id = :user_id");
 
         $stmt->bindParam(':user_id', $user_id);
         $stmt->execute();
@@ -79,5 +81,47 @@ class OrderController
         $id = (int) $stmt->fetchColumn();
 
         return $user_id == $id;
+    }
+
+    static function updatePaidState($order_id, $value) {
+        $value = (int) $value;
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("UPDATE `order` SET paid = :value WHERE order_id = :order_id");
+        $stmt->bindParam(':value', $value);
+        $stmt->bindParam(':order_id', $order_id);
+
+        $stmt->execute();
+    }
+
+    static function updateOrderState($order_id, $value) {
+        $value = (int) OrderStateRepository::getStateIdByHumanReadable($value);
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("UPDATE `order` SET order_state_id = :value WHERE order_id = :order_id");
+        $stmt->bindParam(':value', $value);
+        $stmt->bindParam(':order_id', $order_id);
+
+        $stmt->execute();
+    }
+
+    static function getAllDispatchedOrdersFromDB() {
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("SELECT u.firstname, u.lastname, o.*, os.human_readable FROM `order` o 
+                                            LEFT JOIN order_state os ON o.order_state_id = os.order_state_id
+                                            LEFT JOIN user u ON u.user_id = o.user_id
+                                            WHERE os.order_state_id = 4 AND o.paid = 1");
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
+    static function getAllNonDispatchedOrdersFromDB() {
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("SELECT u.firstname, u.lastname, o.*, os.human_readable FROM `order` o 
+                                            LEFT JOIN order_state os ON o.order_state_id = os.order_state_id
+                                            LEFT JOIN user u ON u.user_id = o.user_id
+                                            WHERE os.order_state_id != 4 OR o.paid != 1");
+        $stmt->execute();
+
+        return $stmt->fetchAll();
     }
 }
