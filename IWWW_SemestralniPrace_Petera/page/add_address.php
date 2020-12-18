@@ -4,7 +4,8 @@ if (isset($_POST['addAddress'])) {
     $validation = AddressController::addressValidation($_POST['street'], $_POST['no'], $_POST['city'], $_POST['zipcode']);
 
     if (count($validation) == 0) {
-        if (AddressController::insertAddress($_POST['street'], $_POST['no'], $_POST['city'], $_POST['zipcode'], $user_id) == 1) {
+        $row = AddressController::insertAddress($_POST['street'], $_POST['no'], $_POST['city'], $_POST['zipcode'], $user_id);
+        if ($row['rowCount'] == 1) {
             echo '<script type="text/javascript">
                      window.location = "index.php?page=user_details"
                   </script>';

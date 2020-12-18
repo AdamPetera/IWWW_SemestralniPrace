@@ -45,7 +45,8 @@ class AddressController
 
         $stmt->execute();
 
-        return $stmt->rowCount();
+        return array("rowCount" => $stmt->rowCount(),
+            "address_id" => $conn->lastInsertId());
 
     }
 
@@ -105,5 +106,23 @@ class AddressController
 
         return array('street' => $street,
             'no' => $no, 'city' => $city, 'zipcode' => $zipcode);
+    }
+
+    static function checkIfAddressExists($user_id, $street, $no, $city, $zipcode) {
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("SELECT * FROM address WHERE no = :no AND zipcode = :zipcode LIMIT 1");
+        $stmt->bindParam(':no', $no);
+        $stmt->bindParam(':zipcode', $zipcode);
+
+        $stmt->execute();
+
+        if ($stmt->rowCount() == 0) {
+            $row = self::insertAddress($street, $no, $city, $zipcode, $user_id);
+            return $row['address_id'];
+        }
+
+        $row = $stmt->fetch();
+
+        return (int) $row['address_id'];
     }
 }

@@ -32,11 +32,22 @@
 <div class="order_detail_wrapper">
     <div class="order_detail_wrap">
         <h2>Detail objednávky číslo <?=$order['order_number']?></h2>
-        <p>Datum objednávky: <?=$order['order_date']?></p>
-        <p>Celková cena objednávky: <?=$order['price']?> Kč</p>
-        <br>
-        <p>Stav Vaší objednávky: <?=$order['human_readable']?></p>
-        <p>Objednávka zaplacena: <?=(int) $order['paid'] == 0 ? "NE" : "ANO"?></p>
+        <div class="order_details">
+            <div class="personal_info">
+                <p>Datum objednávky: <?=$order['order_date']?></p>
+                <p>Celková cena objednávky: <?=$order['price']?> Kč</p>
+                <br>
+                <p>Stav Vaší objednávky: <?=$order['human_readable']?></p>
+                <p>Objednávka zaplacena: <?=(int) $order['paid'] == 0 ? "NE" : "ANO"?></p>
+            </div>
+            <div class="sent_to">
+                <h4 class="sent_to_title">Adresa pro doručení:</h4>
+                <p>Ulice: <?=$order['street']?></p>
+                <p>Číslo popisné: <?=$order['no']?></p>
+                <p>Obec: <?=$order['city']?></p>
+                <p>PSČ: <?=$order['zipcode']?></p>
+            </div>
+        </div>
         <?php
         if (isset($_SESSION["role"])) {
             if ($_SESSION["role"] == "admin" || $_SESSION["role"] == "seller") {

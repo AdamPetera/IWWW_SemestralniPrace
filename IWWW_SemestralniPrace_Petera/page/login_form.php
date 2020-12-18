@@ -8,14 +8,14 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
 
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
         $password = $row["password"];
-        $role = $row["name"];
-        $email = $row["email"];
 
         if ($stmt->rowCount() == 0) {
             $error_message = "Omlouváme se, ale zadané údaje nesouhlasí";
         } else if (password_verify($_POST["password"], $password)) {
+
+            $role = $row["name"];
+            $email = $row["email"];
             $_SESSION["email"] = $email;
             $_SESSION["role"] = $role;
             $_SESSION["row"] = $row;

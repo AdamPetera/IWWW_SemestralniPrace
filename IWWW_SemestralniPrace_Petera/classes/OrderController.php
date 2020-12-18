@@ -35,14 +35,15 @@ class OrderController
         return $validation;
     }
 
-    static function insertOrder($conn, $user_id, $price, $order_number) {
-        $stmt = $conn->prepare("INSERT INTO `order` (user_id, price, order_number, order_date) VALUES (:user_id, :price, :order_number, :order_date)");
+    static function insertOrder($conn, $user_id, $price, $order_number, $address_id) {
+        $stmt = $conn->prepare("INSERT INTO `order` (user_id, price, order_number, order_date, address_id) VALUES (:user_id, :price, :order_number, :order_date, :address_id)");
 
         $order_date = date("d. m. Y");
         $stmt->bindParam(':user_id', $user_id);
         $stmt->bindParam(':price', $price);
         $stmt->bindParam(':order_number', $order_number);
         $stmt->bindParam(':order_date', $order_date);
+        $stmt->bindParam(':address_id', $address_id);
 
         $stmt->execute();
     }
@@ -61,8 +62,9 @@ class OrderController
 
     static function getOrderByOrderNumber($order_number) {
         $conn = Connection::getPdoInstance();
-        $stmt = $conn->prepare("SELECT o.*, os.human_readable FROM `order` o 
+        $stmt = $conn->prepare("SELECT o.*, os.human_readable, a.street, a.no, a.city, a.zipcode FROM `order` o 
                                             LEFT JOIN order_state os ON o.order_state_id = os.order_state_id
+                                            LEFT JOIN address a ON a.address_id = o.address_id
                                             WHERE order_number = :order_number");
 
         $stmt->bindParam(':order_number', $order_number);

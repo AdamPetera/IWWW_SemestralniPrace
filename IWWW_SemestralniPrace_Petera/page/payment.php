@@ -23,6 +23,7 @@
                 $validation = OrderController::userInfoAndAddressValidation($_POST['firstname'], $_POST['lastname'], $_POST['email'],
                     $_POST['phone'], $_POST['street'], $_POST['no'], $_POST['city'], $_POST['zipcode']);
                 if (count($validation) == 0) {
+                    $address_id = AddressController::checkIfAddressExists($_SESSION['row']['user_id'], $_POST['street'], $_POST['no'], $_POST['city'], $_POST['zipcode']);
                     $conn = Connection::getPdoInstance();
                     $subtotal += (int) $_POST['payment_method'];
                     $subtotal += (int) $_POST['delivery_method'];
@@ -30,7 +31,7 @@
                     $today = date("Ymd");
                     $rand = strtoupper(substr(uniqid(sha1(time())),0,8));
                     $order_number = $today . $rand;
-                    OrderController::insertOrder($conn, $_SESSION['row']['user_id'], $subtotal, $order_number);
+                    OrderController::insertOrder($conn, $_SESSION['row']['user_id'], $subtotal, $order_number, $address_id);
                     OrderHasProductsController::insert($conn->lastInsertId(), $_SESSION['row']['user_id']);
                     echo '<script type="text/javascript">
                             window.location = "index.php?page=order_confirmed&order_number='.$order_number.'"
