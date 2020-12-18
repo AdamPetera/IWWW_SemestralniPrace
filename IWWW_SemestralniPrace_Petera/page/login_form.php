@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="../styles/login_form.css">
-    <script src="https://kit.fontawesome.com/cb337acf51.js" crossorigin="anonymous"></script>
-</head>
-
 <?php
 if (isset($_POST["email"]) && isset($_POST["password"])) {
     $validation = UserController::loginUserValidation($_POST["email"], $_POST["password"]);

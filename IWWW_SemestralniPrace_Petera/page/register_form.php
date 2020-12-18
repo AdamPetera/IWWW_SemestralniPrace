@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <title>Registrace</title>
-    <link rel="stylesheet" href="../styles/register_form.css">
-    <script src="https://kit.fontawesome.com/cb337acf51.js" crossorigin="anonymous"></script>
-</head>
-
 <?php
 if ($_POST) {
 

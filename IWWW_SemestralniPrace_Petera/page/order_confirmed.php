@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <title>Potvrzení objednávky</title>
-    <link rel="stylesheet" href="../styles/order_confirmed.css">
-    <script src="https://kit.fontawesome.com/cb337acf51.js" crossorigin="anonymous"></script>
-</head>
-
 <?php
     if (!isset($_GET['order_number'])) {
         echo '<p>Tady nemáš co dělat :(</p>';

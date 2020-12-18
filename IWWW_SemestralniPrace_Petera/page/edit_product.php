@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <title>Editace produktu</title>
-    <link rel="stylesheet" href="../styles/add_product.css">
-    <script src="https://kit.fontawesome.com/cb337acf51.js" crossorigin="anonymous"></script>
-</head>
-
 <?php
 if (isset($_SESSION['role'])) {
     if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'seller') {
@@ -43,6 +34,7 @@ if (isset($_SESSION['role'])) {
         if (isset($_POST['add_variant'])) {
             if (!empty($_POST['var_value'])) {
                 ProductVariantsController::insertVariantOfProduct($product_id, $_POST['var_value']);
+                //header("Location: index.php?page=edit_product&product_id='.$product_id.'");
                 echo '<script type="text/javascript">
                                 window.location = "index.php?page=edit_product&product_id='.$product_id.'"
                             </script>';

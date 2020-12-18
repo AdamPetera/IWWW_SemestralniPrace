@@ -59,7 +59,9 @@ class OrderController
 
     static function getOrderByOrderNumber($order_number) {
         $conn = Connection::getPdoInstance();
-        $stmt = $conn->prepare("SELECT * FROM `order` WHERE order_number = :order_number");
+        $stmt = $conn->prepare("SELECT o.*, os.human_readable FROM `order` o 
+                                            LEFT JOIN order_state os ON o.order_state_id = os.order_state_id
+                                            WHERE order_number = :order_number");
 
         $stmt->bindParam(':order_number', $order_number);
         $stmt->execute();

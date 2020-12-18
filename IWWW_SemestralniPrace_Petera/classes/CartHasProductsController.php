@@ -58,9 +58,10 @@ class CartHasProductsController
 
     static function getAllCartProductIds($cart_id) {
         $conn = Connection::getPdoInstance();
-        $stmt = $conn->prepare("SELECT p.product_id product_id, p.name pname, p.description description, p.price price, pv.variant_id, pv.name, cart.quantity FROM cart_has_products cart
+        $stmt = $conn->prepare("SELECT p.product_id product_id, p.name pname, p.description description, p.price price, pv.variant_id, pv.name, cart.quantity, i.image FROM cart_has_products cart
                                             LEFT JOIN product_variants pv ON pv.variant_id = cart.variant_id
                                             LEFT JOIN product p ON p.product_id = pv.product_id
+                                            LEFT JOIN product_image i ON i.product_image_id = p.image_id
                                             WHERE cart_id = :cart_id");
 
         $stmt->bindParam(':cart_id', $cart_id);
@@ -79,10 +80,19 @@ class CartHasProductsController
     }
 
     static function removeProductFromAllCarts($product_id) {
+        $variant_ids = ProductVariantsController::getAllProductVariantIds($product_id);
+
+        var_dump($variant_ids);
+
+        $array_to_question_marks = implode(',', array_fill(0, count($variant_ids), '?'));
+
+        var_dump($array_to_question_marks);
+        var_dump(array_values($variant_ids));
+
         $conn = Connection::getPdoInstance();
-        $stmt = $conn->prepare("DELETE FROM cart_has_products WHERE product_id = :product_id");
-        $stmt->bindParam(':product_id', $product_id);
-        $stmt->execute();
+        $stmt = $conn->prepare("DELETE FROM cart_has_products WHERE variant_id IN (' . $array_to_question_marks . ')");
+
+        $stmt->execute(array_values($variant_ids));
     }
 
 }

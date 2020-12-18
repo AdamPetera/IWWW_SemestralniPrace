@@ -14,12 +14,11 @@
     <div class="sticks_preview">
         <?php
         foreach (ProductController::getAllSticks() as $stick) {
-            $image = ProductImageController::getProductImage($stick['product_id'], 'main');
             echo '
                   <a href="index.php?page=product&id='. $stick['product_id'] .'">
                        <div class="stick_card">
                             <div class="stick_card_image_wrap">
-                                <img src="'. $image .'" alt="Florbalka ' . $stick["name"] . '">
+                                <img src="'. $stick['image'] .'" alt="Florbalka ' . $stick["name"] . '">
                             </div>
                             <div class="stick_card_name">
                                  <h2 class="title">' . $stick["name"] . '</h2>

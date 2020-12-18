@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <title>Uživatelské detaily</title>
-    <link rel="stylesheet" href="../styles/user_details.css">
-    <script src="https://kit.fontawesome.com/cb337acf51.js" crossorigin="anonymous"></script>
-</head>
-
 <?php
     if (!isset($_SESSION["email"])) {
         include "login_form.php";
@@ -125,22 +116,22 @@ if (isset($_POST['updateAddress'])) {
             <h1>Úprava uživatelských údajů</h1>
             <form method="post">
                 <div class="txt_field">
-                    <input type="text" name="firstname">
+                    <input type="text" name="firstname" value="<?= isset($_SESSION['row']) ? $_SESSION['row']['firstname'] : ''; ?>">
                     <span></span>
                     <label>Jméno</label>
                 </div>
                 <div class="txt_field">
-                    <input type="text" name="lastname">
+                    <input type="text" name="lastname" value="<?= isset($_SESSION['row']) ? $_SESSION['row']['lastname'] : ''; ?>">
                     <span></span>
                     <label>Příjmení</label>
                 </div>
                 <div class="txt_field">
-                    <input type="email" name="email">
+                    <input type="email" name="email" value="<?= isset($_SESSION['row']) ? $_SESSION['row']['email'] : ''; ?>">
                     <span></span>
                     <label>Email</label>
                 </div>
                 <div class="txt_field">
-                    <input type="tel" name="phone" pattern="((\+420|00420) ?)?\d{3}( |-)?\d{3}( |-)?\d{3}">
+                    <input type="tel" name="phone" value="<?= isset($_SESSION['row']) ? $_SESSION['row']['phone'] : ''; ?>" pattern="((\+420|00420) ?)?\d{3}( |-)?\d{3}( |-)?\d{3}">
                     <span></span>
                     <label>Telefonní číslo</label>
                 </div>
@@ -166,22 +157,22 @@ if (isset($_POST['updateAddress'])) {
             <h1>Úprava adresy</h1>
             <form method="post">
                 <div class="txt_field">
-                    <input type="text" name="street">
+                    <input type="text" name="street" value="<?= isset($address) ? $address['street'] : ''; ?>">
                     <span></span>
                     <label>Ulice</label>
                 </div>
                 <div class="txt_field">
-                    <input type="text" name="no">
+                    <input type="text" name="no" value="<?= isset($address) ? $address['no'] : ''; ?>">
                     <span></span>
                     <label>Číslo popisné</label>
                 </div>
                 <div class="txt_field">
-                    <input type="text" name="city">
+                    <input type="text" name="city" value="<?= isset($address) ? $address['city'] : ''; ?>">
                     <span></span>
                     <label>Obec</label>
                 </div>
                 <div class="txt_field">
-                    <input type="number" name="zipcode" min="0">
+                    <input type="number" name="zipcode"  value="<?= isset($address) ? $address['zipcode'] : ''; ?>"min="0">
                     <span></span>
                     <label>PSČ</label>
                 </div>

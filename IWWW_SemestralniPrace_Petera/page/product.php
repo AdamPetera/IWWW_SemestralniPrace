@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="../styles/product.css">
-    <script src="https://kit.fontawesome.com/cb337acf51.js" crossorigin="anonymous"></script>
-</head>
-
 <?php
     $conn = Connection::getPdoInstance();
     if (isset($_GET['id'])) {
@@ -17,9 +8,7 @@
             if ($_SESSION["role"] == "admin" || $_SESSION['role'] == 'seller') {
                 if (isset($_POST['remove'])) {
                     ProductController::deleteProduct($_GET['id']);
-                    echo '<script type="text/javascript">
-                                window.location = "index.php"
-                            </script>';
+
                 }
             }
         }
@@ -70,14 +59,13 @@
     ?>
     <div class="product_wrap">
         <?php
-        $image = ProductImageController::getProductImage($product['product_id'], 'main');
         if (strpos($category, 'stick') !== false) {
             ?>
-            <img src="<?=$image?>" width="600" height="250" class="product_stick_img" alt="<?=$product['name']?>">
+            <img src="<?=$product['image']?>" width="600" height="250" class="product_stick_img" alt="<?=$product['name']?>">
             <?php
         } else {
             ?>
-            <img src="<?=$image?>" width="400" height="400" class="product_img" alt="<?=$product['name']?>">
+            <img src="<?=$product['image']?>" width="400" height="400" class="product_img" alt="<?=$product['name']?>">
             <?php
         }
         ?>

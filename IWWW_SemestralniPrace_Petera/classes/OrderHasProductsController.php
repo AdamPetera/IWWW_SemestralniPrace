@@ -43,9 +43,10 @@ class OrderHasProductsController
 
     static function getAllOrderProducts($order_id) {
         $conn = Connection::getPdoInstance();
-        $stmt = $conn->prepare("SELECT o.order_id order_id, o.price order_price, o.quantity order_quantity, p.product_id product_id, p.name product_name, pv.name pv_name FROM order_has_products o
+        $stmt = $conn->prepare("SELECT o.order_id order_id, o.price order_price, o.quantity order_quantity, p.product_id product_id, p.name product_name, pv.name pv_name, i.image FROM order_has_products o
                                             LEFT JOIN product_variants pv ON o.variant_id = pv.variant_id
                                             LEFT JOIN product p ON p.product_id = pv.product_id
+                                            LEFT JOIN product_image i ON i.product_image_id = p.image_id
                                             WHERE order_id = :order_id");
 
         $stmt->bindParam(':order_id', $order_id);

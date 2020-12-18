@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <title>Detail objednávky</title>
-    <link rel="stylesheet" href="../styles/order_detail.css">
-    <script src="https://kit.fontawesome.com/cb337acf51.js" crossorigin="anonymous"></script>
-</head>
-
 <?php
     if (!isset($_GET['order_number'])) {
         echo '<p>Tady se mi něco nezdá</p>';
@@ -35,6 +26,37 @@
         <h2>Detail objednávky číslo <?=$order['order_number']?></h2>
         <p>Datum objednávky: <?=$order['order_date']?></p>
         <p>Celková cena objednávky: <?=$order['price']?> Kč</p>
+        <br>
+        <p>Stav Vaší objednávky: <?=$order['human_readable']?></p>
+        <p>Objednávka zaplacena: <?=(int) $order['paid'] == 0 ? "NE" : "ANO"?></p>
+        <?php
+        if (isset($_SESSION["role"])) {
+            if ($_SESSION["role"] == "admin" || $_SESSION["role"] == "seller") {
+                ?>
+                <div class="selections_wrap">
+                    <div class="selection">
+                        <select name="select_state" required>
+                            <?php
+                            foreach (OrderStateRepository::getAllOrderStates() as $state) {
+                                echo '<option value="'.$state['human_readable'].'">'.$state['human_readable'].'</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="selection">
+                        <select name="select_paid" required>
+                            <option value="O">NE</option>;
+                            <option value="1">ANO</option>;
+                        </select>
+                    </div>
+                </div>
+                <div class="btn_change_state">
+                    <input type="submit" value="Potvrdit změny v objednávce" name="change_state">
+                </div>
+                <?php
+            }
+        }
+        ?>
         <div class="order_table">
             <h2>Produkty</h2>
             <table>
@@ -49,11 +71,10 @@
                 <tbody class="t_body">
                     <?php foreach ($products as $product): ?>
                         <?$product_id = (int) $product['product_id']?>
-                        <?$image = ProductImageController::getProductImage($product_id, 'main');?>
                         <tr>
                             <td class="img">
                                 <a href="index.php?page=product&id=<?=$product_id?>">
-                                    <img src="<?=$image?>" width="50" height="50" alt="<?=$product['name']?>">
+                                    <img src="<?=$product['image']?>" width="50" height="50" alt="<?=$product['name']?>">
                                 </a>
                             </td>
                             <td>

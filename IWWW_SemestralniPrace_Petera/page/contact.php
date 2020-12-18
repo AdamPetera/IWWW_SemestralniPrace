@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <title>Kontakt</title>
-    <link rel="stylesheet" href="../styles/contact.css">
-    <script src="https://kit.fontawesome.com/cb337acf51.js" crossorigin="anonymous"></script>
-</head>
-
 <?php
     if (isset($_POST['send'])) {
         $validation = ContactController::contactValidation($_POST['wholename'], $_POST['email'], $_POST['question_name'], $_POST['message']);

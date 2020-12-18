@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <title>Přidání adresy</title>
-    <link rel="stylesheet" href="../styles/add_address.css">
-    <script src="https://kit.fontawesome.com/cb337acf51.js" crossorigin="anonymous"></script>
-</head>
-
 <?php
 if (isset($_POST['addAddress'])) {
     $user_id = $_GET['id'];

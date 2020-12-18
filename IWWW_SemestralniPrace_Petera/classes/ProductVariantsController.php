@@ -19,6 +19,23 @@ class ProductVariantsController
         return $variants;
     }
 
+    static function getAllProductVariantIds($product_id) {
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("SELECT * FROM product_variants WHERE product_id = :product_id");
+
+        $stmt->bindParam(':product_id', $product_id);
+
+        $stmt->execute();
+
+        $temp_ids = $stmt->fetchAll();
+        $ids = array();
+        foreach ($temp_ids as $variant) {
+            $ids[] = (int) $variant['variant_id'];
+        }
+
+        return $ids;
+    }
+
     static function getVariantIdByNameAndProductId($name, $product_id) {
         $conn = Connection::getPdoInstance();
         $stmt = $conn->prepare("SELECT * FROM product_variants WHERE product_id = :product_id AND name = :name");

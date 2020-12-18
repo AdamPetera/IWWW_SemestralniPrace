@@ -5,9 +5,10 @@ class ProductController
 {
     static function getAllSticks(): array {
         $conn = Connection::getPdoInstance();
-        $stmt = $conn->prepare("SELECT p.* FROM product p
+        $stmt = $conn->prepare("SELECT p.*, i.image FROM product p
                     JOIN product_has_category pc ON p.product_id = pc.product_id
                     JOIN category c ON c.category_id = pc.category_id
+                    LEFT JOIN product_image i ON i.product_image_id = p.image_id
                     WHERE c.identifier = 'stick'");
         $stmt->execute();
 
@@ -29,9 +30,10 @@ class ProductController
 
     static function getAllSpecifiedItems($identifier): array {
         $conn = Connection::getPdoInstance();
-        $stmt = $conn->prepare("SELECT p.* FROM product p
+        $stmt = $conn->prepare("SELECT p.*, i.image FROM product p
                     JOIN product_has_category pc ON p.product_id = pc.product_id
                     JOIN category c ON c.category_id = pc.category_id
+                    LEFT JOIN product_image i ON i.product_image_id = p.image_id
                     WHERE c.identifier = '$identifier'");
         $stmt->execute();
 
@@ -47,7 +49,9 @@ class ProductController
         return $stmt->fetchColumn(0);
     }
     static function getProductById($conn, $product_id) {
-        $stmt = $conn->prepare("SELECT * FROM product where product_id = ?");
+        $stmt = $conn->prepare("SELECT p.*, i.image FROM product p
+                                LEFT JOIN product_image i ON i.product_image_id = p.image_id
+                                where product_id = ?");
         $stmt->execute([$product_id]);
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -184,14 +188,16 @@ class ProductController
     }
 
     static function deleteProduct($product_id) {
+
+        //ProductVariantsController::getAllProductVariantIds($product_id);
         CartHasProductsController::removeProductFromAllCarts($product_id);
-        ProductHasAttributesController::removeAllProductAttributes($product_id);
+        /*ProductHasAttributesController::removeAllProductAttributes($product_id);
         OrderHasProductsController::removeAllProductFromOrder($product_id);
         ProductHasCategoryController::removeCategoryOfProduct($product_id);
         ProductImageController::removeAllImagesOfProduct($product_id);
         $conn = Connection::getPdoInstance();
         $stmt = $conn->prepare("DELETE FROM product WHERE product_id = :product_id");
         $stmt->bindParam(':product_id', $product_id);
-        $stmt->execute();
+        $stmt->execute();*/
     }
 }

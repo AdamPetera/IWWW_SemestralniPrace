@@ -16,12 +16,11 @@
     <div class="items_preview">
         <?php
         foreach (ProductController::getAllSpecifiedItems($_GET["items"]) as $item) {
-            $image = ProductImageController::getProductImage($item['product_id'], 'main');
             echo '
                 <a href="index.php?page=product&id=' . $item['product_id'] . '">
                     <div class="item_card">
                         <div class="item_card_image_wrap">
-                            <img src="' . $image . '" alt="' . $_GET["items"] . '">
+                            <img src="' . $item['image'] . '" alt="' . $_GET["items"] . '">
                         </div>
                         <div class="item_card_name">
                             <h2 class="title">' . $item["name"] . '</h2>

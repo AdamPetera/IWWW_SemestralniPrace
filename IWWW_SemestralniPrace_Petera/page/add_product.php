@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <title>Přidání produktu</title>
-    <link rel="stylesheet" href="../styles/add_product.css">
-    <script src="https://kit.fontawesome.com/cb337acf51.js" crossorigin="anonymous"></script>
-</head>
-
 <?php
 if (isset($_SESSION['role'])) {
     if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'seller') {

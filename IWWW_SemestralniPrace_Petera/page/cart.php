@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <title>Nákupní košík</title>
-    <link rel="stylesheet" href="../styles/cart.css">
-    <script src="https://kit.fontawesome.com/cb337acf51.js" crossorigin="anonymous"></script>
-</head>
-
 <?php
 if (!isset($_SESSION["email"])) {
     include "login_form.php";
@@ -26,8 +17,6 @@ if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['produc
                 if (isset($_POST['variants'])) {
                     $variant_id = ProductVariantsController::getVariantIdByNameAndProductId($_POST['variants'], $product_id);
                     CartHasProductsController::insertOrUpdate($cart_id, $variant_id, $quantity);
-                } else {
-                    //CartHasProductsController::insertOrUpdate($cart_id, 9999999, $quantity);
                 }
             } else {
                 include "login_form.php";
@@ -96,11 +85,10 @@ if (isset($_POST['placeorder'])) {
                     </tr>
                     <?php else: ?>
                     <?php foreach ($products as $product): ?>
-                    <?$image = ProductImageController::getProductImage($product['product_id'], 'main');?>
                     <tr>
                         <td class="img">
                             <a href="index.php?page=product&id=<?=$product['product_id']?>">
-                                <img src="<?=$image?>" width="50" height="50" alt="<?=$product['p.name']?>">
+                                <img src="<?=$product['image']?>" width="50" height="50" alt="<?=$product['p.name']?>">
                             </a>
                         </td>
                         <td>

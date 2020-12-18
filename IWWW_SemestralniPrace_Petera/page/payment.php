@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <title>Platba</title>
-    <link rel="stylesheet" href="../styles/payment.css">
-    <script src="https://kit.fontawesome.com/cb337acf51.js" crossorigin="anonymous"></script>
-</head>
-
 <?php
     if (!isset($_SESSION["email"])) {
         include "login_form.php";
@@ -79,38 +70,38 @@
             <div class="delivery_info_user">
                 <div class="row">
                     <p class="row_name">Jméno</p>
-                    <input type="text" name="firstname" value="<?= isset($_POST['firstname']) ? $_POST['firstname'] : ''; ?>" required>
+                    <input type="text" name="firstname" value="<?= isset($_SESSION['row']) ? $_SESSION['row']['firstname'] : ''; ?>" required>
                 </div>
                 <div class="row">
                     <p class="row_name">Příjmení</p>
-                    <input type="text" name="lastname" value="<?= isset($_POST['lastname']) ? $_POST['lastname'] : ''; ?>" required>
+                    <input type="text" name="lastname" value="<?= isset($_SESSION['row']) ? $_SESSION['row']['lastname'] : ''; ?>" required>
                 </div>
                 <div class="row">
                     <p class="row_name">Telefon</p>
-                    <input type="tel" name="phone" value="<?= isset($_POST['phone']) ? $_POST['phone'] : ''; ?>"
+                    <input type="tel" name="phone" value="<?= isset($_SESSION['row']) ? $_SESSION['row']['phone'] : ''; ?>"
                            pattern="((\+420|00420) ?)?\d{3}( |-)?\d{3}( |-)?\d{3}" required>
                 </div>
                 <div class="row">
                     <p class="row_name">Email</p>
-                    <input type="email" name="email" value="<?= isset($_POST['email']) ? $_POST['email'] : ''; ?>" required>
+                    <input type="email" name="email" value="<?= isset($_SESSION['row']) ? $_SESSION['row']['email'] : ''; ?>" required>
                 </div>
             </div>
             <div class="delivery_info_address">
                 <div class="row">
                     <p class="row_name">Ulice</p>
-                    <input type="text" name="street" value="<?= isset($_POST['street']) ? $_POST['street'] : ''; ?>" required>
+                    <input type="text" name="street" value="<?= isset($address['row']) ? $address['row']['street'] : ''; ?>" required>
                 </div>
                 <div class="row">
                     <p class="row_name">Číslo popisné</p>
-                    <input type="text" name="no" value="<?= isset($_POST['no']) ? $_POST['no'] : ''; ?>" required>
+                    <input type="text" name="no" value="<?= isset($address['row']) ? $address['row']['no'] : ''; ?>" required>
                 </div>
                 <div class="row">
                     <p class="row_name">Obec</p>
-                    <input type="text" name="city" value="<?= isset($_POST['city']) ? $_POST['city'] : ''; ?>" required>
+                    <input type="text" name="city" value="<?= isset($address['row']) ? $address['row']['city'] : ''; ?>" required>
                 </div>
                 <div class="row">
                     <p class="row_name">PSČ</p>
-                    <input type="number" name="zipcode" value="<?= isset($_POST['zipcode']) ? $_POST['zipcode'] : ''; ?>" required>
+                    <input type="number" name="zipcode" value="<?= isset($address['row']) ? $address['row']['zipcode'] : ''; ?>" required>
                 </div>
             </div>
         </div>

@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="cs">
 <?php
 if (isset($_SESSION["role"])) {
     if ($_SESSION["role"] == "admin" || $_SESSION['role'] == 'seller') {
