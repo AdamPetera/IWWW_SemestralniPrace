@@ -1,17 +1,77 @@
+<?php
+    if (isset($_POST['add_category'])) {
+        if (!empty($_POST['name']) && !empty($_POST['identifier'])) {
+            $rowCount = CategoryController::addCategory($_POST['name'], $_POST['identifier']);
+            if ($rowCount == 1) {
+                HelpFunctions::alert("Kategorie úspěšně přidána");
+                echo '<script type="text/javascript">
+                    window.location = "index.php"
+                    </script>';
+            }
+        } else {
+            HelpFunctions::alert("Zkontrolujte, zda jste vyplnili korektně obě pole");
+        }
+    }
+
+    if (isset($_POST['del_category'])) {
+        $row = CategoryController::deleteCategory($_POST['select']);
+        if ($row == 1) {
+            HelpFunctions::alert('Kategorie úspěšně odstraněna');
+            echo '<script type="text/javascript">
+                    window.location = "index.php"
+                    </script>';
+        } else {
+            HelpFunctions::alert('Něco se pokazilo :(');
+        }
+    }
+
+?>
+
 <!--<button id="openButton" class="openbtn" onclick="openNav()">☰ Open Sidebar</button>-->
 <div class="sidemenu" id="mySideMenu">
 <!--    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>-->
     <h3 class="prodcut_name">Produkty  <i class="fas fa-shopping-cart"></i></h3>
     <ul>
-        <li><a href="index.php?page=shopitems_sticks"><i class="fas fa-check"></i>&nbsp;&nbsp;Florbalky</a></li>
-        <li><a href="index.php?page=shopitems&items=blade"><i class="fas fa-fan"></i>&nbsp;&nbsp;Čepele</a></li>
-        <li><a href="index.php?page=shopitems&items=goalie"><i class="fas fa-bullseye"></i>&nbsp;&nbsp;Brankáři</a></li>
-        <li><a href="index.php?page=shopitems&items=bag"><i class="fas fa-suitcase-rolling"></i>&nbsp;&nbsp;Vaky, tašky</a></li>
-        <li><a href="index.php?page=shopitems&items=ball"><i class="far fa-futbol"></i>&nbsp;&nbsp;Míčky</a></li>
-        <li><a href="index.php?page=shopitems&items=accessory"><i class="fas fa-glasses"></i>&nbsp;&nbsp;Doplňky</a></li>
-        <li><a href="index.php?page=shopitems&items=clothes"><i class="fas fa-tshirt"></i>&nbsp;&nbsp;Oblečení</a></li>
-        <li><a href="index.php?page=shopitems&items=goal"><i class="fas fa-crosshairs"></i>&nbsp;&nbsp;Branky</a></li>
+        <?php
+        foreach (CategoryController::getAllCategoriesNamesAndIdentifiers() as $category) {
+            if ($category['identifier'] === 'stick') {
+                echo '<li><a href="index.php?page=shopitems_'. $category['identifier'] .'s">
+                        <i class="fas fa-angle-double-right"></i>&nbsp;&nbsp;'. $category['name'] .'</a></li>';
+            } else {
+                echo '<li><a href="index.php?page=shopitems&items='. $category['identifier'] .'">
+                        <i class="fas fa-angle-double-right"></i>&nbsp;&nbsp;'. $category['name'] .'</a></li>';
+            }
+        }
+        ?>
     </ul>
+    <?php
+    if (isset($_SESSION["role"])) {
+        if ($_SESSION["role"] == "admin" || "seller") {
+            echo '
+            <div class="add_category_wrap">
+                <form method="post">
+                    <input class="cat_name" type="text" name="name" placeholder="Název kategorie" required>
+                    <input class="cat_name" type="text" name="identifier" placeholder="Identifikátor" required>
+                    <input class="cat_add" type="submit" name="add_category" value="Přidat kategorii">
+                </form>
+            </div>
+            <div class="delete_category_wrap">
+                <form method="post">
+                    <div class="selection">
+                        <select name="select" required>';
+                            foreach (CategoryController::getAllCategoriesNamesAndIdentifiers() as $cat) {
+                                echo '<option value="'.$cat['identifier'].'">'.$cat['name'].'</option>';
+                            }
+                echo '  </select>
+                    </div>
+                    <div class="delete_category_btn">
+                        <input class="cat_del" type="submit" name="del_category" value="Odstranit kategorii">
+                    </div>
+                </form>
+            </div>';
+        }
+    }
+    ?>
 </div>
 
 <script>

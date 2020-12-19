@@ -2,8 +2,7 @@
     $conn = Connection::getPdoInstance();
     if (isset($_GET['id'])) {
         $product = ProductController::getProductById($conn, $_GET['id']);
-        $product_identifier = CategoryController::getProductCategory($_GET['id']);
-        $similar_products = ProductController::getSimilarProducts($_GET['id'], $product_identifier, 3);
+        $similar_products = ProductController::getSimilarProducts($_GET['id'], $product['identifier']);
         if (isset($_SESSION["role"])) {
             if ($_SESSION["role"] == "admin" || $_SESSION['role'] == 'seller') {
                 if (isset($_POST['remove'])) {
@@ -20,7 +19,6 @@
         die ("Produkt neexistuje");
     }
 
-    $category = ProductController::getProductCategory($_GET['id']);
     $attributes = ProductController::getAllProductAttributes($_GET['id']);
     $variants = ProductVariantsController::getAllProductVariants($_GET['id']);
     $size_attributes = $additional_attributes = array();
@@ -59,7 +57,7 @@
     ?>
     <div class="product_wrap">
         <?php
-        if (strpos($category, 'stick') !== false) {
+        if (strpos($product['identifier'], 'stick') !== false) {
             ?>
             <img src="<?=$product['image']?>" width="600" height="250" class="product_stick_img" alt="<?=$product['name']?>">
             <?php
@@ -170,14 +168,13 @@
         <h2 class="similar_title">Uživatelé také zakoupili</h2>
         <div class="sticks_preview">
             <?php
-            if ($product_identifier == 'stick') {
+            if ($product['identifier'] == 'stick') {
                 foreach ($similar_products as $item) {
-                    $image = ProductImageController::getProductImage($item['product_id'], 'main');
                     echo '
                           <a href="index.php?page=product&id=' . $item['product_id'] . '">
                                <div class="stick_card">
                                     <div class="stick_card_image_wrap">
-                                        <img src="' . $image . '" alt="Florbalka ' . $item["name"] . '">
+                                        <img src="' . $item["image"] . '" alt="Florbalka ' . $item["name"] . '">
                                     </div>
                                     <div class="stick_card_name">
                                          <h2 class="title">' . $item["name"] . '</h2>
@@ -193,12 +190,11 @@
                 }
             } else {
                 foreach ($similar_products as $item) {
-                    $image = ProductImageController::getProductImage($item['product_id'], 'main');
                     echo '
                         <a href="index.php?page=product&id=' . $item['product_id'] . '">
                             <div class="item_card">
                                 <div class="item_card_image_wrap">
-                                    <img src="' . $image . '" alt="' . $item["name"] . '">
+                                    <img src="' . $item["image"] . '" alt="' . $item["name"] . '">
                                 </div>
                                 <div class="item_card_name">
                                     <h2 class="title">' . $item["name"] . '</h2>

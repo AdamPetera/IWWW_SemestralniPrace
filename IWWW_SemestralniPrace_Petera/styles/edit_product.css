@@ -176,6 +176,7 @@
 
 .selection {
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .table_wrap table .remove:hover {

@@ -20,6 +20,17 @@ class UserController
         return $stmt->fetchAll();
     }
 
+    static function getAllUsersWithRoles() {
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("SELECT u.*, r.name rolename FROM user u
+                                            LEFT JOIN user_has_role uhr ON u.user_id = uhr.user_id
+                                            LEFT JOIN role r ON r.role_id = uhr.role_id");
+        $stmt->execute();
+        $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $stmt->fetchAll();
+    }
+
     static function emailExists($conn, $email): int {
         $chk = $conn->prepare("SELECT email FROM user WHERE email = :email");
         $chk->bindParam(':email', $email);

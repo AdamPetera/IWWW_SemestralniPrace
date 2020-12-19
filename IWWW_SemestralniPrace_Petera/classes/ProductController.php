@@ -6,8 +6,7 @@ class ProductController
     static function getAllSticks(): array {
         $conn = Connection::getPdoInstance();
         $stmt = $conn->prepare("SELECT p.*, i.image FROM product p
-                    JOIN product_has_category pc ON p.product_id = pc.product_id
-                    JOIN category c ON c.category_id = pc.category_id
+                    LEFT JOIN category c ON c.category_id = p.category_id
                     LEFT JOIN product_image i ON i.product_image_id = p.image_id
                     WHERE c.identifier = 'stick'");
         $stmt->execute();
@@ -18,8 +17,7 @@ class ProductController
     static function getAllSticksByPriceRange($lower, $higher): array {
         $conn = Connection::getPdoInstance();
         $stmt = $conn->prepare("SELECT p.* FROM product p
-                    JOIN product_has_category pc ON p.product_id = pc.product_id
-                    JOIN category c ON c.category_id = pc.category_id
+                    LEFT JOIN category c ON c.category_id = p.category_id
                     WHERE c.identifier = 'stick'
                     AND p.price >= $lower
                     AND p.price <= $higher");
@@ -31,8 +29,7 @@ class ProductController
     static function getAllSpecifiedItems($identifier): array {
         $conn = Connection::getPdoInstance();
         $stmt = $conn->prepare("SELECT p.*, i.image FROM product p
-                    JOIN product_has_category pc ON p.product_id = pc.product_id
-                    JOIN category c ON c.category_id = pc.category_id
+                    LEFT JOIN category c ON c.category_id = p.category_id
                     LEFT JOIN product_image i ON i.product_image_id = p.image_id
                     WHERE c.identifier = '$identifier'");
         $stmt->execute();
@@ -49,8 +46,9 @@ class ProductController
         return $stmt->fetchColumn(0);
     }
     static function getProductById($conn, $product_id) {
-        $stmt = $conn->prepare("SELECT p.*, i.image FROM product p
+        $stmt = $conn->prepare("SELECT p.*, i.image, c.identifier, c.name cat_name FROM product p
                                 LEFT JOIN product_image i ON i.product_image_id = p.image_id
+                                LEFT JOIN category c ON c.category_id = p.category_id
                                 where product_id = ?");
         $stmt->execute([$product_id]);
 
@@ -86,17 +84,25 @@ class ProductController
         $stmt->execute();
     }
 
-    static function updateProduct($product_id, $name, $description, $price) {
+    static function updateProduct($product_id, $name, $description, $price, $selected) {
         $conn = Connection::getPdoInstance();
-        $stmt = $conn->prepare("UPDATE product SET name = :name, description = :description, price = :price WHERE product_id = :product_id");
-        $stmt->bindParam(':name', $name);
-        $stmt->bindParam(':description', $description);
-        $stmt->bindParam(':price', $price);
-        $stmt->bindParam(':product_id', $product_id);
 
-        $stmt->execute();
+        $category_id = CategoryController::getCategoryIdByName($selected);
 
-        return $stmt->rowCount();
+        if ($category_id) {
+            $stmt = $conn->prepare("UPDATE product SET name = :name, description = :description, price = :price, category_id = :category_id WHERE product_id = :product_id");
+            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':description', $description);
+            $stmt->bindParam(':price', $price);
+            $stmt->bindParam(':category_id', $category_id);
+            $stmt->bindParam(':product_id', $product_id);
+
+            $stmt->execute();
+
+            return $stmt->rowCount();
+        }
+
+        return -1;
 
     }
 
@@ -111,9 +117,9 @@ class ProductController
 
     static function getSimilarProducts($product_id, $identifier) {
         $conn = Connection::getPdoInstance();
-        $stmt = $conn->prepare("SELECT p.* FROM product p
-                    JOIN product_has_category pc ON p.product_id = pc.product_id
-                    JOIN category c ON c.category_id = pc.category_id
+        $stmt = $conn->prepare("SELECT p.*, c.identifier, pi.image FROM product p
+                    LEFT JOIN category c ON c.category_id = p.category_id
+                    LEFT JOIN product_image pi ON p.image_id = pi.product_image_id
                     WHERE c.identifier = :identifier AND p.product_id <> :product_id
                     ORDER BY RAND() LIMIT 2");
         $stmt->bindParam(":identifier", $identifier);

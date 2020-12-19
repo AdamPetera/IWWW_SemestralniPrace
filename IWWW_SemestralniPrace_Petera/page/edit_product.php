@@ -14,10 +14,9 @@ if (isset($_SESSION['role'])) {
 
         if (isset($_POST['update'])) {
             $variables_array = ProductController::setVariables($_POST, $product);
-            $updateProductRowCount = ProductController::updateProduct($product_id, $_POST['name'], $_POST['description'], $_POST['price']);
-            $updateProductCategoryRowCount = ProductHasCategoryController::updateProductCategory($product_id, $_POST['select']);
-            if (($updateProductRowCount + $updateProductCategoryRowCount) == 2) {
-                $success_message = 'Produkt úspěšně zeditován';
+            $updateProductRowCount = ProductController::updateProduct($product_id, $_POST['name'], $_POST['description'], $_POST['price'], $_POST['select']);
+            if ($updateProductRowCount == 1) {
+                HelpFunctions::alert('Produkt byl úspěšně zeditován :)');
             }
         }
 
@@ -53,6 +52,30 @@ if (isset($_SESSION['role'])) {
             echo '<script type="text/javascript">
                                 window.location = "index.php?page=edit_product&product_id='.$product_id.'"
                             </script>';
+        }
+
+        if (isset($_POST['add_new_attribute'])) {
+            $row = AttributesController::addAttribute($_POST['value_identifier'], $_POST['value_name']);
+            if ($row === 1) {
+                HelpFunctions::alert('Atribut úspěšně vložen');
+                echo '<script type="text/javascript">
+                                window.location = "index.php?page=edit_product&product_id='.$product_id.'"
+                            </script>';
+            } else {
+                HelpFunctions::alert('Něco se pokazilo');
+            }
+        }
+
+        if (isset($_POST['del_attribute'])) {
+            $row = AttributesController::deleteAttribute($_POST['del_select']);
+            if ($row === 1) {
+                HelpFunctions::alert('Atribut úspěšně odebrán');
+                echo '<script type="text/javascript">
+                                window.location = "index.php?page=edit_product&product_id='.$product_id.'"
+                            </script>';
+            } else {
+                HelpFunctions::alert('Něco se pokazilo');
+            }
         }
 
     } else {
@@ -116,13 +139,13 @@ if (isset($_SESSION['role'])) {
             </div>
         <?php endif ?>
         <div class="add_attribute_form">
-            <h1>Přidání atributu</h1>
+            <h1>Přidání atributu<br>produktu</h1>
             <form method="post">
                 <div class="selection">
                     <select name="select" required>
                         <?php
                         foreach (AttributesController::getAllAttributes() as $atr) {
-                            echo '<option value="'.$atr['name'].'">'.strtoupper($atr['name']).'</option>';
+                            echo '<option value="'.$atr['name'].'">'.$atr['human_readable'].'</option>';
                         }
                         ?>
                     </select>
@@ -138,7 +161,7 @@ if (isset($_SESSION['role'])) {
             </form>
         </div>
         <div class="add_variant_form">
-            <h1>Přidání varianty</h1>
+            <h1>Přidání varianty<br>produktu</h1>
             <form method="post">
                 <div class="txt_field">
                     <input type="text" name="var_value" required>
@@ -205,4 +228,41 @@ if (isset($_SESSION['role'])) {
             </tbody>
         </table>
     </form>
+    <div class="forms">
+        <div class="add_attribute_form">
+            <h1>Přidání atributu</h1>
+            <form method="post">
+                <div class="txt_field">
+                    <input type="text" name="value_identifier" required>
+                    <span></span>
+                    <label>Identifikátor</label>
+                </div>
+                <div class="txt_field">
+                    <input type="text" name="value_name" required>
+                    <span></span>
+                    <label>Název</label>
+                </div>
+                <div class="save_button">
+                    <input name="add_new_attribute" type="submit" value="Přidat atribut" class="savebtn">
+                </div>
+            </form>
+        </div>
+        <div class="add_variant_form">
+            <h1>Odstranění atributu</h1>
+            <form method="post">
+                <div class="selection">
+                    <select class="selector" name="del_select" required>
+                        <?php
+                        foreach (AttributesController::getAllAttributes() as $atr) {
+                            echo '<option value="'.$atr['name'].'">'.$atr['human_readable'].'</option>';
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="save_button">
+                    <input name="del_attribute" type="submit" value="Odstranit atribut" class="savebtn">
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

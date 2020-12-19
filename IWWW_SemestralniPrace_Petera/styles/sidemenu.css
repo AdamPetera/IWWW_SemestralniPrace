@@ -1,7 +1,7 @@
 .sidemenu {
     float: left;
     width: 15%;
-    height: 100vh;
+    height: 133%;
     background-color: #1b1b1b;
     transition: .5s;
 }
@@ -72,4 +72,24 @@
 
 .sidemenu ul li a:hover {
     color: cyan;
+}
+
+.add_category_wrap {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.cat_name {
+   text-align: center;
+   margin: 0 0 5px 0;
+   height: 25px;
+   border: 1px solid cyan;
+   background: #555555;
+   color: white;
+   outline: none;
+}
+
+.delete_category_wrap {
+    text-align: center;
+    padding-top: 15px;
 }

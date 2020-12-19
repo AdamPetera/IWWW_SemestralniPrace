@@ -2,13 +2,7 @@
 if (isset($_SESSION["role"])) {
     if ($_SESSION["role"] == "admin" || $_SESSION['role'] == 'seller') {
         $roles = RoleController::getAllRoles();
-        $dataTable = new DataTable(UserController::getAllUsers());
-        $dataTable->addColumn('user_id', 'ID');
-        $dataTable->addColumn('firstname', 'Jméno');
-        $dataTable->addColumn('lastname', 'Příjmení');
-        $dataTable->addColumn('email', 'Email');
-        $dataTable->addColumn('phone', 'Telefon');
-        $dataTable->renderTable();
+        $users = UserController::getAllUsersWithRoles();
 
         if (isset($_POST["updateUser"])) {
             $conn = Connection::getPdoInstance();
@@ -47,6 +41,46 @@ if (isset($_SESSION["role"])) {
     die('Tady nemáš co dělat :(');
 }
 ?>
+<div class="orders_wrap">
+    <h2>Uživatelé systému</h2>
+    <form method="post">
+        <table>
+            <thead class="t_head">
+            <tr>
+                <td>ID</td>
+                <td>Jméno</td>
+                <td>Příjmení</td>
+                <td>Email</td>
+                <td>Telefon</td>
+                <td>Role</td>
+                <td>Editace</td>
+            </tr>
+            </thead>
+            <tbody class="t_body">
+            <?php if (empty($users)): ?>
+                <tr>
+                    <td colspan="7" style="text-align: center">V systému nejsou žádní uživatelé</td>
+                </tr>
+            <?php else: ?>
+                <?php foreach ($users as $user): ?>
+                    <tr>
+                        <td class="user_id"><?=$user['user_id']?></td>
+                        <td class="user_firstname"><?=$user['firstname']?></td>
+                        <td class="user_lastname"><?=$user['lastname']?></td>
+                        <td class="user_email"><?=$user['email']?></td>
+                        <td class="user_phone"><?=$user['phone']?></td>
+                        <td class="user_role"><?=$user['rolename']?></td>
+                        <td class="detail_button">
+                            <input type="submit" name="editSelected" value="Upravit">
+                            <input type="hidden" name="<?=$user['user_id']?>">
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            </tbody>
+        </table>
+    </form>
+</div>
 
 <div class="edit_form_wrap">
     <div class="edit_form">

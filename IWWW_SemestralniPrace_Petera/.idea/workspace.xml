@@ -25,13 +25,17 @@
     <list default="true" id="6c2ad563-02c3-4ff8-a6e3-502d766f109e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/c14e573e-726f-43bd-8f77-4e703b535828.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c14e573e-726f-43bd-8f77-4e703b535828.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/AddressController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/AddressController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/add_address.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/add_address.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/login_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/login_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/order_detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/order_detail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/payment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/order_detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/order_detail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/AttributesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/AttributesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/ProductHasCategoryController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/edit_product.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/edit_product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/manage_users.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/manage_users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sidemenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/sidemenu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/edit_product.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/edit_product.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/sidemenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/sidemenu.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +147,9 @@
       <workItem from="1608271482463" duration="677000" />
       <workItem from="1608274610483" duration="2217000" />
       <workItem from="1608296351083" duration="9699000" />
-      <workItem from="1608313099570" duration="4357000" />
+      <workItem from="1608313099570" duration="4487000" />
+      <workItem from="1608373973158" duration="3579000" />
+      <workItem from="1608381196929" duration="9387000" />
     </task>
     <servers />
   </component>
@@ -192,42 +198,42 @@
       <screen x="-1440" y="0" width="1440" height="900" />
     </state>
     <state x="-982" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.900/0.0.1920.1080@-1440.0.1440.900" timestamp="1604143992130" />
-    <state width="1830" height="163" key="GridCell.Tab.0.bottom" timestamp="1608316709564">
+    <state width="1830" height="370" key="GridCell.Tab.0.bottom" timestamp="1608382959366">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1830" height="163" key="GridCell.Tab.0.bottom/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1608316709564" />
+    <state width="1830" height="370" key="GridCell.Tab.0.bottom/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1608382959366" />
     <state width="1830" height="287" key="GridCell.Tab.0.bottom/-1440.25.1440.875/0.25.1920.1055@0.25.1920.1055" timestamp="1605879963941" />
     <state width="1350" height="418" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608302831483" />
-    <state width="1830" height="163" key="GridCell.Tab.0.center" timestamp="1608316709562">
+    <state width="1830" height="370" key="GridCell.Tab.0.center" timestamp="1608382959364">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1830" height="163" key="GridCell.Tab.0.center/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1608316709562" />
+    <state width="1830" height="370" key="GridCell.Tab.0.center/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1608382959364" />
     <state width="1830" height="287" key="GridCell.Tab.0.center/-1440.25.1440.875/0.25.1920.1055@0.25.1920.1055" timestamp="1605879963940" />
     <state width="1350" height="418" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1608302831482" />
-    <state width="1830" height="163" key="GridCell.Tab.0.left" timestamp="1608316709561">
+    <state width="1830" height="370" key="GridCell.Tab.0.left" timestamp="1608382959362">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1830" height="163" key="GridCell.Tab.0.left/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1608316709561" />
+    <state width="1830" height="370" key="GridCell.Tab.0.left/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1608382959362" />
     <state width="1830" height="287" key="GridCell.Tab.0.left/-1440.25.1440.875/0.25.1920.1055@0.25.1920.1055" timestamp="1605879963940" />
     <state width="1350" height="418" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1608302831481" />
-    <state width="1830" height="163" key="GridCell.Tab.0.right" timestamp="1608316709563">
+    <state width="1830" height="370" key="GridCell.Tab.0.right" timestamp="1608382959365">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1830" height="163" key="GridCell.Tab.0.right/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1608316709563" />
+    <state width="1830" height="370" key="GridCell.Tab.0.right/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1608382959365" />
     <state width="1830" height="287" key="GridCell.Tab.0.right/-1440.25.1440.875/0.25.1920.1055@0.25.1920.1055" timestamp="1605879963941" />
     <state width="1350" height="418" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1608302831483" />
-    <state x="271" y="183" key="NewPhpClassDialog" timestamp="1608305783691">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="361" y="220" key="NewPhpClassDialog" timestamp="1608382186412">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="-1169" y="183" key="NewPhpClassDialog/-1440.0.1440.900/0.0.1920.1080@-1440.0.1440.900" timestamp="1604159270240" />
-    <state x="361" y="220" key="NewPhpClassDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606821964303" />
+    <state x="361" y="220" key="NewPhpClassDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1608382186412" />
     <state x="361" y="240" key="NewPhpClassDialog/-1440.25.1440.875/0.25.1920.1055@0.25.1920.1055" timestamp="1607715798631" />
     <state x="271" y="183" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1608305783691" />
-    <state x="587" y="392" key="NewPhpFileDialog" timestamp="1608305801523">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="783" y="470" key="NewPhpFileDialog" timestamp="1608381887001">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="-853" y="392" key="NewPhpFileDialog/-1440.0.1440.900/0.0.1920.1080@-1440.0.1440.900" timestamp="1604156785540" />
-    <state x="783" y="470" key="NewPhpFileDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1605439685698" />
+    <state x="783" y="470" key="NewPhpFileDialog/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1608381887001" />
     <state x="783" y="483" key="NewPhpFileDialog/-1440.23.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1604163605566" />
     <state x="783" y="484" key="NewPhpFileDialog/-1440.25.1440.875/0.25.1920.1055@0.25.1920.1055" timestamp="1607414173723" />
     <state x="587" y="392" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1608305801523" />
@@ -239,10 +245,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="867" y="424" key="com.intellij.database.actions.DdlActions$CreateObject$1/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604054023275" />
-    <state x="647" y="362" width="342" height="238" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1608296602419">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="862" y="434" width="342" height="238" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1608380729451">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="862" y="434" width="334" height="238" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1606829860055" />
+    <state x="862" y="434" width="334" height="238" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1608380729451" />
     <state x="862" y="449" width="334" height="238" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/-1440.25.1440.875/0.25.1920.1055@0.25.1920.1055" timestamp="1605870980528" />
     <state x="647" y="362" width="342" height="238" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1440.900@0.0.1440.900" timestamp="1608296602419" />
     <state x="850" y="434" width="311" height="211" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog" timestamp="1604674541796">
@@ -287,11 +293,12 @@
     </state>
     <state width="600" height="428" key="javadoc.popup/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1605360006934" />
     <state width="450" height="357" key="javadoc.popup/0.0.1440.900@0.0.1440.900" timestamp="1608297750458" />
-    <state x="625" y="161" key="run.anything.popup" timestamp="1605265535425">
-      <screen x="0" y="23" width="1920" height="1057" />
+    <state x="625" y="161" key="run.anything.popup" timestamp="1608378194782">
+      <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state x="625" y="161" key="run.anything.popup/-1440.0.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1604403785711" />
     <state x="625" y="161" key="run.anything.popup/-1440.23.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1605265535425" />
+    <state x="625" y="161" key="run.anything.popup/-1440.25.1440.875/0.25.1920.1055@0.25.1920.1055" timestamp="1608378194782" />
     <state x="385" y="196" width="671" height="677" key="search.everywhere.popup" timestamp="1608299263067">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
