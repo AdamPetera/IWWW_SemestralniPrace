@@ -40,7 +40,7 @@
             ?>
             <?php
             if (isset($_SESSION["role"])) {
-                if ($_SESSION["role"] == "seller" || "admin") {
+                if ($_SESSION["role"] == "seller" || $_SESSION["role"] == "admin") {
                     ?>
                     <li><a href="index.php?page=manage_orders">Správa objednávek</a></li>
                     <?php

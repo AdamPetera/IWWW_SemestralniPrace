@@ -23,19 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c2ad563-02c3-4ff8-a6e3-502d766f109e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c14e573e-726f-43bd-8f77-4e703b535828.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c14e573e-726f-43bd-8f77-4e703b535828.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/AttributesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/AttributesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/ProductHasCategoryController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/edit_product.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/edit_product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/manage_users.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/manage_users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sidemenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/sidemenu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/edit_product.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/edit_product.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/sidemenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/sidemenu.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +141,8 @@
       <workItem from="1608296351083" duration="9699000" />
       <workItem from="1608313099570" duration="4487000" />
       <workItem from="1608373973158" duration="3579000" />
-      <workItem from="1608381196929" duration="9387000" />
+      <workItem from="1608381196929" duration="9848000" />
+      <workItem from="1608396466585" duration="7640000" />
     </task>
     <servers />
   </component>

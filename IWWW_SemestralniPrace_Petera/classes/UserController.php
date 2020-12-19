@@ -24,7 +24,8 @@ class UserController
         $conn = Connection::getPdoInstance();
         $stmt = $conn->prepare("SELECT u.*, r.name rolename FROM user u
                                             LEFT JOIN user_has_role uhr ON u.user_id = uhr.user_id
-                                            LEFT JOIN role r ON r.role_id = uhr.role_id");
+                                            LEFT JOIN role r ON r.role_id = uhr.role_id
+                                            ORDER BY rolename");
         $stmt->execute();
         $stmt->fetch(PDO::FETCH_ASSOC);
 

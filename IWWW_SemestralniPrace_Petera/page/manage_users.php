@@ -53,13 +53,12 @@ if (isset($_SESSION["role"])) {
                 <td>Email</td>
                 <td>Telefon</td>
                 <td>Role</td>
-                <td>Editace</td>
             </tr>
             </thead>
             <tbody class="t_body">
             <?php if (empty($users)): ?>
                 <tr>
-                    <td colspan="7" style="text-align: center">V systému nejsou žádní uživatelé</td>
+                    <td colspan="6" style="text-align: center">V systému nejsou žádní uživatelé</td>
                 </tr>
             <?php else: ?>
                 <?php foreach ($users as $user): ?>
@@ -70,16 +69,24 @@ if (isset($_SESSION["role"])) {
                         <td class="user_email"><?=$user['email']?></td>
                         <td class="user_phone"><?=$user['phone']?></td>
                         <td class="user_role"><?=$user['rolename']?></td>
-                        <td class="detail_button">
-                            <input type="submit" name="editSelected" value="Upravit">
-                            <input type="hidden" name="<?=$user['user_id']?>">
-                        </td>
                     </tr>
                 <?php endforeach; ?>
             <?php endif; ?>
             </tbody>
         </table>
     </form>
+    <form method="post">
+        <div class="selection">
+            <select name="select" required>
+                <?php
+                    foreach ($users as $user) {
+                        echo '<option value="'.$user['user_id'].'">'.$user['user_id'].' - '.$user['firstname'].' '.$user['lastname'].'</option>';
+                    }
+                ?>
+            </select>
+        </div>
+    </form>
+    <button>Tlačidlo</button>
 </div>
 
 <div class="edit_form_wrap">
@@ -92,7 +99,7 @@ if (isset($_SESSION["role"])) {
                 <label>Stávající email</label>
             </div>
             <div class="txt_field">
-                <input type="text" name="firstname">
+                <input type="text" name="firstname" id="aaa">
                 <span></span>
                 <label>Jméno</label>
             </div>

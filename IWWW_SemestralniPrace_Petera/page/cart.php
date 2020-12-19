@@ -33,6 +33,7 @@ if (isset($_GET['remove']) && is_numeric($_GET['remove'])) {
 
 if (isset($_POST['update'])) {
     foreach ($_POST as $k => $v) {
+        var_dump($v);
         $trimmed_v = trim($v, "Obnovit");
         if (strpos($k, 'quantity') !== false && is_numeric($trimmed_v)) {
             $id = str_replace('quantity-', '', $k);
@@ -99,7 +100,7 @@ if (isset($_POST['placeorder'])) {
                         </td>
                         <td class="price"><?=$product['price']?> Kč</td>
                         <td class="quantity">
-                            <input type="number" name="quantity-<?=$product['variant_id']?>" value="<?=$product['quantity']?>" min="1"" placeholder="Počet" required>
+                            <input type="number" name="quantity-<?=$product['variant_id']?>" value="<?=$product['quantity']?>" min="1" placeholder="Počet" required>
                         </td>
                         <td class="price"><?=$product['price'] * $product['quantity']?> Kč</td>
                     </tr>

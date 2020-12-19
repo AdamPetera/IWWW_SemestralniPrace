@@ -46,7 +46,7 @@
     </ul>
     <?php
     if (isset($_SESSION["role"])) {
-        if ($_SESSION["role"] == "admin" || "seller") {
+        if ($_SESSION["role"] == "admin" || $_SESSION["role"] == "seller") {
             echo '
             <div class="add_category_wrap">
                 <form method="post">
