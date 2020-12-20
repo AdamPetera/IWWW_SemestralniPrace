@@ -68,4 +68,11 @@ class ProductVariantsController
 
         $stmt->execute();
     }
+
+    static function deleteAllProductVariants($product_id) {
+        $conn = Connection::getPdoInstance();
+        $stmt = $conn->prepare("DELETE FROM product_variants WHERE product_id = :product_id");
+        $stmt->bindParam(':product_id', $product_id);
+        $stmt->execute();
+    }
 }

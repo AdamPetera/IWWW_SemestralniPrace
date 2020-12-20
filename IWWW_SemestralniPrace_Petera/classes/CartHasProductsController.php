@@ -82,15 +82,10 @@ class CartHasProductsController
     static function removeProductFromAllCarts($product_id) {
         $variant_ids = ProductVariantsController::getAllProductVariantIds($product_id);
 
-        var_dump($variant_ids);
-
         $array_to_question_marks = implode(',', array_fill(0, count($variant_ids), '?'));
 
-        var_dump($array_to_question_marks);
-        var_dump(array_values($variant_ids));
-
         $conn = Connection::getPdoInstance();
-        $stmt = $conn->prepare("DELETE FROM cart_has_products WHERE variant_id IN (' . $array_to_question_marks . ')");
+        $stmt = $conn->prepare("DELETE FROM cart_has_products WHERE variant_id IN ($array_to_question_marks)");
 
         $stmt->execute(array_values($variant_ids));
     }

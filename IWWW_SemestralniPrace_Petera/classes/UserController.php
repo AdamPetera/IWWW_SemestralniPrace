@@ -83,7 +83,8 @@ class UserController
         return $stmt->rowCount();
     }
 
-    static function loginUser($conn, $email) {
+    static function loginUser($email) {
+        $conn = Connection::getPdoInstance();
         $stmt = $conn->prepare("SELECT * FROM user u
                                 JOIN user_has_role ur ON u.user_id = ur.user_id
                                 LEFT JOIN role r ON r.role_id = ur.role_id
@@ -91,7 +92,8 @@ class UserController
 
         $stmt->bindParam(':email', $email);
 
-        return $stmt;
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     static function registerUserValidation($firstname, $lastname, $email, $phone, $password) {

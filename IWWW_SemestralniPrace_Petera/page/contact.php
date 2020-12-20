@@ -1,12 +1,17 @@
 <?php
     if (isset($_POST['send'])) {
-        $validation = ContactController::contactValidation($_POST['wholename'], $_POST['email'], $_POST['question_name'], $_POST['message']);
+        $wholename = htmlspecialchars($_POST['wholename']);
+        $email = htmlspecialchars($_POST['email']);
+        $question_name = htmlspecialchars($_POST['question_name']);
+        $message = htmlspecialchars($_POST['message']);
+
+        $validation = ContactController::contactValidation($wholename, $email, $question_name, $message);
 
         if (count($validation) == 0) {
-            if (!empty($_POST['phone'])) {
-                ContactController::insertMessage($_POST['wholename'], $_POST['email'], $_POST['question_name'], $_POST['message'], $_POST['phone']);
+            if (!empty(htmlspecialchars($_POST['phone']))) {
+                ContactController::insertMessage($wholename, $email, $question_name, $message, htmlspecialchars($_POST['phone']));
             } else {
-                ContactController::insertMessage($_POST['wholename'], $_POST['email'], $_POST['question_name'], $_POST['message']);
+                ContactController::insertMessage($wholename, $email, $question_name, $message);
             }
 
             $success_message = "Vaše otázka k nám úspěšně dorazila!";
@@ -19,17 +24,18 @@
         <h1>Neváhejte nás s čímkoli zkontaktovat!</h1>
         <form method="post">
             <div class="txt_field">
-                <input type="text" name="wholename" required>
+                <input type="text" name="wholename" required value="<?= isset($_SESSION['row']) ? $_SESSION['row']['firstname'] .' '.  $_SESSION['row']['lastname'] : ''; ?>">
                 <span></span>
                 <label>Celé jméno *</label>
             </div>
             <div class="txt_field">
-                <input type="email" name="email" required>
+                <input type="email" name="email" required value="<?= isset($_SESSION['row']) ? $_SESSION['row']['email'] : ''; ?>">
                 <span></span>
                 <label>Email *</label>
             </div>
             <div class="txt_field">
-                <input type="tel" name="phone" pattern="((\+420|00420) ?)?\d{3}( |-)?\d{3}( |-)?\d{3}">
+                <input type="tel" name="phone" value="<?= isset($_SESSION['row']) ? $_SESSION['row']['phone'] : ''; ?>"
+                       pattern="((\+420|00420) ?)?\d{3}( |-)?\d{3}( |-)?\d{3}">
                 <span></span>
                 <label>Telefonní číslo (nepovinné)</label>
             </div>

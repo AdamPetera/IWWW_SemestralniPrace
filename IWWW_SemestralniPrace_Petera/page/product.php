@@ -7,7 +7,10 @@
             if ($_SESSION["role"] == "admin" || $_SESSION['role'] == 'seller') {
                 if (isset($_POST['remove'])) {
                     ProductController::deleteProduct($_GET['id']);
-
+                    HelpFunctions::alert('Produkt úspěšně odebrán');
+                    echo '<script type="text/javascript">
+                              window.location = "index.php"
+                              </script>';
                 }
             }
         }
@@ -30,7 +33,7 @@
     if (isset($_POST['saveReview'])) {
         $validation = ReviewController::reviewValidation($_POST['reviewName'], $_POST['reviewBody']);
         if (count($validation) == 0) {
-            ReviewController::insertReview($product['product_id'], $_SESSION['row']['user_id'], $_POST['reviewName'], $_POST['reviewRating'], $_POST['reviewBody']);
+            ReviewController::insertReview($product['product_id'], $_SESSION['row']['user_id'], htmlspecialchars($_POST['reviewName'], ENT_QUOTES, 'UTF-8'), $_POST['reviewRating'], htmlspecialchars($_POST['reviewBody'], ENT_QUOTES, 'UTF-8'));
         }
     }
 

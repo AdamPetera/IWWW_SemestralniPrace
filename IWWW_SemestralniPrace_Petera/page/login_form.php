@@ -3,25 +3,24 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
     $validation = UserController::loginUserValidation($_POST["email"], $_POST["password"]);
 
     if (count($validation) == 0) {
-        $conn = Connection::getPdoInstance();
-        $stmt = UserController::loginUser($conn, $_POST["email"]);
+        $row = UserController::loginUser($_POST["email"]);
 
-        $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        $password = $row["password"];
-
-        if ($stmt->rowCount() == 0) {
+        if (!$row) {
             $error_message = "Omlouváme se, ale zadané údaje nesouhlasí";
-        } else if (password_verify($_POST["password"], $password)) {
-
-            $role = $row["name"];
-            $email = $row["email"];
-            $_SESSION["email"] = $email;
-            $_SESSION["role"] = $role;
-            $_SESSION["row"] = $row;
-            echo '<script type="text/javascript">
+        } else {
+            $password = $row["password"];
+            if (password_verify($_POST["password"], $password)) {
+                $role = $row["name"];
+                $email = $row["email"];
+                $_SESSION["email"] = $email;
+                $_SESSION["role"] = $role;
+                $_SESSION["row"] = $row;
+                echo '<script type="text/javascript">
                     window.location = "index.php"
                     </script>';
+            } else {
+                $error_message = "Omlouváme se, ale zadané údaje nesouhlasí";
+            }
         }
     }
     else {

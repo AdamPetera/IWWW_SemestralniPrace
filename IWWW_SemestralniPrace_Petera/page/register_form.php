@@ -1,9 +1,10 @@
 <?php
 if ($_POST) {
 
-    $email = $_POST["email"];
-    $validation = UserController::registerUserValidation($_POST["firstname"], $_POST["lastname"], $email,
-                                                            $_POST["phone"], $_POST["password"]);
+    $email = htmlspecialchars($_POST["email"]);
+    $validation = UserController::registerUserValidation(htmlspecialchars($_POST["firstname"]),
+        htmlspecialchars($_POST["lastname"]), $email, htmlspecialchars($_POST["phone"]),
+        htmlspecialchars($_POST["password"]));
 
     if (count($validation) == 0) {
 
@@ -11,8 +12,9 @@ if ($_POST) {
 
         try {
 
-            $stmt = UserController::insertUser($conn, $_POST["firstname"], $_POST["lastname"], $email,
-                                            $_POST["phone"], $_POST["password"]);
+            $stmt = UserController::insertUser($conn, htmlspecialchars($_POST["firstname"]),
+                htmlspecialchars($_POST["lastname"]), $email, htmlspecialchars($_POST["phone"]),
+                htmlspecialchars($_POST["password"]));
 
             if (UserController::emailExists($conn, $email) > 0) {
                 $email_error = "Omlouváme se, ale zadaný email již někdo používá";

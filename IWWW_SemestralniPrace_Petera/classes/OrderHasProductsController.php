@@ -58,9 +58,11 @@ class OrderHasProductsController
     }
 
     static function removeAllProductFromOrder($product_id) {
+        $variant_ids = ProductVariantsController::getAllProductVariantIds($product_id);
+        $array_to_question_marks = implode(',', array_fill(0, count($variant_ids), '?'));
+
         $conn = Connection::getPdoInstance();
-        $stmt = $conn->prepare("DELETE FROM order_has_products WHERE product_id = :product_id");
-        $stmt->bindParam(':product_id', $product_id);
-        $stmt->execute();
+        $stmt = $conn->prepare("DELETE FROM order_has_products WHERE variant_id IN ($array_to_question_marks)");
+        $stmt->execute(array_values($variant_ids));
     }
 }
