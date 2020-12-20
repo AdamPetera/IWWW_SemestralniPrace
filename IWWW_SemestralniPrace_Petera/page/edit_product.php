@@ -7,7 +7,6 @@ if (isset($_SESSION['role'])) {
             $product = ProductController::getProductById($conn, $product_id);
             $product_attributes = ProductHasAttributesController::getAllProductAttributes($product_id);
             $product_variants = ProductVariantsController::getAllProductVariants($product_id);
-            //var_dump($product_variants);
         } else {
             die('Produkt neexistuje :(');
         }
@@ -33,7 +32,6 @@ if (isset($_SESSION['role'])) {
         if (isset($_POST['add_variant'])) {
             if (!empty($_POST['var_value'])) {
                 ProductVariantsController::insertVariantOfProduct($product_id, $_POST['var_value']);
-                //header("Location: index.php?page=edit_product&product_id='.$product_id.'");
                 echo '<script type="text/javascript">
                                 window.location = "index.php?page=edit_product&product_id='.$product_id.'"
                             </script>';
