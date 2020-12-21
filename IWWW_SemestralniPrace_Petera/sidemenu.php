@@ -14,15 +14,20 @@
     }
 
     if (isset($_POST['del_category'])) {
-        $row = CategoryController::deleteCategory($_POST['select']);
-        if ($row == 1) {
-            HelpFunctions::alert('Kategorie úspěšně odstraněna');
-            echo '<script type="text/javascript">
+        try {
+            $row = CategoryController::deleteCategory($_POST['select']);
+            if ($row == 1) {
+                HelpFunctions::alert('Kategorie úspěšně odstraněna');
+                echo '<script type="text/javascript">
                     window.location = "index.php"
                     </script>';
-        } else {
-            HelpFunctions::alert('Něco se pokazilo :(');
+            } else {
+                HelpFunctions::alert('Něco se pokazilo :(');
+            }
+        } catch (Exception $e) {
+            HelpFunctions::alert('V kategorii se nachází některé z produktů eshopu');
         }
+
     }
 
 ?>

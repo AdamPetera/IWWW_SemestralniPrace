@@ -65,15 +65,20 @@ if (isset($_SESSION['role'])) {
         }
 
         if (isset($_POST['del_attribute'])) {
-            $row = AttributesController::deleteAttribute($_POST['del_select']);
-            if ($row === 1) {
-                HelpFunctions::alert('Atribut úspěšně odebrán');
-                echo '<script type="text/javascript">
+            try {
+                $row = AttributesController::deleteAttribute($_POST['del_select']);
+                if ($row === 1) {
+                    HelpFunctions::alert('Atribut úspěšně odebrán');
+                    echo '<script type="text/javascript">
                                 window.location = "index.php?page=edit_product&product_id='.$product_id.'"
                             </script>';
-            } else {
-                HelpFunctions::alert('Něco se pokazilo');
+                } else {
+                    HelpFunctions::alert('Něco se pokazilo');
+                }
+            } catch (Exception $e) {
+                HelpFunctions::alert('Daný atribut některý z produktů používá');
             }
+
         }
 
     } else {
