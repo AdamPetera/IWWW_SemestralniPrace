@@ -2,13 +2,6 @@
 if (isset($_SESSION["role"])) {
     if ($_SESSION["role"] == "admin" || $_SESSION['role'] == 'seller') {
         $users = UserController::getAllUsersWithRoles();
-
-        if (isset($_POST['editSelected'])) {
-            echo '<script type="text/javascript">
-                  window.location = "index.php?page=edit_user&user_id='.$_POST['select'].'"
-                  </script>';
-        }
-
     } else {
         die('Na editaci produktu musíš mít práva :(');
     }
@@ -38,7 +31,7 @@ if (isset($_SESSION["role"])) {
             <?php else: ?>
                 <?php foreach ($users as $user): ?>
                     <tr>
-                        <td class="user_id"><?=$user['user_id']?></td>
+                        <td class="user_id"><a href="index.php?page=edit_user&user_id=<?=$user['user_id']?>"><?=$user['user_id']?></a></td>
                         <td class="user_firstname"><?=$user['firstname']?></td>
                         <td class="user_lastname"><?=$user['lastname']?></td>
                         <td class="user_email"><?=$user['email']?></td>
@@ -49,17 +42,5 @@ if (isset($_SESSION["role"])) {
             <?php endif; ?>
             </tbody>
         </table>
-    </form>
-    <form class="submitForm" method="post">
-        <div class="selection">
-            <select name="select" required>
-                <?php
-                    foreach ($users as $user) {
-                        echo '<option value="'.$user['user_id'].'">'.$user['user_id'].' - '.$user['firstname'].' '.$user['lastname'].'</option>';
-                    }
-                ?>
-            </select>
-        </div>
-        <input type="submit" name="editSelected" value="Editovat vybraného uživatele">
     </form>
 </div>
